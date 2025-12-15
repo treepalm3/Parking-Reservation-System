@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update>
+    <sys_ui_form_sections form_id="eccd9b80c3b9b610ec76502ed4013100" sys_domain="global" table="x_1869622_parkin_0_parking_reservation" version="3">
+        <sys_ui_form_section action="INSERT_OR_UPDATE">
+            <position>0</position>
+            <sys_created_by>admin</sys_created_by>
+            <sys_created_on>2025-12-09 08:59:54</sys_created_on>
+            <sys_domain>global</sys_domain>
+            <sys_domain_path>/</sys_domain_path>
+            <sys_id>e4cd9b80c3b9b610ec76502ed401312d</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_overrides/>
+            <sys_ui_form display_value="x_1869622_parkin_0_parking_reservation" name="x_1869622_parkin_0_parking_reservation" sys_domain="global" view="Default view">eccd9b80c3b9b610ec76502ed4013100</sys_ui_form>
+            <sys_ui_section caption="NULL" display_value="" name="x_1869622_parkin_0_parking_reservation" sys_domain="global" view="Default view">e582c803c321f290ec76502ed401310c</sys_ui_section>
+            <sys_updated_by>admin</sys_updated_by>
+            <sys_updated_on>2025-12-09 08:59:54</sys_updated_on>
+        </sys_ui_form_section>
+        <sys_ui_form_section action="INSERT_OR_UPDATE">
+            <position>1</position>
+            <sys_created_by>admin</sys_created_by>
+            <sys_created_on>2025-12-09 08:59:54</sys_created_on>
+            <sys_domain>global</sys_domain>
+            <sys_domain_path>/</sys_domain_path>
+            <sys_id>60cd9b80c3b9b610ec76502ed401312f</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_overrides/>
+            <sys_ui_form display_value="x_1869622_parkin_0_parking_reservation" name="x_1869622_parkin_0_parking_reservation" sys_domain="global" view="Default view">eccd9b80c3b9b610ec76502ed4013100</sys_ui_form>
+            <sys_ui_section caption="Payment Summary" display_value="Payment Summary" name="x_1869622_parkin_0_parking_reservation" sys_domain="global" view="Default view">2ccd5b80c3b9b610ec76502ed40131fd</sys_ui_section>
+            <sys_updated_by>admin</sys_updated_by>
+            <sys_updated_on>2025-12-09 08:59:54</sys_updated_on>
+        </sys_ui_form_section>
+        <sys_ui_form action="INSERT_OR_UPDATE">
+            <name>x_1869622_parkin_0_parking_reservation</name>
+            <roles/>
+            <sys_class_name>sys_ui_form</sys_class_name>
+            <sys_created_by>admin</sys_created_by>
+            <sys_created_on>2025-12-09 08:59:54</sys_created_on>
+            <sys_domain>global</sys_domain>
+            <sys_domain_path>/</sys_domain_path>
+            <sys_id>eccd9b80c3b9b610ec76502ed4013100</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_name>x_1869622_parkin_0_parking_reservation</sys_name>
+            <sys_overrides/>
+            <sys_package display_value="Parking Reservation System" source="x_1869622_parkin_0">6ea533f6c3adb290ec76502ed4013190</sys_package>
+            <sys_policy/>
+            <sys_scope display_value="Parking Reservation System">6ea533f6c3adb290ec76502ed4013190</sys_scope>
+            <sys_update_name>sys_ui_form_sections_eccd9b80c3b9b610ec76502ed4013100</sys_update_name>
+            <sys_updated_by>admin</sys_updated_by>
+            <sys_updated_on>2025-12-09 08:59:54</sys_updated_on>
+            <sys_user/>
+            <view display_value="Default view" name="NULL">Default view</view>
+            <view_name/>
+        </sys_ui_form>
+    </sys_ui_form_sections>
+</record_update>

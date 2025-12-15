@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sc_cat_item_catalog">
+    <sc_cat_item_catalog action="DELETE">
+        <sc_cat_item display_value="Car Parking Reservation">440ec00bc361f290ec76502ed4013159</sc_cat_item>
+        <sc_catalog display_value="Parking Services">2c6c0407c361f290ec76502ed40131ef</sc_catalog>
+        <sys_class_name>sc_cat_item_catalog</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2025-12-05 15:20:46</sys_created_on>
+        <sys_id>ec9e444bc361f290ec76502ed4013160</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>Parking Services.Car Parking Reservation</sys_name>
+        <sys_package display_value="Parking Reservation System" source="x_1869622_parkin_0">6ea533f6c3adb290ec76502ed4013190</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="Parking Reservation System">6ea533f6c3adb290ec76502ed4013190</sys_scope>
+        <sys_update_name>sc_cat_item_catalog_ec9e444bc361f290ec76502ed4013160</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2025-12-05 15:20:46</sys_updated_on>
+    </sc_cat_item_catalog>
+    <sys_update_version action="INSERT_OR_UPDATE">
+        <action>DELETE</action>
+        <application display_value="Parking Reservation System">6ea533f6c3adb290ec76502ed4013190</application>
+        <file_path/>
+        <instance_id>b63623e43b702e54a36804e0b5e45a2d</instance_id>
+        <instance_name>dev318569</instance_name>
+        <name>sc_cat_item_catalog_ec9e444bc361f290ec76502ed4013160</name>
+        <payload><![CDATA[<?xml version="1.0" encoding="UTF-8"?><record_update table="sc_cat_item_catalog"><sc_cat_item_catalog action="INSERT_OR_UPDATE"><sc_cat_item display_value="Car Parking Reservation">440ec00bc361f290ec76502ed4013159</sc_cat_item><sc_catalog display_value="Parking Services">2c6c0407c361f290ec76502ed40131ef</sc_catalog><sys_class_name>sc_cat_item_catalog</sys_class_name><sys_created_by>admin</sys_created_by><sys_created_on>2025-12-05 15:20:46</sys_created_on><sys_id>ec9e444bc361f290ec76502ed4013160</sys_id><sys_mod_count>0</sys_mod_count><sys_name>Parking Services.Car Parking Reservation</sys_name><sys_package display_value="Parking Reservation System" source="x_1869622_parkin_0">6ea533f6c3adb290ec76502ed4013190</sys_package><sys_policy/><sys_scope display_value="Parking Reservation System">6ea533f6c3adb290ec76502ed4013190</sys_scope><sys_update_name>sc_cat_item_catalog_ec9e444bc361f290ec76502ed4013160</sys_update_name><sys_updated_by>admin</sys_updated_by><sys_updated_on>2025-12-05 15:20:46</sys_updated_on></sc_cat_item_catalog></record_update>]]></payload>
+        <payload_hash>515205838</payload_hash>
+        <record_name>Parking Services.Car Parking Reservation</record_name>
+        <reverted_from/>
+        <source>2aa533f6c3adb290ec76502ed4013194</source>
+        <source_table>sys_update_set</source_table>
+        <state>previous</state>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2025-12-05 15:20:46</sys_created_on>
+        <sys_id>689e444bc361f290ec76502ed4013166</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_recorded_at>19aef19f16a0000001</sys_recorded_at>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2025-12-05 15:20:46</sys_updated_on>
+        <type>Catalog Items Catalog</type>
+        <update_guid>649e444b2461f290cb3da440d4031f65</update_guid>
+        <update_guid_history>649e444b2461f290cb3da440d4031f65:515205838</update_guid_history>
+    </sys_update_version>
+    <sys_metadata_delete action="INSERT_OR_UPDATE">
+        <sys_audit_delete display_value="Parking Services.Car Parking Reservation">d220980fc361f290ec76502ed4013184</sys_audit_delete>
+        <sys_class_name>sys_metadata_delete</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2025-12-05 15:27:42</sys_created_on>
+        <sys_db_object display_value="" name="sc_cat_item_catalog">sc_cat_item_catalog</sys_db_object>
+        <sys_id>1236100bbac24938a95066abaed5d310</sys_id>
+        <sys_metadata>ec9e444bc361f290ec76502ed4013160</sys_metadata>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>Parking Services.Car Parking Reservation</sys_name>
+        <sys_package display_value="Parking Reservation System" source="x_1869622_parkin_0">6ea533f6c3adb290ec76502ed4013190</sys_package>
+        <sys_parent display_value="">440ec00bc361f290ec76502ed4013159</sys_parent>
+        <sys_policy/>
+        <sys_scope display_value="Parking Reservation System">6ea533f6c3adb290ec76502ed4013190</sys_scope>
+        <sys_scope_delete display_value="">5c63e0b7913e4fdd8a9afa8940bdb1b9</sys_scope_delete>
+        <sys_update_name>sc_cat_item_catalog_ec9e444bc361f290ec76502ed4013160</sys_update_name>
+        <sys_update_version display_value="sc_cat_item_catalog_ec9e444bc361f290ec76502ed4013160">689e444bc361f290ec76502ed4013166</sys_update_version>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2025-12-05 15:27:42</sys_updated_on>
+    </sys_metadata_delete>
+</record_update>

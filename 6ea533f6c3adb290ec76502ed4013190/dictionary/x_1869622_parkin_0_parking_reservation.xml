@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?><database>
+    <element db_object_id="6450440fc3edb290ec76502ed4013118" extends="task" label="Parking Reservation" max_length="40" name="x_1869622_parkin_0_parking_reservation" type="collection">
+        <element default="71657db3c3edf210ec76502ed40131dc" label="Assignment Group" max_length="32" name="assignment_grou0" reference="sys_user_group" type="reference"/>
+        <element label="Vehicle Registration Number" max_length="20" name="vehicle_registration" type="string"/>
+        <element label="Parking Fee (THB)" max_length="38" name="parking_fee" read_only="true" type="decimal"/>
+        <element label="Requester Name" max_length="32" name="requester_name" reference="sys_user" type="reference"/>
+        <element choice="3" default="pending" label="Reservation Status" max_length="40" name="reservation_status" read_only="true" type="choice">
+            <choice>
+                <element inactive_on_update="false" label="rejected" sequence="2" value="rejected"/>
+                <element inactive_on_update="false" label="pending" sequence="0" value="pending"/>
+                <element inactive_on_update="false" label="cancelled" sequence="3" value="cancelled"/>
+                <element inactive_on_update="false" label="confirmed" sequence="1" value="confirmed"/>
+            </choice>
+        </element>
+        <element label="Parking Location" max_length="32" name="parking_location" reference="x_1869622_parkin_0_parking_location" type="reference"/>
+        <element label="Phone Number" max_length="40" name="requester_phone" type="string"/>
+        <element choice="3" label="Car Type" max_length="40" name="car_type" type="choice">
+            <choice>
+                <element inactive_on_update="false" label="Hatchback" sequence="4" value="hatchback"/>
+                <element inactive_on_update="false" label="Van" sequence="2" value="van"/>
+                <element inactive_on_update="false" label="Pickup Truck" sequence="0" value="pickup_truck"/>
+                <element inactive_on_update="false" label="Sedan" sequence="3" value="sedan"/>
+                <element inactive_on_update="false" label="SUV" sequence="1" value="suv"/>
+                <element inactive_on_update="false" label="Motorcycle" sequence="5" value="motorcycle"/>
+            </choice>
+        </element>
+        <element label="Email Address" max_length="100" name="requester_email" type="string"/>
+        <element label="Start Date Time" max_length="40" name="start_date_time" type="glide_date_time"/>
+        <element label="Duration Hours" max_length="40" name="duration_hours" read_only="true" type="decimal"/>
+        <element label="End Date Time" max_length="40" name="end_date_time" type="glide_date_time"/>
+    </element>
+</database>

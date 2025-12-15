@@ -1,0 +1,172 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update sys_domain="global" table="catalog_script_client">
+    <catalog_script_client action="INSERT_OR_UPDATE">
+        <active>true</active>
+        <applies_catalog>true</applies_catalog>
+        <applies_extended>false</applies_extended>
+        <applies_req_item>false</applies_req_item>
+        <applies_sc_task>false</applies_sc_task>
+        <applies_target_record>false</applies_target_record>
+        <applies_to>item</applies_to>
+        <cat_item display_value="Car Parking Reservation">48ece84bc325f290ec76502ed40131e5</cat_item>
+        <cat_variable>IO:17f7ae47c3e13690ec76502ed40131b3</cat_variable>
+        <condition/>
+        <description/>
+        <field/>
+        <global>true</global>
+        <isolate_script>true</isolate_script>
+        <messages/>
+        <name>Auto Calculate Duration and Fee</name>
+        <order/>
+        <published_ref/>
+        <script><![CDATA[function onChange(control, oldValue, newValue, isLoading, isTemplate) {
+    
+    if (isLoading || isTemplate) {
+        return;
+    }
+    
+    var startDateTime = g_form.getValue('start_date_time');
+    var endDateTime = g_form.getValue('end_date_time');
+    
+    if (!startDateTime || !endDateTime) {
+        return;
+    }
+    
+    var startDate = new Date(startDateTime);
+    var endDate = new Date(endDateTime);
+    
+    if (endDate <= startDate) {
+        g_form.showFieldMsg(
+            'end_date_time',
+            '❌ เวลาสิ้นสุดต้องมากกว่าเวลาเริ่มต้น',
+            'error'
+        );
+        g_form.clearValue('end_date_time');
+        g_form.clearValue('duration_hours');
+        g_form.clearValue('parking_fee');
+        return;
+    }
+    
+    // ========================================
+    // คำนวณ Duration
+    // ========================================
+    
+    var diffMs = endDate - startDate;
+    var diffHours = diffMs / (1000 * 60 * 60);
+    var durationHours = Math.ceil(diffHours); // ปัดขึ้น
+    
+    g_form.setValue('duration_hours', durationHours);
+    
+    // ========================================
+    // คำนวณ Parking Fee
+    // ========================================
+    
+    var parkingFee = 0;
+    var feeBreakdown = [];
+    
+    // คำนวณจำนวนวันเต็ม (24 ชม/วัน)
+    var fullDays = Math.floor(durationHours / 24);
+    var remainingHours = durationHours % 24;
+    
+    // คิดค่าวันเต็ม (200 บาท/วัน)
+    if (fullDays > 0) {
+        var daysFee = fullDays * 200;
+        parkingFee += daysFee;
+        feeBreakdown.push(fullDays + ' วัน × 200 = ' + daysFee + ' บาท');
+    }
+    
+    // คำนวณชั่วโมงที่เหลือ
+    if (remainingHours > 0) {
+        
+        // ถ้าชั่วโมงที่เหลือ > 8 = เหมาอีก 200
+        if (remainingHours > 8) {
+            parkingFee += 200;
+            feeBreakdown.push(remainingHours + ' ชม (เหมา) = 200 บาท');
+        }
+        // ถ้า ≤ 8 ชม คิดแบบ progressive
+        else {
+            var hourlyFee = 0;
+            var hourlyBreakdown = [];
+            var hoursLeft = remainingHours;
+            
+            // Tier 1: ชม.แรก = 10 บาท
+            if (hoursLeft > 0) {
+                var tier1 = Math.min(hoursLeft, 1);
+                var tier1Fee = tier1 * 10;
+                hourlyFee += tier1Fee;
+                hourlyBreakdown.push('10');
+                hoursLeft -= tier1;
+            }
+            
+            // Tier 2: ชม.ที่ 2-4 = 15 บาท/ชม
+            if (hoursLeft > 0) {
+                var tier2 = Math.min(hoursLeft, 3);
+                var tier2Fee = tier2 * 15;
+                hourlyFee += tier2Fee;
+                for (var i = 0; i < tier2; i++) {
+                    hourlyBreakdown.push('15');
+                }
+                hoursLeft -= tier2;
+            }
+            
+            // Tier 3: ชม.ที่ 5-8 = 20 บาท/ชม
+            if (hoursLeft > 0) {
+                var tier3 = Math.min(hoursLeft, 4);
+                var tier3Fee = tier3 * 20;
+                hourlyFee += tier3Fee;
+                for (var i = 0; i < tier3; i++) {
+                    hourlyBreakdown.push('20');
+                }
+            }
+            
+            parkingFee += hourlyFee;
+            feeBreakdown.push(remainingHours + ' ชม: ' + hourlyBreakdown.join('+') + ' = ' + hourlyFee + ' บาท');
+        }
+    }
+    
+    // แสดงผล
+    g_form.setValue('parking_fee', parkingFee);
+    
+    // ========================================
+    // Success Message
+    // ========================================
+    
+    g_form.hideFieldMsg('end_date_time', true);
+    
+    var summaryMsg = ']]>💰<![CDATA[ รวม ' + durationHours + ' ชม = ' + parkingFee + ' บาท';
+    if (feeBreakdown.length > 0) {
+        summaryMsg += '\n' + feeBreakdown.join(' + ');
+    }
+    
+    g_form.showFieldMsg(
+        'parking_fee',
+        summaryMsg,
+        'info',
+        5000
+    );
+    
+    g_form.flash('duration_hours', '#00FF00', 1);
+    g_form.flash('parking_fee', '#00FF00', 1);
+}]]></script>
+        <sys_class_name>catalog_script_client</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2025-12-13 16:33:20</sys_created_on>
+        <sys_domain>global</sys_domain>
+        <sys_domain_path>/</sys_domain_path>
+        <sys_id>c01b6565c335b610ec76502ed4013106</sys_id>
+        <sys_mod_count>3</sys_mod_count>
+        <sys_name>Auto Calculate Duration and Fee</sys_name>
+        <sys_overrides/>
+        <sys_package display_value="Parking Reservation System" source="x_1869622_parkin_0">6ea533f6c3adb290ec76502ed4013190</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="Parking Reservation System">6ea533f6c3adb290ec76502ed4013190</sys_scope>
+        <sys_update_name>catalog_script_client_c01b6565c335b610ec76502ed4013106</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2025-12-13 16:54:12</sys_updated_on>
+        <table/>
+        <type>onChange</type>
+        <ui_type>1</ui_type>
+        <va_supported>false</va_supported>
+        <variable_set/>
+        <view/>
+    </catalog_script_client>
+</record_update>

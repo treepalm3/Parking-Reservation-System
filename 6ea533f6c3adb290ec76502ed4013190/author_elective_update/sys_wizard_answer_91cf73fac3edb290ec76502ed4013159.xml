@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sys_wizard_answer">
+    <sys_wizard_answer action="DELETE">
+        <active>true</active>
+        <answer>Parking Reservation</answer>
+        <button_label/>
+        <dependent_value/>
+        <element/>
+        <name>Parking Reservation</name>
+        <next_question/>
+        <order>100</order>
+        <payload_name/>
+        <question display_value="Task" name="Task">4f2d519d30203210559066cad9e2526e</question>
+        <roles/>
+        <script/>
+        <sys_class_name>sys_wizard_answer</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2025-12-05 14:16:06</sys_created_on>
+        <sys_id>91cf73fac3edb290ec76502ed4013159</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>Parking Reservation</sys_name>
+        <sys_package display_value="Parking Reservation System" source="x_1869622_parkin_0">6ea533f6c3adb290ec76502ed4013190</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="Parking Reservation System">6ea533f6c3adb290ec76502ed4013190</sys_scope>
+        <sys_update_name>sys_wizard_answer_91cf73fac3edb290ec76502ed4013159</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2025-12-05 14:16:06</sys_updated_on>
+        <table/>
+        <target_url>x_1869622_parkin_0_parking_reservation.do</target_url>
+        <type>1</type>
+    </sys_wizard_answer>
+    <sys_update_version action="INSERT_OR_UPDATE">
+        <action>DELETE</action>
+        <application display_value="Parking Reservation System">6ea533f6c3adb290ec76502ed4013190</application>
+        <file_path/>
+        <instance_id>b63623e43b702e54a36804e0b5e45a2d</instance_id>
+        <instance_name>dev318569</instance_name>
+        <name>sys_wizard_answer_91cf73fac3edb290ec76502ed4013159</name>
+        <payload><![CDATA[<?xml version="1.0" encoding="UTF-8"?><record_update table="sys_wizard_answer"><sys_wizard_answer action="INSERT_OR_UPDATE"><active>true</active><answer>Parking Reservation</answer><button_label/><dependent_value/><element/><name>Parking Reservation</name><next_question/><order>100</order><payload_name/><question display_value="Task" name="Task">4f2d519d30203210559066cad9e2526e</question><roles/><script/><sys_class_name>sys_wizard_answer</sys_class_name><sys_created_by>admin</sys_created_by><sys_created_on>2025-12-05 14:16:06</sys_created_on><sys_id>91cf73fac3edb290ec76502ed4013159</sys_id><sys_mod_count>0</sys_mod_count><sys_name>Parking Reservation</sys_name><sys_package display_value="Parking Reservation System" source="x_1869622_parkin_0">6ea533f6c3adb290ec76502ed4013190</sys_package><sys_policy/><sys_scope display_value="Parking Reservation System">6ea533f6c3adb290ec76502ed4013190</sys_scope><sys_update_name>sys_wizard_answer_91cf73fac3edb290ec76502ed4013159</sys_update_name><sys_updated_by>admin</sys_updated_by><sys_updated_on>2025-12-05 14:16:06</sys_updated_on><table/><target_url>x_1869622_parkin_0_parking_reservation.do</target_url><type>1</type></sys_wizard_answer></record_update>]]></payload>
+        <payload_hash>1539369436</payload_hash>
+        <record_name>Parking Reservation</record_name>
+        <reverted_from/>
+        <source>6d0d5b01c3113210ec76502ed401319a</source>
+        <source_table>sys_upgrade_history</source_table>
+        <state>previous</state>
+        <sys_created_by/>
+        <sys_created_on>2025-11-17 14:59:13</sys_created_on>
+        <sys_id>62eff7fac3edb290ec76502ed40131c1</sys_id>
+        <sys_mod_count/>
+        <sys_recorded_at>19a9253bde80000000</sys_recorded_at>
+        <sys_updated_by/>
+        <sys_updated_on/>
+        <type>Answer</type>
+        <update_guid>22eff7fae9edb29031a40267c32dbac1</update_guid>
+        <update_guid_history>22eff7fae9edb29031a40267c32dbac1:1539369436</update_guid_history>
+    </sys_update_version>
+    <sys_metadata_delete action="INSERT_OR_UPDATE">
+        <sys_audit_delete/>
+        <sys_class_name>sys_metadata_delete</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2025-12-05 14:16:44</sys_created_on>
+        <sys_db_object display_value="" name="sys_wizard_answer">sys_wizard_answer</sys_db_object>
+        <sys_id>53b13002058e42ec871f8dac0d44df10</sys_id>
+        <sys_metadata>91cf73fac3edb290ec76502ed4013159</sys_metadata>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>Parking Reservation</sys_name>
+        <sys_package display_value="Parking Reservation System" source="x_1869622_parkin_0">6ea533f6c3adb290ec76502ed4013190</sys_package>
+        <sys_parent display_value="Task">4f2d519d30203210559066cad9e2526e</sys_parent>
+        <sys_policy/>
+        <sys_scope display_value="Parking Reservation System">6ea533f6c3adb290ec76502ed4013190</sys_scope>
+        <sys_scope_delete display_value="">5c63e0b7913e4fdd8a9afa8940bdb1b9</sys_scope_delete>
+        <sys_update_name>sys_wizard_answer_91cf73fac3edb290ec76502ed4013159</sys_update_name>
+        <sys_update_version display_value="sys_wizard_answer_91cf73fac3edb290ec76502ed4013159">62eff7fac3edb290ec76502ed40131c1</sys_update_version>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2025-12-05 14:16:44</sys_updated_on>
+    </sys_metadata_delete>
+</record_update>

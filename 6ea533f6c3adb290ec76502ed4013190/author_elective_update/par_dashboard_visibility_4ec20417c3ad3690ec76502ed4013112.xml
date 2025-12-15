@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update sys_domain="global" table="par_dashboard_visibility">
+    <par_dashboard_visibility action="DELETE">
+        <dashboard display_value="Parking Reservation Dashboard">31c28cd3c3ad3690ec76502ed40131e8</dashboard>
+        <experience display_value="Platform Analytics">08c73d60537101100834ddeeff7b1287</experience>
+        <sys_class_name>par_dashboard_visibility</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2025-12-06 09:07:44</sys_created_on>
+        <sys_domain>global</sys_domain>
+        <sys_domain_path>/</sys_domain_path>
+        <sys_id>4ec20417c3ad3690ec76502ed4013112</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name/>
+        <sys_overrides/>
+        <sys_package display_value="Parking Reservation System" source="x_1869622_parkin_0">6ea533f6c3adb290ec76502ed4013190</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="Parking Reservation System">6ea533f6c3adb290ec76502ed4013190</sys_scope>
+        <sys_update_name>par_dashboard_visibility_4ec20417c3ad3690ec76502ed4013112</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2025-12-06 09:07:44</sys_updated_on>
+    </par_dashboard_visibility>
+    <sys_update_version action="INSERT_OR_UPDATE">
+        <action>DELETE</action>
+        <application display_value="Parking Reservation System">6ea533f6c3adb290ec76502ed4013190</application>
+        <file_path/>
+        <instance_id>b63623e43b702e54a36804e0b5e45a2d</instance_id>
+        <instance_name>dev318569</instance_name>
+        <name>par_dashboard_visibility_4ec20417c3ad3690ec76502ed4013112</name>
+        <payload><![CDATA[<?xml version="1.0" encoding="UTF-8"?><record_update sys_domain="global" table="par_dashboard_visibility"><par_dashboard_visibility action="INSERT_OR_UPDATE"><dashboard display_value="Parking Reservation Dashboard">31c28cd3c3ad3690ec76502ed40131e8</dashboard><experience display_value="Platform Analytics">08c73d60537101100834ddeeff7b1287</experience><sys_class_name>par_dashboard_visibility</sys_class_name><sys_created_by>admin</sys_created_by><sys_created_on>2025-12-06 09:07:44</sys_created_on><sys_domain>global</sys_domain><sys_domain_path>/</sys_domain_path><sys_id>4ec20417c3ad3690ec76502ed4013112</sys_id><sys_mod_count>0</sys_mod_count><sys_name/><sys_overrides/><sys_package display_value="Parking Reservation System" source="x_1869622_parkin_0">6ea533f6c3adb290ec76502ed4013190</sys_package><sys_policy/><sys_scope display_value="Parking Reservation System">6ea533f6c3adb290ec76502ed4013190</sys_scope><sys_update_name>par_dashboard_visibility_4ec20417c3ad3690ec76502ed4013112</sys_update_name><sys_updated_by>admin</sys_updated_by><sys_updated_on>2025-12-06 09:07:44</sys_updated_on></par_dashboard_visibility></record_update>]]></payload>
+        <payload_hash>691543086</payload_hash>
+        <record_name/>
+        <reverted_from/>
+        <source>2aa533f6c3adb290ec76502ed4013194</source>
+        <source_table>sys_update_set</source_table>
+        <state>previous</state>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2025-12-06 09:07:44</sys_created_on>
+        <sys_id>46c20417c3ad3690ec76502ed4013117</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_recorded_at>19af2eac8f60000001</sys_recorded_at>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2025-12-06 09:07:44</sys_updated_on>
+        <type>PAR Dashboard Visibility</type>
+        <update_guid>02c204176cad369088d2565402ea1c16</update_guid>
+        <update_guid_history>02c204176cad369088d2565402ea1c16:691543086</update_guid_history>
+    </sys_update_version>
+    <sys_metadata_delete action="INSERT_OR_UPDATE">
+        <sys_audit_delete display_value="">8120ec9bc3617690ec76502ed401312b</sys_audit_delete>
+        <sys_class_name>sys_metadata_delete</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2025-12-06 11:16:01</sys_created_on>
+        <sys_db_object display_value="" name="par_dashboard_visibility">par_dashboard_visibility</sys_db_object>
+        <sys_id>3c72d2562613485685d1437752bafd09</sys_id>
+        <sys_metadata>4ec20417c3ad3690ec76502ed4013112</sys_metadata>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name/>
+        <sys_package display_value="Parking Reservation System" source="x_1869622_parkin_0">6ea533f6c3adb290ec76502ed4013190</sys_package>
+        <sys_parent/>
+        <sys_policy/>
+        <sys_scope display_value="Parking Reservation System">6ea533f6c3adb290ec76502ed4013190</sys_scope>
+        <sys_scope_delete display_value="">5c63e0b7913e4fdd8a9afa8940bdb1b9</sys_scope_delete>
+        <sys_update_name>par_dashboard_visibility_4ec20417c3ad3690ec76502ed4013112</sys_update_name>
+        <sys_update_version display_value="par_dashboard_visibility_4ec20417c3ad3690ec76502ed4013112">46c20417c3ad3690ec76502ed4013117</sys_update_version>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2025-12-06 11:16:01</sys_updated_on>
+    </sys_metadata_delete>
+</record_update>

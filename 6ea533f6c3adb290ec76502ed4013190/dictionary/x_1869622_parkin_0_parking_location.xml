@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?><database>
+    <element db_object_id="c966bbf2c3adb290ec76502ed4013179" label="Parking Location" max_length="40" name="x_1869622_parkin_0_parking_location" type="collection">
+        <element label="Total Spaces" mandatory="true" max_length="40" name="total_spaces" type="integer"/>
+        <element label="Address" max_length="255" name="address" type="string"/>
+        <element default="true" label="Active" max_length="40" name="active" type="boolean"/>
+        <element display="true" label="Name" mandatory="true" max_length="100" name="name" type="string"/>
+    </element>
+</database>

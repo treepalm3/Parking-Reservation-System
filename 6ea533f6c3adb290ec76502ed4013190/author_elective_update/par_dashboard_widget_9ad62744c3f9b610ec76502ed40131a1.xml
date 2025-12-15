@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update sys_domain="global" table="par_dashboard_widget">
+    <par_dashboard_widget action="DELETE">
+        <canvas display_value="">9101ac1fc3617690ec76502ed4013129</canvas>
+        <component display_value="Vertical bar">23051643b7e03010097cb81cde11a910</component>
+        <component_props>{"configVersion":"23.0.0-ci-SNAPSHOT","yAxisHidden":false,"yAxisPosition":"bottom","yAxisShowGrid":true,"xAxisWrapLabels":false,"xAxisMaxLabelSize":100,"xAxisTruncationType":"end","yAxisStyle":"clean","showLegend":true,"showLegendValue":false,"legendPosition":"bottom","legendHorizontalAlignment":"center","legendExpandToFit":false,"showDataLabels":false,"dataLabelPosition":"top","showStackedValues":"none","showOverlappingLabels":false,"newReporting":false,"dataSources":[{"isDatabaseView":false,"allowRealTime":true,"label":"Parking Reservation 1","sourceType":"table","tableOrViewName":"x_1869622_parkin_0_parking_reservation","filterQuery":"reservation_status=confirmed","reportSourceSysId":null,"preferredVisualizations":["d24d53f60350de7a652caf3188a46ed2"],"id":"dGFibGV4XzE4Njk2MjJfcGFya2luXzBfcGFya2luZ19yZXNlcnZhdGlvbjE3NjUyNzM1NDAyNjc=","dataCategories":["trend","group","simple"]}],"showHeader":true,"showTotalAggregate":false,"showSubAggregate":false,"showFirstGroupAggregate":false,"showSecondGroupAggregate":false,"hideMatrixAggregate":false,"wrapTitle":false,"showHeaderSeparator":false,"headerTitle":"Successful Bookings by Location","showBorder":true,"bareBorder":false,"telemetry":"null","showDataPassthrough":false,"metrics":[{"dataSource":"dGFibGV4XzE4Njk2MjJfcGFya2luXzBfcGFya2luZ19yZXNlcnZhdGlvbjE3NjUyNzM1NDAyNjc=","id":"ZEdGaWJHVjRYekU0TmprMk1qSmZjR0Z5YTJsdVh6QmZjR0Z5YTJsdVoxOXlaWE5sY25aaGRHbHZiakUzTmpVeU56TTFOREF5TmpjPTE3NjUyNzM1NDIzNDE=","aggregateFunction":"COUNT","numberFormat":{"customFormat":false},"axisId":"primary"}],"groupBy":[{"groupBy":[{"dataSource":"dGFibGV4XzE4Njk2MjJfcGFya2luXzBfcGFya2luZ19yZXNlcnZhdGlvbjE3NjUyNzM1NDAyNjc=","groupByField":"parking_location","isRange":false,"isChoice":false,"isPaBucket":false}],"maxNumberOfGroups":12,"numberOfGroupsBasedOn":"NO_OF_GROUP_BASED_ON_PER_METRIC","showOthers":true,"disableRanges":false}],"sortBy":"value","sortByOrder":"desc","showChange":false,"showChangePercentage":false,"showTarget":false,"showForecast":false,"showForecastRange":false,"showTrend":false,"showConfidenceBand":false,"showGapPercentage":false,"showSparkline":false,"showMetricLabel":false,"showThreshold":false,"showComment":false,"followFilters":true,"showFilterIcon":true,"enableRealTimeUpdate":false,"enableDrilldown":true,"enableCustomEmptyState":false,"emptyStateIllustration":"no-data","emptyStateHeading":"No data available.","emptyStateContent":"There are no scores available for the selected criteria. Contact your admin for more info.","emptyStateAlignment":"vertical-centered","showMaximumRange":false,"applyDateRange":false,"numberOfPeriods":3,"showAbsolutePeriod":false,"showChangeFrom":"previous","period":"M","dateFormat":"default","showDataTable":false,"chartVariation":"grouped","colorConfig":{"type":"default"},"componentId":"l5cwbx7v","id":"dataPassthrough","value":null,"noDebounce":true,"propLabel":"Data","filterPerMetric":[],"showDateRangeByDefault":false,"allowChangeDateRange":false,"scoreType":null,"allowAdditionalGroupByPerMetric":false,"showLoadingIndicator":false,"xAxisHidden":false}</component_props>
+        <h>24</h>
+        <name>Successful Bookings by Location</name>
+        <stored_component display_value="Successful Bookings by Location">e31cbb5157e207a23df0cacfb39a1b5c</stored_component>
+        <sys_class_name>par_dashboard_widget</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2025-12-09 09:39:37</sys_created_on>
+        <sys_domain>global</sys_domain>
+        <sys_domain_path>/</sys_domain_path>
+        <sys_id>9ad62744c3f9b610ec76502ed40131a1</sys_id>
+        <sys_mod_count>2</sys_mod_count>
+        <sys_name>Successful Bookings by Location</sys_name>
+        <sys_overrides/>
+        <sys_package display_value="Parking Reservation System" source="x_1869622_parkin_0">6ea533f6c3adb290ec76502ed4013190</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="Parking Reservation System">6ea533f6c3adb290ec76502ed4013190</sys_scope>
+        <sys_update_name>par_dashboard_widget_9ad62744c3f9b610ec76502ed40131a1</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2025-12-09 09:48:42</sys_updated_on>
+        <visualization/>
+        <w>48</w>
+        <widget_props/>
+        <x>0</x>
+        <y>33</y>
+    </par_dashboard_widget>
+    <sys_update_version action="INSERT_OR_UPDATE">
+        <action>DELETE</action>
+        <application display_value="Parking Reservation System">6ea533f6c3adb290ec76502ed4013190</application>
+        <file_path/>
+        <instance_id>b63623e43b702e54a36804e0b5e45a2d</instance_id>
+        <instance_name>dev318569</instance_name>
+        <name>par_dashboard_widget_9ad62744c3f9b610ec76502ed40131a1</name>
+        <payload><![CDATA[<?xml version="1.0" encoding="UTF-8"?><record_update sys_domain="global" table="par_dashboard_widget"><par_dashboard_widget action="INSERT_OR_UPDATE"><canvas display_value="">9101ac1fc3617690ec76502ed4013129</canvas><component display_value="Vertical bar">23051643b7e03010097cb81cde11a910</component><component_props>{"configVersion":"23.0.0-ci-SNAPSHOT","yAxisHidden":false,"yAxisPosition":"bottom","yAxisShowGrid":true,"xAxisWrapLabels":false,"xAxisMaxLabelSize":100,"xAxisTruncationType":"end","yAxisStyle":"clean","showLegend":true,"showLegendValue":false,"legendPosition":"bottom","legendHorizontalAlignment":"center","legendExpandToFit":false,"showDataLabels":false,"dataLabelPosition":"top","showStackedValues":"none","showOverlappingLabels":false,"newReporting":false,"dataSources":[{"isDatabaseView":false,"allowRealTime":true,"label":"Parking Reservation 1","sourceType":"table","tableOrViewName":"x_1869622_parkin_0_parking_reservation","filterQuery":"reservation_status=confirmed","reportSourceSysId":null,"preferredVisualizations":["d24d53f60350de7a652caf3188a46ed2"],"id":"dGFibGV4XzE4Njk2MjJfcGFya2luXzBfcGFya2luZ19yZXNlcnZhdGlvbjE3NjUyNzM1NDAyNjc=","dataCategories":["trend","group","simple"]}],"showHeader":true,"showTotalAggregate":false,"showSubAggregate":false,"showFirstGroupAggregate":false,"showSecondGroupAggregate":false,"hideMatrixAggregate":false,"wrapTitle":false,"showHeaderSeparator":false,"headerTitle":"Successful Bookings by Location","showBorder":true,"bareBorder":false,"telemetry":"null","showDataPassthrough":false,"metrics":[{"dataSource":"dGFibGV4XzE4Njk2MjJfcGFya2luXzBfcGFya2luZ19yZXNlcnZhdGlvbjE3NjUyNzM1NDAyNjc=","id":"ZEdGaWJHVjRYekU0TmprMk1qSmZjR0Z5YTJsdVh6QmZjR0Z5YTJsdVoxOXlaWE5sY25aaGRHbHZiakUzTmpVeU56TTFOREF5TmpjPTE3NjUyNzM1NDIzNDE=","aggregateFunction":"COUNT","numberFormat":{"customFormat":false},"axisId":"primary"}],"groupBy":[{"groupBy":[{"dataSource":"dGFibGV4XzE4Njk2MjJfcGFya2luXzBfcGFya2luZ19yZXNlcnZhdGlvbjE3NjUyNzM1NDAyNjc=","groupByField":"parking_location","isRange":false,"isChoice":false,"isPaBucket":false}],"maxNumberOfGroups":12,"numberOfGroupsBasedOn":"NO_OF_GROUP_BASED_ON_PER_METRIC","showOthers":true,"disableRanges":false}],"sortBy":"value","sortByOrder":"desc","showChange":false,"showChangePercentage":false,"showTarget":false,"showForecast":false,"showForecastRange":false,"showTrend":false,"showConfidenceBand":false,"showGapPercentage":false,"showSparkline":false,"showMetricLabel":false,"showThreshold":false,"showComment":false,"followFilters":true,"showFilterIcon":true,"enableRealTimeUpdate":false,"enableDrilldown":true,"enableCustomEmptyState":false,"emptyStateIllustration":"no-data","emptyStateHeading":"No data available.","emptyStateContent":"There are no scores available for the selected criteria. Contact your admin for more info.","emptyStateAlignment":"vertical-centered","showMaximumRange":false,"applyDateRange":false,"numberOfPeriods":3,"showAbsolutePeriod":false,"showChangeFrom":"previous","period":"M","dateFormat":"default","showDataTable":false,"chartVariation":"grouped","colorConfig":{"type":"default"},"componentId":"l5cwbx7v","id":"dataPassthrough","value":null,"noDebounce":true,"propLabel":"Data","filterPerMetric":[],"showDateRangeByDefault":false,"allowChangeDateRange":false,"scoreType":null,"allowAdditionalGroupByPerMetric":false,"showLoadingIndicator":false,"xAxisHidden":false}</component_props><h>24</h><name>Successful Bookings by Location</name><stored_component display_value="Successful Bookings by Location">e31cbb5157e207a23df0cacfb39a1b5c</stored_component><sys_class_name>par_dashboard_widget</sys_class_name><sys_created_by>admin</sys_created_by><sys_created_on>2025-12-09 09:39:37</sys_created_on><sys_domain>global</sys_domain><sys_domain_path>/</sys_domain_path><sys_id>9ad62744c3f9b610ec76502ed40131a1</sys_id><sys_mod_count>2</sys_mod_count><sys_name>Successful Bookings by Location</sys_name><sys_overrides/><sys_package display_value="Parking Reservation System" source="x_1869622_parkin_0">6ea533f6c3adb290ec76502ed4013190</sys_package><sys_policy/><sys_scope display_value="Parking Reservation System">6ea533f6c3adb290ec76502ed4013190</sys_scope><sys_update_name>par_dashboard_widget_9ad62744c3f9b610ec76502ed40131a1</sys_update_name><sys_updated_by>admin</sys_updated_by><sys_updated_on>2025-12-09 09:48:42</sys_updated_on><visualization/><w>48</w><widget_props/><x>0</x><y>33</y></par_dashboard_widget></record_update>]]></payload>
+        <payload_hash>-1675273613</payload_hash>
+        <record_name>Successful Bookings by Location</record_name>
+        <reverted_from/>
+        <source>2aa533f6c3adb290ec76502ed4013194</source>
+        <source_table>sys_update_set</source_table>
+        <state>previous</state>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2025-12-09 09:48:42</sys_created_on>
+        <sys_id>a7e8e748c3f9b610ec76502ed40131ab</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_recorded_at>19b02835fe30000001</sys_recorded_at>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2025-12-09 09:48:42</sys_updated_on>
+        <type>PAR Dashboard Widget</type>
+        <update_guid>a7e8e74889f9b6105eb0f9de7db7f1aa</update_guid>
+        <update_guid_history>a7e8e74889f9b6105eb0f9de7db7f1aa:-1675273613,3058e7086bf9b610a0540804ebfd33c3:-376634821,9ad6274405f9b6107f7745d29d6d42a4:-85973181</update_guid_history>
+    </sys_update_version>
+    <sys_metadata_delete action="INSERT_OR_UPDATE">
+        <sys_audit_delete display_value="Successful Bookings by Location">c4e96fc8c3f9b610ec76502ed4013159</sys_audit_delete>
+        <sys_class_name>sys_metadata_delete</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2025-12-09 09:52:50</sys_created_on>
+        <sys_db_object display_value="" name="par_dashboard_widget">par_dashboard_widget</sys_db_object>
+        <sys_id>438df38df86b449a91d62a890099c604</sys_id>
+        <sys_metadata>9ad62744c3f9b610ec76502ed40131a1</sys_metadata>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>Successful Bookings by Location</sys_name>
+        <sys_package display_value="Parking Reservation System" source="x_1869622_parkin_0">6ea533f6c3adb290ec76502ed4013190</sys_package>
+        <sys_parent/>
+        <sys_policy/>
+        <sys_scope display_value="Parking Reservation System">6ea533f6c3adb290ec76502ed4013190</sys_scope>
+        <sys_scope_delete display_value="">5c63e0b7913e4fdd8a9afa8940bdb1b9</sys_scope_delete>
+        <sys_update_name>par_dashboard_widget_9ad62744c3f9b610ec76502ed40131a1</sys_update_name>
+        <sys_update_version display_value="par_dashboard_widget_9ad62744c3f9b610ec76502ed40131a1">a7e8e748c3f9b610ec76502ed40131ab</sys_update_version>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2025-12-09 09:52:50</sys_updated_on>
+    </sys_metadata_delete>
+</record_update>

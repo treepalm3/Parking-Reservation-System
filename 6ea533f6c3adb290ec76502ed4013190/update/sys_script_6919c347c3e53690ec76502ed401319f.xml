@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update sys_domain="global" table="sys_script">
+    <sys_script action="INSERT_OR_UPDATE">
+        <abort_action>false</abort_action>
+        <access>package_private</access>
+        <action_delete>false</action_delete>
+        <action_insert>true</action_insert>
+        <action_query>false</action_query>
+        <action_update>true</action_update>
+        <active>true</active>
+        <add_message>false</add_message>
+        <advanced>true</advanced>
+        <change_fields>false</change_fields>
+        <client_callable>false</client_callable>
+        <collection>x_1869622_parkin_0_parking_reservation</collection>
+        <condition/>
+        <description/>
+        <execute_function>false</execute_function>
+        <filter_condition/>
+        <is_rest>false</is_rest>
+        <message/>
+        <name>Calculate Parking Fee</name>
+        <order>200</order>
+        <priority>100</priority>
+        <rest_method/>
+        <rest_method_text/>
+        <rest_service/>
+        <rest_service_text/>
+        <rest_variables/>
+        <role_conditions/>
+        <script><![CDATA[(function executeRule(current, previous) {
+    
+    var startDateTime = current.getValue('start_date_time');
+    var endDateTime = current.getValue('end_date_time');
+    var now = new GlideDateTime();
+    
+    // ========================================
+    // ตรวจสอบ Start Date
+    // ========================================
+    
+    if (!startDateTime) {
+        gs.addErrorMessage('❌ กรุณาระบุวันเริ่มต้น');
+        current.setAbortAction(true);
+        return;
+    }
+    
+    var startDate = new GlideDateTime(startDateTime);
+    
+    // Start ไม่เป็นอดีต
+    if (startDate.getNumericValue() < now.getNumericValue()) {
+        gs.addErrorMessage('❌ ไม่สามารถจองเวลาย้อนหลังได้ (Start Date)');
+        current.setAbortAction(true);
+        return;
+    }
+    
+    // ========================================
+    // ตรวจสอบ End Date
+    // ========================================
+    
+    if (!endDateTime) {
+        gs.addErrorMessage('❌ กรุณาระบุวันสิ้นสุด');
+        current.setAbortAction(true);
+        return;
+    }
+    
+    var endDate = new GlideDateTime(endDateTime);
+    
+    // End ต้องมากกว่า Start
+    if (endDate.getNumericValue() <= startDate.getNumericValue()) {
+        gs.addErrorMessage('❌ เวลาสิ้นสุดต้องมากกว่าเวลาเริ่มต้น');
+        current.setAbortAction(true);
+        return;
+    }
+    
+    // End ไม่เป็นอดีต
+    if (endDate.getNumericValue() < now.getNumericValue()) {
+        gs.addErrorMessage('❌ ไม่สามารถจองเวลาย้อนหลังได้ (End Date)');
+        current.setAbortAction(true);
+        return;
+    }
+    
+    // ========================================
+    // ตรวจสอบระยะเวลาสูงสุด (optional)
+    // ========================================
+    
+    var diffMs = endDate.getNumericValue() - startDate.getNumericValue();
+    var diffHours = diffMs / (1000 * 60 * 60);
+    
+    // ไม่เกิน 7 วัน (168 ชม)
+    if (diffHours > 168) {
+        gs.addErrorMessage('❌ ไม่สามารถจองเกิน 7 วัน (168 ชั่วโมง)');
+        current.setAbortAction(true);
+        return;
+    }
+    
+    // ต้องมีระยะเวลาอย่างน้อย 1 ชั่วโมง
+    if (diffHours < 1) {
+        gs.addErrorMessage('❌ ระยะเวลาต้องมากกว่า 1 ชั่วโมง');
+        current.setAbortAction(true);
+        return;
+    }
+    
+})(current, previous);]]></script>
+        <sys_class_name>sys_script</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2025-12-06 04:57:51</sys_created_on>
+        <sys_domain>global</sys_domain>
+        <sys_domain_path>/</sys_domain_path>
+        <sys_id>6919c347c3e53690ec76502ed401319f</sys_id>
+        <sys_mod_count>3</sys_mod_count>
+        <sys_name>Calculate Parking Fee</sys_name>
+        <sys_overrides/>
+        <sys_package display_value="Parking Reservation System" source="x_1869622_parkin_0">6ea533f6c3adb290ec76502ed4013190</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="Parking Reservation System">6ea533f6c3adb290ec76502ed4013190</sys_scope>
+        <sys_update_name>sys_script_6919c347c3e53690ec76502ed401319f</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2025-12-15 07:37:00</sys_updated_on>
+        <template/>
+        <when>before</when>
+    </sys_script>
+    <sys_translated_text action="delete_multiple" query="documentkey=6919c347c3e53690ec76502ed401319f"/>
+</record_update>

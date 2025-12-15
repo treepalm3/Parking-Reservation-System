@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sys_ui_macro">
+    <sys_ui_macro action="INSERT_OR_UPDATE">
+        <active>true</active>
+        <category>general</category>
+        <description/>
+        <media_type/>
+        <name>parking_approval_summary</name>
+        <scoped_name>x_1869622_parkin_0_parking_approval_summary</scoped_name>
+        <sys_class_name>sys_ui_macro</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2025-12-15 03:44:34</sys_created_on>
+        <sys_id>6dee8906c33d7a10ec76502ed4013153</sys_id>
+        <sys_mod_count>1</sys_mod_count>
+        <sys_name>parking_approval_summary</sys_name>
+        <sys_package display_value="Parking Reservation System" source="x_1869622_parkin_0">6ea533f6c3adb290ec76502ed4013190</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="Parking Reservation System">6ea533f6c3adb290ec76502ed4013190</sys_scope>
+        <sys_update_name>sys_ui_macro_6dee8906c33d7a10ec76502ed4013153</sys_update_name>
+        <sys_updated_by>alissa.mountjoy</sys_updated_by>
+        <sys_updated_on>2025-12-15 04:10:10</sys_updated_on>
+        <xml><![CDATA[<?xml version="1.0" encoding="utf-8" ?>
+<j:jelly trim="false" xmlns:j="jelly:core" xmlns:g="glide" xmlns:j2="null" xmlns:g2="null">
+  <g:evaluate var="jvar_request" object="true">
+    var gr = new GlideRecord('sc_req_item');
+    if (gr.get(current.sysapproval)) {
+      gr;
+    }
+  </g:evaluate>
+  
+  <j:if test="${!empty(jvar_request)}">
+    <div class="parking-details" style="margin-bottom: 20px; padding: 15px; background: #f4f4f4; border-radius: 5px;">
+      <h3 style="margin-top: 0; color: #2c5f2d;">]]>📋<![CDATA[ Parking Reservation Details</h3>
+      
+      <table class="table table-striped" style="background: white;">
+        <tr>
+          <td width="200"><strong>Requester Name:</strong></td>
+          <td>${jvar_request.variables.requester_name}</td>
+        </tr>
+        <tr>
+          <td><strong>Email Address:</strong></td>
+          <td>${jvar_request.variables.requester_email}</td>
+        </tr>
+        <tr>
+          <td><strong>Phone Number:</strong></td>
+          <td>${jvar_request.variables.requester_phone}</td>
+        </tr>
+        <tr>
+          <td><strong>Car Type:</strong></td>
+          <td>${jvar_request.variables.car_type}</td>
+        </tr>
+        <tr>
+          <td><strong>Vehicle Registration:</strong></td>
+          <td>${jvar_request.variables.vehicle_registration_number}</td>
+        </tr>
+        <tr>
+          <td><strong>Start Date Time:</strong></td>
+          <td>${jvar_request.variables.start_date_time}</td>
+        </tr>
+        <tr>
+          <td><strong>End Date Time:</strong></td>
+          <td>${jvar_request.variables.end_date_time}</td>
+        </tr>
+        <tr>
+          <td><strong>Parking Location:</strong></td>
+          <td>${jvar_request.variables.parking_location.getDisplayValue()}</td>
+        </tr>
+        <tr>
+          <td><strong>Duration (Hours):</strong></td>
+          <td>${jvar_request.variables.duration_hours}</td>
+        </tr>
+        <tr>
+          <td><strong>Parking Fee (THB):</strong></td>
+          <td><strong style="color: #2c5f2d; font-size: 16px;">${jvar_request.variables.parking_fee}</strong></td>
+        </tr>
+        <tr>
+          <td><strong>Reservation Status:</strong></td>
+          <td>
+            <span style="padding: 3px 10px; border-radius: 3px; background: #ffa500; color: white;">
+              ${jvar_request.variables.reservation_status}
+            </span>
+          </td>
+        </tr>
+      </table>
+    </div>
+  </j:if>
+</j:jelly>]]></xml>
+    </sys_ui_macro>
+</record_update>

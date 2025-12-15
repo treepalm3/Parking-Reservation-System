@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update sys_domain="global" table="sys_script">
+    <sys_script action="INSERT_OR_UPDATE">
+        <abort_action>false</abort_action>
+        <access>package_private</access>
+        <action_delete>false</action_delete>
+        <action_insert>true</action_insert>
+        <action_query>false</action_query>
+        <action_update>false</action_update>
+        <active>true</active>
+        <add_message>false</add_message>
+        <advanced>true</advanced>
+        <change_fields>false</change_fields>
+        <client_callable>false</client_callable>
+        <collection>x_1869622_parkin_0_parking_reservation</collection>
+        <condition/>
+        <description/>
+        <execute_function>false</execute_function>
+        <filter_condition/>
+        <is_rest>false</is_rest>
+        <message/>
+        <name>Check Parking Space Availability</name>
+        <order>150</order>
+        <priority>100</priority>
+        <rest_method/>
+        <rest_method_text/>
+        <rest_service/>
+        <rest_service_text/>
+        <rest_variables/>
+        <role_conditions/>
+        <script><![CDATA[// Business Rule: Check Parking Space Availability
+// Table: x_xxxxx_parking_reservation
+// When: before, insert
+// Order: 150
+
+(function executeRule(current, previous /*null when async*/) {
+    
+    if (!current.parking_location || !current.start_date_time || !current.end_date_time) {
+        return;
+    }
+    
+    // หาจำนวนที่จอดทั้งหมด
+    var location = new GlideRecord('x_1869622_parkin_0_parking_location');
+    if (location.get(current.parking_location)) {
+        var totalSpaces = parseInt(location.total_spaces);
+        
+        // หาจำนวนที่จองไปแล้วในช่วงเวลาที่ต้องการ
+        var bookedGr = new GlideRecord('x_xxxxx_parking_reservation');
+        bookedGr.addQuery('parking_location', current.parking_location);
+        bookedGr.addQuery('reservation_status', 'IN', 'Pending,Confirmed');
+        bookedGr.addQuery('sys_id', '!=', current.sys_id);
+        
+        // ตรวจสอบว่าช่วงเวลาทับซ้อนกัน
+        bookedGr.addEncodedQuery('start_date_time<' + current.end_date_time + '^end_date_time>' + current.start_date_time);
+        bookedGr.query();
+        
+        var bookedSpaces = bookedGr.getRowCount();
+        var availableSpaces = totalSpaces - bookedSpaces;
+        
+        if (availableSpaces <= 0) {
+            // ไม่มีที่ว่าง - ตั้งค่าสถานะเป็น Rejected
+            current.reservation_status = 'Rejected';
+            current.work_notes = 'การจองไม่สำเร็จ: ที่จอดรถเต็มในช่วงเวลาที่เลือก';
+            gs.addInfoMessage('ขออภัย ที่จอดรถเต็มในช่วงเวลาที่เลือก กรุณาเลือกเวลาอื่นหรือสถานที่อื่น');
+        } else {
+            gs.addInfoMessage('พบที่ว่าง: ' + availableSpaces + ' ที่');
+        }
+    }
+
+})(current, previous);]]></script>
+        <sys_class_name>sys_script</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2025-12-06 05:00:02</sys_created_on>
+        <sys_domain>global</sys_domain>
+        <sys_domain_path>/</sys_domain_path>
+        <sys_id>54d9878fc3653690ec76502ed40131fd</sys_id>
+        <sys_mod_count>1</sys_mod_count>
+        <sys_name>Check Parking Space Availability</sys_name>
+        <sys_overrides/>
+        <sys_package display_value="Parking Reservation System" source="x_1869622_parkin_0">6ea533f6c3adb290ec76502ed4013190</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="Parking Reservation System">6ea533f6c3adb290ec76502ed4013190</sys_scope>
+        <sys_update_name>sys_script_54d9878fc3653690ec76502ed40131fd</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2025-12-06 05:06:04</sys_updated_on>
+        <template/>
+        <when>before</when>
+    </sys_script>
+    <sys_translated_text action="delete_multiple" query="documentkey=54d9878fc3653690ec76502ed40131fd"/>
+</record_update>

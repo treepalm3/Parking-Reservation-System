@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update sys_domain="global" table="par_dashboard_widget">
+    <par_dashboard_widget action="INSERT_OR_UPDATE">
+        <canvas display_value="">9101ac1fc3617690ec76502ed4013129</canvas>
+        <component display_value="Pie">96abe7e38d8790718022c5630a92176c</component>
+        <component_props>{"applyDateRange":false,"bareBorder":false,"colorConfig":{"type":"default"},"configVersion":"23.0.0-ci-SNAPSHOT","dataLabelsType":"value","dataSources":[{"allowRealTime":true,"dataCategories":["group","simple","trend"],"filterQuery":"","id":"dGFibGV4XzE4Njk2MjJfcGFya2luXzBfcGFya2luZ19yZXNlcnZhdGlvbjE3NjUwMjY4ODY1NzYxMjIzMjkwNi4zNDUzNTAyMDI=","isDatabaseView":false,"preferredVisualizations":["d24d53f60350de7a652caf3188a46ed2"],"sourceType":"table","tableOrViewName":"x_1869622_parkin_0_parking_reservation","label":"Parking Reservation"}],"dateFormat":"default","emptyStateHeading":"No data available.","emptyStateIllustration":"add-data","enableCustomEmptyState":false,"enableDrilldown":true,"enableRealTimeUpdate":false,"filterConfigurations":"@state.parFilters","followFilters":true,"groupBy":[{"groupBy":[{"dataSource":"dGFibGV4XzE4Njk2MjJfcGFya2luXzBfcGFya2luZ19yZXNlcnZhdGlvbjE3NjUwMjY4ODY1NzYxMjIzMjkwNi4zNDUzNTAyMDI=","groupByField":"reservation_status","isChoice":true,"isPaBucket":false,"isRange":false}],"maxNumberOfGroups":12,"numberOfGroupsBasedOn":"NO_OF_GROUP_BASED_ON_PER_METRIC","showOthers":true,"disableRanges":false}],"headerTitle":"Parking Reservations by Status","hideMatrixAggregate":false,"legendExpandToFit":false,"legendHorizontalAlignment":"center","metrics":[{"aggregateFunction":"COUNT","axisId":"primary","dataSource":"dGFibGV4XzE4Njk2MjJfcGFya2luXzBfcGFya2luZ19yZXNlcnZhdGlvbjE3NjUwMjY4ODY1NzYxMjIzMjkwNi4zNDUzNTAyMDI=","id":"ZEdGaWJHVjRYekU0TmprMk1qSmZjR0Z5YTJsdVh6QmZjR0Z5YTJsdVoxOXlaWE5sY25aaGRHbHZiakUzTmpVd01qWTRPRFkxTnpZeE1qSXpNamt3Tmk0ek5EVXpOVEF5TURJPTE3NjUwMjY4ODY1Nzc2MzY3NTY3OC40NzkwNTk0Nw==","numberFormat":{"customFormat":true,"abbreviationEnabled":true,"numberInTooltipsEnabled":true},"dateFormat":{"customFormat":false},"stringFormat":{"customFormat":false}}],"newReporting":false,"numberOfPeriods":2,"period":"M","registerOrientation":"horizontal","registerPosition":"bottom","showAbsolutePeriod":false,"showBorder":true,"showChange":false,"showChangeFrom":"previous","showChangePercentage":false,"showComment":false,"showConfidenceBand":false,"showDataLabels":false,"showDataPassthrough":false,"showFilterIcon":true,"showFirstGroupAggregate":false,"showForecast":false,"showForecastRange":false,"showGapPercentage":false,"showHeader":true,"showHeaderSeparator":true,"showMaximumRange":false,"showMetricLabel":false,"showRegister":true,"showRegisterOnSameLine":false,"showRegisterPercentage":true,"showRegisterValue":true,"showSecondGroupAggregate":false,"showSparkline":false,"showSubAggregate":false,"showTarget":false,"showThreshold":false,"showTotalAggregate":false,"showTrend":false,"sortBy":"value","sortByOrder":"desc","telemetry":"null","truncationType":"start","wrapTitle":true,"showDataTable":false,"componentId":"fxgfnzls","id":"dataPassthrough","value":null,"noDebounce":true,"propLabel":"Data","filterPerMetric":[],"showDateRangeByDefault":false,"allowChangeDateRange":false,"scoreType":null,"allowAdditionalGroupByPerMetric":false,"showLoadingIndicator":false}</component_props>
+        <h>20</h>
+        <name>Parking Reservations by Status</name>
+        <stored_component display_value="Parking Reservations by Status">40469209770d670f346727882308cee7</stored_component>
+        <sys_class_name>par_dashboard_widget</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2025-12-06 13:51:29</sys_created_on>
+        <sys_domain>global</sys_domain>
+        <sys_domain_path>/</sys_domain_path>
+        <sys_id>aeb389dfc3657690ec76502ed40131cc</sys_id>
+        <sys_mod_count>10</sys_mod_count>
+        <sys_name>Parking Reservations by Status</sys_name>
+        <sys_overrides/>
+        <sys_package display_value="Parking Reservation System" source="x_1869622_parkin_0">6ea533f6c3adb290ec76502ed4013190</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="Parking Reservation System">6ea533f6c3adb290ec76502ed4013190</sys_scope>
+        <sys_update_name>par_dashboard_widget_aeb389dfc3657690ec76502ed40131cc</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2025-12-09 04:37:28</sys_updated_on>
+        <visualization/>
+        <w>24</w>
+        <widget_props/>
+        <x>0</x>
+        <y>13</y>
+    </par_dashboard_widget>
+</record_update>
