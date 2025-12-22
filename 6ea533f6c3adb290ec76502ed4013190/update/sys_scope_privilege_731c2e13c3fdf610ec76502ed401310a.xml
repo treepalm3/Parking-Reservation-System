@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sys_scope_privilege">
+    <sys_scope_privilege action="INSERT_OR_UPDATE">
+        <operation>execute</operation>
+        <source_scope display_value="Parking Reservation System">6ea533f6c3adb290ec76502ed4013190</source_scope>
+        <status>allowed</status>
+        <sys_class_name>sys_scope_privilege</sys_class_name>
+        <sys_created_by>guest</sys_created_by>
+        <sys_created_on>2025-12-19 07:43:16</sys_created_on>
+        <sys_id>731c2e13c3fdf610ec76502ed401310a</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>RESTAPIRequestBody</sys_name>
+        <sys_package display_value="Parking Reservation System" source="x_1869622_parkin_0">6ea533f6c3adb290ec76502ed4013190</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="Parking Reservation System">6ea533f6c3adb290ec76502ed4013190</sys_scope>
+        <sys_update_name>sys_scope_privilege_731c2e13c3fdf610ec76502ed401310a</sys_update_name>
+        <sys_updated_by>guest</sys_updated_by>
+        <sys_updated_on>2025-12-19 07:43:16</sys_updated_on>
+        <target_name>RESTAPIRequestBody</target_name>
+        <target_scope display_value="Global">global</target_scope>
+        <target_type>scriptable</target_type>
+    </sys_scope_privilege>
+</record_update>
