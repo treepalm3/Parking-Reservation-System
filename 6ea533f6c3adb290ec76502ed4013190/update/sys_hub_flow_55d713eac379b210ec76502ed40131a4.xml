@@ -1,0 +1,781 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update sys_domain="global" table="sys_hub_flow">
+    <sys_hub_flow action="INSERT_OR_UPDATE">
+        <access>public</access>
+        <acls/>
+        <active>true</active>
+        <annotation/>
+        <attributes>browserActivatedIn=chrome,integrationActivatedIn=standalone,labelCacheCleanUpExecuted=true,timeFromCreateToActivate=433904000,viewActivatedIn=naturalLanguage</attributes>
+        <authored_on_release_version>27800</authored_on_release_version>
+        <callable_by_client_api>false</callable_by_client_api>
+        <category/>
+        <copied_from/>
+        <copied_from_name/>
+        <description/>
+        <display_name_after_preview/>
+        <flow_priority>MEDIUM</flow_priority>
+        <generation_source/>
+        <internal_name>sync_rejected_parking_to_jira</internal_name>
+        <label_cache>[{"name":"Created_1.current.requester_name.name","label":"Trigger - Record Created➛Parking Reservation Record➛Requester Name➛Name","reference":"","reference_display":"Name","type":"string","base_type":"string","parent_table_name":"sys_user","column_name":"name","usedInstances":{"89e26f75-29ec-43cc-ade8-72b80404f100":["customfield_10071","customfield_10114"]}},{"name":"89e26f75-29ec-43cc-ade8-72b80404f100.issue.key","label":"1 - Create Issue➛Issue➛Key","reference":"","reference_display":"Key","type":"string","base_type":"string","usedInstances":{"96283e29-274e-4808-84a3-a8c0196d6227":["correlation_id"]},"attributes":{}},{"name":"Created_1.current","label":"Trigger - Record Created➛Parking Reservation Record","reference":"x_1869622_parkin_0_parking_reservation","reference_display":"Parking Reservation","type":"reference","base_type":"reference","usedInstances":{"96283e29-274e-4808-84a3-a8c0196d6227":["record"]},"attributes":{}},{"name":"Updated_1.current.number","label":"Trigger - Record Updated➛Parking Reservation Record➛Number","reference":"","reference_display":"Number","type":"string","base_type":"string","parent_table_name":"x_1869622_parkin_0_parking_reservation","column_name":"number","usedInstances":{"9b59ae4c-0cfe-43f7-9035-5ead2ad4de21":["summary"]}},{"name":"Updated_1.current.requester_name","label":"Trigger - Record Updated➛Parking Reservation Record➛Requester Name","reference":"sys_user","reference_display":"User","type":"reference","base_type":"reference","parent_table_name":"x_1869622_parkin_0_parking_reservation","column_name":"requester_name","usedInstances":{"9b59ae4c-0cfe-43f7-9035-5ead2ad4de21":["description"]}},{"name":"Updated_1.current.start_date_time","label":"Trigger - Record Updated➛Parking Reservation Record➛Start Date Time","reference":"","reference_display":"Start Date Time","type":"glide_date_time","base_type":"glide_date_time","parent_table_name":"x_1869622_parkin_0_parking_reservation","column_name":"start_date_time","usedInstances":{"9b59ae4c-0cfe-43f7-9035-5ead2ad4de21":["description"]}},{"name":"Updated_1.current.end_date_time","label":"Trigger - Record Updated➛Parking Reservation Record➛End Date Time","reference":"","reference_display":"End Date Time","type":"glide_date_time","base_type":"glide_date_time","parent_table_name":"x_1869622_parkin_0_parking_reservation","column_name":"end_date_time","usedInstances":{"9b59ae4c-0cfe-43f7-9035-5ead2ad4de21":["description"]}},{"name":"Created_1.current.number","label":"Trigger - Record Created➛Parking Reservation Record➛Number","reference":"","reference_display":"Number","type":"string","base_type":"string","parent_table_name":"x_1869622_parkin_0_parking_reservation","column_name":"number","usedInstances":{"89e26f75-29ec-43cc-ade8-72b80404f100":["summary","customfield_10081"]}},{"name":"Created_1.current.start_date_time","label":"Trigger - Record Created➛Parking Reservation Record➛Start Date Time","reference":"","reference_display":"Start Date Time","type":"glide_date_time","base_type":"glide_date_time","parent_table_name":"x_1869622_parkin_0_parking_reservation","column_name":"start_date_time","usedInstances":{"89e26f75-29ec-43cc-ade8-72b80404f100":["description","customfield_10076","customfield_10115","customfield_10148"]}},{"name":"Created_1.current.end_date_time","label":"Trigger - Record Created➛Parking Reservation Record➛End Date Time","reference":"","reference_display":"End Date Time","type":"glide_date_time","base_type":"glide_date_time","parent_table_name":"x_1869622_parkin_0_parking_reservation","column_name":"end_date_time","usedInstances":{"89e26f75-29ec-43cc-ade8-72b80404f100":["description","customfield_10077","customfield_10149"]}},{"name":"Created_1.current.requester_name","label":"Trigger - Record Created➛Parking Reservation Record➛Requester Name","reference":"sys_user","reference_display":"User","type":"reference","base_type":"reference","parent_table_name":"x_1869622_parkin_0_parking_reservation","column_name":"requester_name","usedInstances":{}},{"name":"Created_1.current.requester_email","label":"Trigger - Record Created➛Parking Reservation Record➛Email Address","reference":"","reference_display":"Email Address","type":"string","base_type":"string","parent_table_name":"x_1869622_parkin_0_parking_reservation","column_name":"requester_email","usedInstances":{"89e26f75-29ec-43cc-ade8-72b80404f100":["description","customfield_10072"]}},{"name":"Created_1.current.requester_phone","label":"Trigger - Record Created➛Parking Reservation Record➛Phone Number","reference":"","reference_display":"Phone Number","type":"string","base_type":"string","parent_table_name":"x_1869622_parkin_0_parking_reservation","column_name":"requester_phone","usedInstances":{"89e26f75-29ec-43cc-ade8-72b80404f100":["description","customfield_10073"]}},{"name":"Created_1.current.car_type","label":"Trigger - Record Created➛Parking Reservation Record➛Car Type","reference":"","reference_display":"Car Type","type":"choice","base_type":"choice","parent_table_name":"x_1869622_parkin_0_parking_reservation","column_name":"car_type","choices":[{"used":false,"image":"","label":"Pickup Truck","reference":false,"rawLabel":"Pickup Truck","selected":false,"missing":false,"value":"pickup_truck","parameters":{"name":"x_1869622_parkin_0_parking_reservation","dependent_values":[""]}},{"used":false,"image":"","label":"SUV","reference":false,"rawLabel":"SUV","selected":false,"missing":false,"value":"suv","parameters":{"name":"x_1869622_parkin_0_parking_reservation","dependent_values":[""]}},{"used":false,"image":"","label":"Van","reference":false,"rawLabel":"Van","selected":false,"missing":false,"value":"van","parameters":{"name":"x_1869622_parkin_0_parking_reservation","dependent_values":[""]}},{"used":false,"image":"","label":"Sedan","reference":false,"rawLabel":"Sedan","selected":false,"missing":false,"value":"sedan","parameters":{"name":"x_1869622_parkin_0_parking_reservation","dependent_values":[""]}},{"used":false,"image":"","label":"Hatchback","reference":false,"rawLabel":"Hatchback","selected":false,"missing":false,"value":"hatchback","parameters":{"name":"x_1869622_parkin_0_parking_reservation","dependent_values":[""]}},{"used":false,"image":"","label":"Motorcycle","reference":false,"rawLabel":"Motorcycle","selected":false,"missing":false,"value":"motorcycle","parameters":{"name":"x_1869622_parkin_0_parking_reservation","dependent_values":[""]}}],"usedInstances":{"89e26f75-29ec-43cc-ade8-72b80404f100":["description","customfield_10080","customfield_10074"]}},{"name":"Created_1.current.vehicle_registration","label":"Trigger - Record Created➛Parking Reservation Record➛Vehicle Registration Number","reference":"","reference_display":"Vehicle Registration Number","type":"string","base_type":"string","parent_table_name":"x_1869622_parkin_0_parking_reservation","column_name":"vehicle_registration","usedInstances":{"89e26f75-29ec-43cc-ade8-72b80404f100":["description","customfield_10075"]}},{"name":"Created_1.current.parking_location","label":"Trigger - Record Created➛Parking Reservation Record➛Parking Location","reference":"","reference_display":"Parking Location","type":"choice","base_type":"choice","parent_table_name":"x_1869622_parkin_0_parking_reservation","column_name":"parking_location","choices":[{"used":false,"image":"","label":"Airport Parking Area","reference":false,"rawLabel":"Airport Parking Area","selected":false,"missing":false,"value":"airport_parking_area","parameters":{"name":"x_1869622_parkin_0_parking_reservation","dependent_values":[""]}},{"used":false,"image":"","label":"Asiatique Riverfront Parking","reference":false,"rawLabel":"Asiatique Riverfront Parking","selected":false,"missing":false,"value":"asiatique_riverfront_parking","parameters":{"name":"x_1869622_parkin_0_parking_reservation","dependent_values":[""]}},{"used":false,"image":"","label":"Ayutthaya Historical Park Parking","reference":false,"rawLabel":"Ayutthaya Historical Park Parking","selected":false,"missing":false,"value":"ayutthaya_historical_park_parking","parameters":{"name":"x_1869622_parkin_0_parking_reservation","dependent_values":[""]}},{"used":false,"image":"","label":"Bangkok Downtown Parking","reference":false,"rawLabel":"Bangkok Downtown Parking","selected":false,"missing":false,"value":"bangkok_downtown_parking","parameters":{"name":"x_1869622_parkin_0_parking_reservation","dependent_values":[""]}},{"used":false,"image":"","label":"Central Festival Hat Yai Parking","reference":false,"rawLabel":"Central Festival Hat Yai Parking","selected":false,"missing":false,"value":"central_festival_hat_yai_parking","parameters":{"name":"x_1869622_parkin_0_parking_reservation","dependent_values":[""]}},{"used":false,"image":"","label":"Central Phuket Parking","reference":false,"rawLabel":"Central Phuket Parking","selected":false,"missing":false,"value":"central_phuket_parking","parameters":{"name":"x_1869622_parkin_0_parking_reservation","dependent_values":[""]}},{"used":false,"image":"","label":"Central Plaza Khon Kaen Parking","reference":false,"rawLabel":"Central Plaza Khon Kaen Parking","selected":false,"missing":false,"value":"central_plaza_khon_kaen_parking","parameters":{"name":"x_1869622_parkin_0_parking_reservation","dependent_values":[""]}},{"used":false,"image":"","label":"Central World Parking","reference":false,"rawLabel":"Central World Parking","selected":false,"missing":false,"value":"central_world_parking","parameters":{"name":"x_1869622_parkin_0_parking_reservation","dependent_values":[""]}},{"used":false,"image":"","label":"Chatuchak Weekend Market Parking","reference":false,"rawLabel":"Chatuchak Weekend Market Parking","selected":false,"missing":false,"value":"chatuchak_weekend_market_parking","parameters":{"name":"x_1869622_parkin_0_parking_reservation","dependent_values":[""]}},{"used":false,"image":"","label":"Chiang Mai Night Bazaar Parking","reference":false,"rawLabel":"Chiang Mai Night Bazaar Parking","selected":false,"missing":false,"value":"chiang_mai_night_bazaar_parking","parameters":{"name":"x_1869622_parkin_0_parking_reservation","dependent_values":[""]}},{"used":false,"image":"","label":"Chiang Mai Old City Parking","reference":false,"rawLabel":"Chiang Mai Old City Parking","selected":false,"missing":false,"value":"chiang_mai_old_city_parking","parameters":{"name":"x_1869622_parkin_0_parking_reservation","dependent_values":[""]}},{"used":false,"image":"","label":"Kalasin City Center Parking","reference":false,"rawLabel":"Kalasin City Center Parking","selected":false,"missing":false,"value":"kalasin_city_center_parking","parameters":{"name":"x_1869622_parkin_0_parking_reservation","dependent_values":[""]}},{"used":false,"image":"","label":"Khon Kaen University Parking","reference":false,"rawLabel":"Khon Kaen University Parking","selected":false,"missing":false,"value":"khon_kaen_university_parking","parameters":{"name":"x_1869622_parkin_0_parking_reservation","dependent_values":[""]}},{"used":false,"image":"","label":"MAYA Lifestyle Shopping Center Parking","reference":false,"rawLabel":"MAYA Lifestyle Shopping Center Parking","selected":false,"missing":false,"value":"maya_lifestyle_shopping_center_parking","parameters":{"name":"x_1869622_parkin_0_parking_reservation","dependent_values":[""]}},{"used":false,"image":"","label":"MBK Center Parking","reference":false,"rawLabel":"MBK Center Parking","selected":false,"missing":false,"value":"mbk_center_parking","parameters":{"name":"x_1869622_parkin_0_parking_reservation","dependent_values":[""]}},{"used":false,"image":"","label":"Patong Beach Parking","reference":false,"rawLabel":"Patong Beach Parking","selected":false,"missing":false,"value":"patong_beach_parking","parameters":{"name":"x_1869622_parkin_0_parking_reservation","dependent_values":[""]}},{"used":false,"image":"","label":"Pattaya Beach Road Parking","reference":false,"rawLabel":"Pattaya Beach Road Parking","selected":false,"missing":false,"value":"pattaya_beach_road_parking","parameters":{"name":"x_1869622_parkin_0_parking_reservation","dependent_values":[""]}},{"used":false,"image":"","label":"Phra That Ya Khu Temple Parking","reference":false,"rawLabel":"Phra That Ya Khu Temple Parking","selected":false,"missing":false,"value":"phra_that_ya_khu_temple_parking","parameters":{"name":"x_1869622_parkin_0_parking_reservation","dependent_values":[""]}},{"used":false,"image":"","label":"Phuket Airport Parking","reference":false,"rawLabel":"Phuket Airport Parking","selected":false,"missing":false,"value":"phuket_airport_parking","parameters":{"name":"x_1869622_parkin_0_parking_reservation","dependent_values":[""]}},{"used":false,"image":"","label":"Robinson Lifestyle Kalasin Parking","reference":false,"rawLabel":"Robinson Lifestyle Kalasin Parking","selected":false,"missing":false,"value":"robinson_lifestyle_kalasin_parking","parameters":{"name":"x_1869622_parkin_0_parking_reservation","dependent_values":[""]}},{"used":false,"image":"","label":"Shopping Mall Parking","reference":false,"rawLabel":"Shopping Mall Parking","selected":false,"missing":false,"value":"shopping_mall_parking","parameters":{"name":"x_1869622_parkin_0_parking_reservation","dependent_values":[""]}},{"used":false,"image":"","label":"Siam Square Parking","reference":false,"rawLabel":"Siam Square Parking","selected":false,"missing":false,"value":"siam_square_parking","parameters":{"name":"x_1869622_parkin_0_parking_reservation","dependent_values":[""]}},{"used":false,"image":"","label":"Suvarnabhumi Airport Parking","reference":false,"rawLabel":"Suvarnabhumi Airport Parking","selected":false,"missing":false,"value":"suvarnabhumi_airport_parking","parameters":{"name":"x_1869622_parkin_0_parking_reservation","dependent_values":[""]}},{"used":false,"image":"","label":"Terminal 21 Pattaya Parking","reference":false,"rawLabel":"Terminal 21 Pattaya Parking","selected":false,"missing":false,"value":"terminal_21_pattaya_parking","parameters":{"name":"x_1869622_parkin_0_parking_reservation","dependent_values":[""]}}],"usedInstances":{"89e26f75-29ec-43cc-ade8-72b80404f100":["description","customfield_10078"]}},{"name":"Created_1.current.duration_hours","label":"Trigger - Record Created➛Parking Reservation Record➛Duration Hours","reference":"","reference_display":"Duration Hours","type":"decimal","base_type":"decimal","parent_table_name":"x_1869622_parkin_0_parking_reservation","column_name":"duration_hours","usedInstances":{"89e26f75-29ec-43cc-ade8-72b80404f100":["description"]}},{"name":"Created_1.current.parking_fee","label":"Trigger - Record Created➛Parking Reservation Record➛Parking Fee (THB)","reference":"","reference_display":"Parking Fee (THB)","type":"decimal","base_type":"decimal","parent_table_name":"x_1869622_parkin_0_parking_reservation","column_name":"parking_fee","usedInstances":{"89e26f75-29ec-43cc-ade8-72b80404f100":["description"]}},{"name":"Created_1.current.location","label":"Trigger - Record Created➛Parking Reservation Record➛Location","reference":"cmn_location","reference_display":"Location","type":"reference","base_type":"reference","parent_table_name":"x_1869622_parkin_0_parking_reservation","column_name":"location","usedInstances":{}},{"name":"Created_1.current.requester_name.first_name","label":"Trigger - Record Created➛Parking Reservation Record➛Requester Name➛First name","reference":"","reference_display":"First name","type":"string","base_type":"string","parent_table_name":"sys_user","column_name":"first_name","usedInstances":{"89e26f75-29ec-43cc-ade8-72b80404f100":["description"]}},{"name":"Created_1.current.requester_name.last_name","label":"Trigger - Record Created➛Parking Reservation Record➛Requester Name➛Last name","reference":"","reference_display":"Last name","type":"string","base_type":"string","parent_table_name":"sys_user","column_name":"last_name","usedInstances":{"89e26f75-29ec-43cc-ade8-72b80404f100":["description"]}},{"name":"Created_1.current.parking_location.name","label":"Trigger - Record Created➛Parking Reservation Record➛Parking Location➛Name","reference":"","reference_display":"Name","type":"string","base_type":"string","parent_table_name":"x_1869622_parkin_0_parking_location","column_name":"name","usedInstances":{}}]</label_cache>
+        <master_snapshot>6c4e9fe6c3b9b210ec76502ed401315f</master_snapshot>
+        <master_snapshot_digest/>
+        <name>Sync Parking to Jira</name>
+        <natlang/>
+        <outputs/>
+        <pre_compiled>false</pre_compiled>
+        <remote_trigger_id>630f0150c30ebe10ec76502ed40131e0</remote_trigger_id>
+        <run_as>user</run_as>
+        <run_with_roles/>
+        <sc_callable>false</sc_callable>
+        <show_draft_actions>false</show_draft_actions>
+        <show_triggered_flows>false</show_triggered_flows>
+        <status>published</status>
+        <substatus/>
+        <sys_class_name>sys_hub_flow</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2025-12-17 02:58:48</sys_created_on>
+        <sys_domain>global</sys_domain>
+        <sys_domain_path>/</sys_domain_path>
+        <sys_id>55d713eac379b210ec76502ed40131a4</sys_id>
+        <sys_mod_count>101</sys_mod_count>
+        <sys_name>Sync Parking to Jira</sys_name>
+        <sys_overrides/>
+        <sys_package display_value="Parking Reservation System" source="x_1869622_parkin_0">6ea533f6c3adb290ec76502ed4013190</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="Parking Reservation System">6ea533f6c3adb290ec76502ed4013190</sys_scope>
+        <sys_update_name>sys_hub_flow_55d713eac379b210ec76502ed40131a4</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2025-12-22 03:30:35</sys_updated_on>
+        <type>flow</type>
+        <updation_source/>
+        <version>2</version>
+    </sys_hub_flow>
+    <sys_translated_text action="delete_multiple" query="documentkey=55d713eac379b210ec76502ed40131a4"/>
+    <sys_variable_value action="delete_multiple" query="document_key=55d713eac379b210ec76502ed40131a4"/>
+    <sys_flow_record_trigger action="INSERT_OR_UPDATE">
+        <active>true</active>
+        <condition table="x_1869622_parkin_0_parking_reservation">correlation_idISEMPTY<item endquery="false" field="correlation_id" goto="false" newquery="false" operator="ISEMPTY" or="false" value=""/>
+        </condition>
+        <name/>
+        <on_delete>false</on_delete>
+        <on_insert>true</on_insert>
+        <on_update>false</on_update>
+        <published_version/>
+        <run_flow_in>background</run_flow_in>
+        <run_on_extended>false</run_on_extended>
+        <run_when_setting>both</run_when_setting>
+        <run_when_user_list/>
+        <run_when_user_setting>any</run_when_user_setting>
+        <sys_class_name>sys_flow_record_trigger</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2025-12-22 03:30:35</sys_created_on>
+        <sys_domain>global</sys_domain>
+        <sys_domain_path>/</sys_domain_path>
+        <sys_id>630f0150c30ebe10ec76502ed40131e0</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_overrides/>
+        <sys_scope display_value="Parking Reservation System">6ea533f6c3adb290ec76502ed4013190</sys_scope>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2025-12-22 03:30:35</sys_updated_on>
+        <table>x_1869622_parkin_0_parking_reservation</table>
+        <trigger_definition/>
+    </sys_flow_record_trigger>
+    <sys_trigger_runner_mapping action="INSERT_OR_UPDATE">
+        <active>true</active>
+        <data>{"run_flow_in":"background","run_when_user_list":[],"run_when_setting":"both","run_when_user_setting":"any","run_on_extended":"false"}</data>
+        <identifier>55d713eac379b210ec76502ed40131a4</identifier>
+        <runner>FDTriggerRunner</runner>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2025-12-22 03:30:35</sys_created_on>
+        <sys_id>670f0150c30ebe10ec76502ed40131e1</sys_id>
+        <sys_mod_count>1</sys_mod_count>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2025-12-22 03:30:35</sys_updated_on>
+        <trigger display_value="">630f0150c30ebe10ec76502ed40131e0</trigger>
+    </sys_trigger_runner_mapping>
+    <sys_trigger_runner_mapping action="delete_multiple" query="identifier=55d713eac379b210ec76502ed40131a4^sys_idNOT IN670f0150c30ebe10ec76502ed40131e1"/>
+    <sys_hub_flow_stage action="delete_multiple" query="flow=55d713eac379b210ec76502ed40131a4"/>
+    <sys_flow_cat_variable_model action="delete_multiple" query="id=55d713eac379b210ec76502ed40131a4^sys_idNOT IN99d713eac379b210ec76502ed40131a8"/>
+    <sys_flow_cat_variable_model action="INSERT_OR_UPDATE">
+        <id>55d713eac379b210ec76502ed40131a4</id>
+        <name>Sync Rejected Parking to Jira</name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2025-12-17 02:58:48</sys_created_on>
+        <sys_id>99d713eac379b210ec76502ed40131a8</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_scope/>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2025-12-17 02:58:48</sys_updated_on>
+    </sys_flow_cat_variable_model>
+    <sys_flow_cat_variable action="delete_multiple" query="flow_catalog_model=99d713eac379b210ec76502ed40131a8"/>
+    <sys_hub_flow_input action="delete_multiple" query="model=55d713eac379b210ec76502ed40131a4^sys_idNOT INc34708f6c3fdb210ec76502ed40131b5,cf47c0f6c3fdb210ec76502ed401315d"/>
+    <sys_hub_flow_input action="INSERT_OR_UPDATE">
+        <active>true</active>
+        <array>false</array>
+        <array_denormalized>false</array_denormalized>
+        <attributes>element_mapping_provider=com.glide.flow_design.action.data.FlowDesignVariableMapper,test_input_hidden=true,uiType=table_name,uiTypeLabel=Table Name</attributes>
+        <audit>false</audit>
+        <calculation><![CDATA[(function calculatedFieldValue(current) {
+
+	// Add your code here
+	return '';  // return the calculated value
+
+})(current);]]></calculation>
+        <choice/>
+        <choice_field/>
+        <choice_table/>
+        <column_label/>
+        <comments/>
+        <create_roles/>
+        <default_value/>
+        <defaultsort/>
+        <delete_roles/>
+        <dependent/>
+        <dependent_on_field/>
+        <display>false</display>
+        <dynamic_creation>false</dynamic_creation>
+        <dynamic_creation_script/>
+        <dynamic_default_value/>
+        <dynamic_ref_qual/>
+        <element>table_name</element>
+        <element_reference>false</element_reference>
+        <foreign_database/>
+        <formula/>
+        <function_definition/>
+        <function_field>false</function_field>
+        <help/>
+        <hint/>
+        <internal_type display_value="">table_name</internal_type>
+        <label>Table Name</label>
+        <mandatory>false</mandatory>
+        <max_length>200</max_length>
+        <model display_value="Sync Parking to Jira">55d713eac379b210ec76502ed40131a4</model>
+        <model_id>55d713eac379b210ec76502ed40131a4</model_id>
+        <model_table>sys_hub_flow</model_table>
+        <name>var__m_sys_hub_flow_input_55d713eac379b210ec76502ed40131a4</name>
+        <next_element/>
+        <order>101</order>
+        <primary>false</primary>
+        <read_only>false</read_only>
+        <read_roles/>
+        <reference/>
+        <reference_cascade_rule/>
+        <reference_floats>false</reference_floats>
+        <reference_key/>
+        <reference_qual/>
+        <reference_qual_condition/>
+        <reference_type/>
+        <sizeclass/>
+        <spell_check>false</spell_check>
+        <staged>false</staged>
+        <sys_class_name>sys_hub_flow_input</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2025-12-17 06:26:11</sys_created_on>
+        <sys_id>c34708f6c3fdb210ec76502ed40131b5</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name/>
+        <sys_package/>
+        <sys_policy/>
+        <sys_scope display_value="Parking Reservation System">6ea533f6c3adb290ec76502ed4013190</sys_scope>
+        <sys_update_name/>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2025-12-17 06:26:11</sys_updated_on>
+        <table_reference>false</table_reference>
+        <text_index>false</text_index>
+        <unique>false</unique>
+        <use_dependent_field>false</use_dependent_field>
+        <use_dynamic_default>false</use_dynamic_default>
+        <use_reference_qualifier>simple</use_reference_qualifier>
+        <virtual>false</virtual>
+        <virtual_type>script</virtual_type>
+        <widget/>
+        <write_roles/>
+        <xml_view>false</xml_view>
+    </sys_hub_flow_input>
+    <sys_hub_action_input_action_instance action="delete_multiple" query="action_input=c34708f6c3fdb210ec76502ed40131b5"/>
+    <sys_hub_flow_input action="INSERT_OR_UPDATE">
+        <active>true</active>
+        <array>false</array>
+        <array_denormalized>false</array_denormalized>
+        <attributes>element_mapping_provider=com.glide.flow_design.action.data.FlowDesignVariableMapper,uiType=document_id,uiTypeLabel=Document ID</attributes>
+        <audit>false</audit>
+        <calculation><![CDATA[(function calculatedFieldValue(current) {
+
+	// Add your code here
+	return '';  // return the calculated value
+
+})(current);]]></calculation>
+        <choice/>
+        <choice_field/>
+        <choice_table/>
+        <column_label/>
+        <comments/>
+        <create_roles/>
+        <default_value/>
+        <defaultsort/>
+        <delete_roles/>
+        <dependent>table_name</dependent>
+        <dependent_on_field>table_name</dependent_on_field>
+        <display>false</display>
+        <dynamic_creation>false</dynamic_creation>
+        <dynamic_creation_script/>
+        <dynamic_default_value/>
+        <dynamic_ref_qual/>
+        <element>current</element>
+        <element_reference>false</element_reference>
+        <foreign_database/>
+        <formula/>
+        <function_definition/>
+        <function_field>false</function_field>
+        <help/>
+        <hint/>
+        <internal_type display_value="">document_id</internal_type>
+        <label>Record</label>
+        <mandatory>true</mandatory>
+        <max_length>200</max_length>
+        <model display_value="Sync Parking to Jira">55d713eac379b210ec76502ed40131a4</model>
+        <model_id>55d713eac379b210ec76502ed40131a4</model_id>
+        <model_table>sys_hub_flow</model_table>
+        <name>var__m_sys_hub_flow_input_55d713eac379b210ec76502ed40131a4</name>
+        <next_element/>
+        <order>100</order>
+        <primary>false</primary>
+        <read_only>false</read_only>
+        <read_roles/>
+        <reference/>
+        <reference_cascade_rule/>
+        <reference_floats>false</reference_floats>
+        <reference_key/>
+        <reference_qual/>
+        <reference_qual_condition/>
+        <reference_type/>
+        <sizeclass/>
+        <spell_check>false</spell_check>
+        <staged>false</staged>
+        <sys_class_name>sys_hub_flow_input</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2025-12-17 06:26:11</sys_created_on>
+        <sys_id>cf47c0f6c3fdb210ec76502ed401315d</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name/>
+        <sys_package/>
+        <sys_policy/>
+        <sys_scope display_value="Parking Reservation System">6ea533f6c3adb290ec76502ed4013190</sys_scope>
+        <sys_update_name/>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2025-12-17 06:26:11</sys_updated_on>
+        <table_reference>false</table_reference>
+        <text_index>false</text_index>
+        <unique>false</unique>
+        <use_dependent_field>true</use_dependent_field>
+        <use_dynamic_default>false</use_dynamic_default>
+        <use_reference_qualifier>simple</use_reference_qualifier>
+        <virtual>false</virtual>
+        <virtual_type>script</virtual_type>
+        <widget/>
+        <write_roles/>
+        <xml_view>false</xml_view>
+    </sys_hub_flow_input>
+    <sys_hub_action_input_action_instance action="delete_multiple" query="action_input=cf47c0f6c3fdb210ec76502ed401315d"/>
+    <sys_hub_flow_output action="delete_multiple" query="model=55d713eac379b210ec76502ed40131a4"/>
+    <sys_hub_alias_mapping action="delete_multiple" query="source_id=55d713eac379b210ec76502ed40131a4"/>
+    <sys_hub_trigger_instance_v2 action="delete_multiple" query="flow=55d713eac379b210ec76502ed40131a4^sys_idNOT IN4b4708f6c3fdb210ec76502ed40131f7"/>
+    <sys_hub_trigger_instance_v2 action="INSERT_OR_UPDATE">
+        <comment/>
+        <display_text/>
+        <flow display_value="Sync Parking to Jira">55d713eac379b210ec76502ed40131a4</flow>
+        <generation_source/>
+        <name>Created</name>
+        <published_version/>
+        <remote_sys_id/>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2025-12-17 06:26:11</sys_created_on>
+        <sys_id>4b4708f6c3fdb210ec76502ed40131f7</sys_id>
+        <sys_mod_count>2</sys_mod_count>
+        <sys_scope/>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2025-12-22 03:30:25</sys_updated_on>
+        <trigger_definition display_value="Created">798916a0c31322002841b63b12d3ae7c</trigger_definition>
+        <trigger_inputs>H4sIAAAAAAAA/9VZ227jNhD9FUFPLeACuviat62TRQPsbha2t0URBAIlkrawNOlKlBJ3kX/vUDfLujh2rGydlyAiqZnDozNnyOT+h86QS5h+pS+Qy4je030uScARW2w3BIalGnY4Wqu5NeIYSRFs9SsZRKSn00CsF2S9YUjCYopYCIMiwCTQr8yeHiMWkfk2vMUQCd5PwmQx9Wwanp8cczycDC3L2aDgu88dI/tl6QQkJEGMpC84vID9EFJt/8ze+5ou0mZ7i7yVz3BAuH51/9DTIRAklQrQj8qUr1B51EMTixiebdqWZRjWuG+6Q9s1LWwjYhgQsMpQZReygagdBeRJEo4JLtipcRgQhO842xYrVvAJUr7W6Cn0/4XoY0OtowSweySdKx6djJV02FsJ3yN3m4SMZCTFmU4KFq35lxS/4pNQFDGZ8wkjUQjxyEZBViAyRHS+Eo+zPOFHnye7yyaZ8BArnpCUge9GkoSKcOozoN5JuQlFFCToZzfTu9m189eHxfSPm5kzu5kvZrfTxc21/pzsy/knUhFThBkWJ93OcyGCjz5h6gPyaO0Cmp4eeoG/kR886ce5Fp97O31PBcd+JpGKxr18KtzXeL77QyI3jFaZe6WMudQ9EQSEJVJ1fHw7v/n8dfH3yaIdDhHCBLWI1qUl0Za33YBLNjBQ3toh+WYjx+i3bxj/k4Izn3qtgNcCE3a9C6fD5HIJkvb5JpKKrUfEZehI4SCMnRKPailgeknR6d7qsn5Z0EHEIYRTfKG6rBMiC0Y/+SFs4B6KMmcrCQnz9FMWchZxTcCnhB+aF4FSudRym6O3a7TMOKZzwognS7Kg38Ly02c/DMGZS6iLpAkrtZxFOpCXlm8pzR2emfyhy5qukx5XyKz0qJNr2zQpdQm1jJGqbNOwXWoaI2OAKLYNw7NKtV0H04pSViTxJjV+WoWHiRjZEdKrUpyBN8rVcJSM4n0N5iQoiWRGMu0GmtkRNEtBqxiifZIjFrJMh6/31Xloax0fBRCOEbyBjzVGteAIB6RMPIIZv8L9XOR9XwYi4rhqRyqm5nNtt0L7JePv1w6dkIqAHAawv+KSPHBHey5cxLcduJ9NTXdC+sQA07PB79zBZOJ6yKJ0NBwRy6y43w5GI7Z34XovqC1ukmubAzYKJ27S2wnedwbAmg+eDPB8B8yE2eh/6dz7cLrHFeEOQA0cprysZnhL5mOSz3Vb7bXU8a6+z614Op54A3M08kZwj4GKp33iIrNvDdBkNLTHg0rF16AcgikbmPkpt5twGyZAWtzgWzp1WXf1t5RtSKRU7ej0Ls3VRVm9g9IkpU6pPouWmIoItC+C/3a7W6fNCTTA5IrbVbs+BoX6sNrbwnCFXNXOC5D6dxjfS63OmS2sXNyVqiKSeH+vZ1+pSH88mFC72WLopMlidmDaYV788eLIColba63pnHGs4OPGumk9GLxCwhWZlE8MB440XZFidk6K9Xak2Gcfo/JabL1HvgbsO2phybninD6mchJH0LJ5XwsNJjRIovlUy/62SLDmbjW5IkApg/Oy+heHyn6ua5e7SB1KoeCfCyQ9gde6GQxr2QHq8hpVRQrd3oAJHqHBwG45D0+qN+AmQC/gvfi2dXJVxE1FdrB3nRa3GrOxe5Uku6+II/tSp7tubk7n7bqxPb206/Mbz6H7ewOKC20pD/8B8599zGsfAAA=</trigger_inputs>
+        <trigger_outputs/>
+        <trigger_type>record_create</trigger_type>
+        <updation_source/>
+    </sys_hub_trigger_instance_v2>
+    <sys_hub_action_instance_v2 action="delete_multiple" query="flow=55d713eac379b210ec76502ed40131a4^sys_idNOT IN47e52cb6c3f1f210ec76502ed4013124,8b4708f6c3fdb210ec76502ed40131fa"/>
+    <sys_hub_action_instance_v2 action="INSERT_OR_UPDATE">
+        <action_type display_value="Update Record">f9d01dd2c31332002841b63b12d3aea1</action_type>
+        <action_type_parent display_value="Update Record">baf174c8c3c232002841b63b12d3aee4</action_type_parent>
+        <attributes/>
+        <comment/>
+        <compiled_snapshot>f9d01dd2c31332002841b63b12d3aea1</compiled_snapshot>
+        <display_text/>
+        <flow display_value="Sync Parking to Jira">55d713eac379b210ec76502ed40131a4</flow>
+        <generation_source/>
+        <order>2</order>
+        <parent_ui_id/>
+        <sys_class_name>sys_hub_action_instance_v2</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2025-12-17 08:40:00</sys_created_on>
+        <sys_id>47e52cb6c3f1f210ec76502ed4013124</sys_id>
+        <sys_mod_count>24</sys_mod_count>
+        <sys_scope display_value="Parking Reservation System">6ea533f6c3adb290ec76502ed4013190</sys_scope>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2025-12-22 03:48:26</sys_updated_on>
+        <ui_id>96283e29-274e-4808-84a3-a8c0196d6227</ui_id>
+        <updation_source/>
+        <values>H4sIAAAAAAAA/+VVXW/aMBT9K8jPEDkJpcDbBKo0qWundupLV0WOfQNWnY/ZDi2L+O+7SRxgFHVU4qUaT/h+2Oec3GM/VkQKMiVDENSf+CMe+mEYUBqMh348CmM/ECED8EmfZCwFrNTAcy1wvWKqrANVNdPALIjI93ipNWR2s8G8kKZQbP3gyjDCl1IJzJPp41OfFEzjjhY0mVYHqVMhKRaDwtK7DtMhRrsu6rXIeZkirkh2wWvXOXeZ3tc5ZrCphuPTPoFXC5kABJIwZaBPUpYJZnO9JlOrSwwgaXGbqfW2Yikz2xJN2auRv/HkIa3rEkBm3ImwXUZOoDaczJll97gzt6Xe6pVLDqbVREDCSmVn+7G24LawMs/aFsti1XXnqkyzm1YRst1g73uUBkFAUfOskbe0kvtl/nLXgbySWSOJo6hyztR2xazVMi5tDacioKDROGVFIbNFVOh8JZtmhJJ6C4ULL1H5C55p5CLzGK9xe6gq864wPm/CD0zLmsQ33AabN31i1mammDE7Kqhh9KuskbTEHIWoUaGRIGomoW7mWhb2Cx61Agd803dDH1+8N2F8shuovT13g/8a+ePRZBQEEY7ys8wi6v4sIg0G9Io13+WNE763Rb27v4o+Zo4ToHfm+NGMxHEqzh9vYtf7vb2bNuHccXE2d4w/kzscjU9vj3+ZggbvXrt7k9T4wOwZAi9dDaoZaLxpf5aUhqKqxhMIRsnlxSCYAB8MQ84HTMB4cBnEYzqkw8Sn1JPGlOA9w/rY03G2fT/msROU6Dx2JUEJc0SazmCQIiELUSvVgclcsvfgkttn6GxO80e0+X0iv/03r9HTH6ZE8sCECQAA</values>
+    </sys_hub_action_instance_v2>
+    <sys_hub_alias_mapping action="delete_multiple" query="source_id=47e52cb6c3f1f210ec76502ed4013124"/>
+    <sys_hub_action_instance_v2 action="INSERT_OR_UPDATE">
+        <action_type display_value="Create Issue">4266397e9f9c02105760e6073b0a1c4e</action_type>
+        <action_type_parent display_value="Create Issue">06aeb8f69fd802105760e6073b0a1cd9</action_type_parent>
+        <attributes/>
+        <comment/>
+        <compiled_snapshot>4266397e9f9c02105760e6073b0a1c4e</compiled_snapshot>
+        <display_text/>
+        <flow display_value="Sync Parking to Jira">55d713eac379b210ec76502ed40131a4</flow>
+        <generation_source/>
+        <order>1</order>
+        <parent_ui_id/>
+        <sys_class_name>sys_hub_action_instance_v2</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2025-12-17 06:26:11</sys_created_on>
+        <sys_id>8b4708f6c3fdb210ec76502ed40131fa</sys_id>
+        <sys_mod_count>70</sys_mod_count>
+        <sys_scope display_value="Parking Reservation System">6ea533f6c3adb290ec76502ed4013190</sys_scope>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2025-12-22 03:48:26</sys_updated_on>
+        <ui_id>89e26f75-29ec-43cc-ade8-72b80404f100</ui_id>
+        <updation_source/>
+        <values>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</values>
+    </sys_hub_action_instance_v2>
+    <sys_hub_alias_mapping action="delete_multiple" query="source_id=8b4708f6c3fdb210ec76502ed40131fa"/>
+    <sys_hub_sub_flow_instance_v2 action="delete_multiple" query="flow=55d713eac379b210ec76502ed40131a4"/>
+    <sys_hub_flow_logic_instance_v2 action="delete_multiple" query="flow=55d713eac379b210ec76502ed40131a4"/>
+    <sys_hub_pill_compound action="delete_multiple" query="attached_to=55d713eac379b210ec76502ed40131a4"/>
+    <sys_hub_flow_variable action="delete_multiple" query="model=55d713eac379b210ec76502ed40131a4"/>
+    <sys_documentation action="INSERT_OR_UPDATE">
+        <element>current</element>
+        <help/>
+        <hint/>
+        <label>Record</label>
+        <language>en</language>
+        <name>var__m_sys_hub_flow_input_55d713eac379b210ec76502ed40131a4</name>
+        <plural/>
+        <sys_class_name>sys_documentation</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2025-12-17 06:26:11</sys_created_on>
+        <sys_id>4b47c0f6c3fdb210ec76502ed4013167</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name/>
+        <sys_package display_value="Parking Reservation System" source="x_1869622_parkin_0">6ea533f6c3adb290ec76502ed4013190</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="Parking Reservation System">6ea533f6c3adb290ec76502ed4013190</sys_scope>
+        <sys_update_name/>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2025-12-17 06:26:11</sys_updated_on>
+        <url/>
+        <url_target/>
+    </sys_documentation>
+    <sys_documentation action="INSERT_OR_UPDATE">
+        <element>table_name</element>
+        <help/>
+        <hint/>
+        <label>Table Name</label>
+        <language>en</language>
+        <name>var__m_sys_hub_flow_input_55d713eac379b210ec76502ed40131a4</name>
+        <plural/>
+        <sys_class_name>sys_documentation</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2025-12-17 06:26:11</sys_created_on>
+        <sys_id>8f4708f6c3fdb210ec76502ed40131b8</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name/>
+        <sys_package display_value="Parking Reservation System" source="x_1869622_parkin_0">6ea533f6c3adb290ec76502ed4013190</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="Parking Reservation System">6ea533f6c3adb290ec76502ed4013190</sys_scope>
+        <sys_update_name/>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2025-12-17 06:26:11</sys_updated_on>
+        <url/>
+        <url_target/>
+    </sys_documentation>
+    <sys_choice action="delete_multiple" query="name=var__m_sys_hub_flow_input_55d713eac379b210ec76502ed40131a4"/>
+    <sys_choice action="delete_multiple" query="name=var__m_sys_hub_flow_output_55d713eac379b210ec76502ed40131a4"/>
+    <sys_hub_flow_snapshot action="INSERT_OR_UPDATE">
+        <access>public</access>
+        <acls/>
+        <active>true</active>
+        <annotation/>
+        <attributes>browserActivatedIn=chrome,integrationActivatedIn=standalone,labelCacheCleanUpExecuted=true,viewActivatedIn=naturalLanguage</attributes>
+        <authored_on_release_version>27800</authored_on_release_version>
+        <callable_by_client_api>false</callable_by_client_api>
+        <category/>
+        <copied_from/>
+        <copied_from_name/>
+        <description/>
+        <flow_priority>MEDIUM</flow_priority>
+        <internal_name>sync_rejected_parking_to_jira</internal_name>
+        <label_cache>[{"name":"Created_1.current.requester_name.name","label":"Trigger - Record Created➛Parking Reservation Record➛Requester Name➛Name","reference":"","reference_display":"Name","type":"string","base_type":"string","parent_table_name":"sys_user","column_name":"name","usedInstances":{"89e26f75-29ec-43cc-ade8-72b80404f100":["customfield_10071","customfield_10114"]}},{"name":"89e26f75-29ec-43cc-ade8-72b80404f100.issue.key","label":"1 - Create Issue➛Issue➛Key","reference":"","reference_display":"Key","type":"string","base_type":"string","usedInstances":{"96283e29-274e-4808-84a3-a8c0196d6227":["correlation_id"]},"attributes":{}},{"name":"Created_1.current","label":"Trigger - Record Created➛Parking Reservation Record","reference":"x_1869622_parkin_0_parking_reservation","reference_display":"Parking Reservation","type":"reference","base_type":"reference","usedInstances":{"96283e29-274e-4808-84a3-a8c0196d6227":["record"]},"attributes":{}},{"name":"Updated_1.current.number","label":"Trigger - Record Updated➛Parking Reservation Record➛Number","reference":"","reference_display":"Number","type":"string","base_type":"string","parent_table_name":"x_1869622_parkin_0_parking_reservation","column_name":"number","usedInstances":{"9b59ae4c-0cfe-43f7-9035-5ead2ad4de21":["summary"]}},{"name":"Updated_1.current.requester_name","label":"Trigger - Record Updated➛Parking Reservation Record➛Requester Name","reference":"sys_user","reference_display":"User","type":"reference","base_type":"reference","parent_table_name":"x_1869622_parkin_0_parking_reservation","column_name":"requester_name","usedInstances":{"9b59ae4c-0cfe-43f7-9035-5ead2ad4de21":["description"]}},{"name":"Updated_1.current.start_date_time","label":"Trigger - Record Updated➛Parking Reservation Record➛Start Date Time","reference":"","reference_display":"Start Date Time","type":"glide_date_time","base_type":"glide_date_time","parent_table_name":"x_1869622_parkin_0_parking_reservation","column_name":"start_date_time","usedInstances":{"9b59ae4c-0cfe-43f7-9035-5ead2ad4de21":["description"]}},{"name":"Updated_1.current.end_date_time","label":"Trigger - Record Updated➛Parking Reservation Record➛End Date Time","reference":"","reference_display":"End Date Time","type":"glide_date_time","base_type":"glide_date_time","parent_table_name":"x_1869622_parkin_0_parking_reservation","column_name":"end_date_time","usedInstances":{"9b59ae4c-0cfe-43f7-9035-5ead2ad4de21":["description"]}},{"name":"Created_1.current.number","label":"Trigger - Record Created➛Parking Reservation Record➛Number","reference":"","reference_display":"Number","type":"string","base_type":"string","parent_table_name":"x_1869622_parkin_0_parking_reservation","column_name":"number","usedInstances":{"89e26f75-29ec-43cc-ade8-72b80404f100":["summary","customfield_10081"]}},{"name":"Created_1.current.start_date_time","label":"Trigger - Record Created➛Parking Reservation Record➛Start Date Time","reference":"","reference_display":"Start Date Time","type":"glide_date_time","base_type":"glide_date_time","parent_table_name":"x_1869622_parkin_0_parking_reservation","column_name":"start_date_time","usedInstances":{"89e26f75-29ec-43cc-ade8-72b80404f100":["description","customfield_10076","customfield_10115","customfield_10148"]}},{"name":"Created_1.current.end_date_time","label":"Trigger - Record Created➛Parking Reservation Record➛End Date Time","reference":"","reference_display":"End Date Time","type":"glide_date_time","base_type":"glide_date_time","parent_table_name":"x_1869622_parkin_0_parking_reservation","column_name":"end_date_time","usedInstances":{"89e26f75-29ec-43cc-ade8-72b80404f100":["description","customfield_10077","customfield_10149"]}},{"name":"Created_1.current.requester_name","label":"Trigger - Record Created➛Parking Reservation Record➛Requester Name","reference":"sys_user","reference_display":"User","type":"reference","base_type":"reference","parent_table_name":"x_1869622_parkin_0_parking_reservation","column_name":"requester_name","usedInstances":{}},{"name":"Created_1.current.requester_email","label":"Trigger - Record Created➛Parking Reservation Record➛Email Address","reference":"","reference_display":"Email Address","type":"string","base_type":"string","parent_table_name":"x_1869622_parkin_0_parking_reservation","column_name":"requester_email","usedInstances":{"89e26f75-29ec-43cc-ade8-72b80404f100":["description","customfield_10072"]}},{"name":"Created_1.current.requester_phone","label":"Trigger - Record Created➛Parking Reservation Record➛Phone Number","reference":"","reference_display":"Phone Number","type":"string","base_type":"string","parent_table_name":"x_1869622_parkin_0_parking_reservation","column_name":"requester_phone","usedInstances":{"89e26f75-29ec-43cc-ade8-72b80404f100":["description","customfield_10073"]}},{"name":"Created_1.current.car_type","label":"Trigger - Record Created➛Parking Reservation Record➛Car Type","reference":"","reference_display":"Car Type","type":"choice","base_type":"choice","parent_table_name":"x_1869622_parkin_0_parking_reservation","column_name":"car_type","choices":[{"used":false,"image":"","label":"Pickup Truck","reference":false,"rawLabel":"Pickup Truck","selected":false,"missing":false,"value":"pickup_truck","parameters":{"name":"x_1869622_parkin_0_parking_reservation","dependent_values":[""]}},{"used":false,"image":"","label":"SUV","reference":false,"rawLabel":"SUV","selected":false,"missing":false,"value":"suv","parameters":{"name":"x_1869622_parkin_0_parking_reservation","dependent_values":[""]}},{"used":false,"image":"","label":"Van","reference":false,"rawLabel":"Van","selected":false,"missing":false,"value":"van","parameters":{"name":"x_1869622_parkin_0_parking_reservation","dependent_values":[""]}},{"used":false,"image":"","label":"Sedan","reference":false,"rawLabel":"Sedan","selected":false,"missing":false,"value":"sedan","parameters":{"name":"x_1869622_parkin_0_parking_reservation","dependent_values":[""]}},{"used":false,"image":"","label":"Hatchback","reference":false,"rawLabel":"Hatchback","selected":false,"missing":false,"value":"hatchback","parameters":{"name":"x_1869622_parkin_0_parking_reservation","dependent_values":[""]}},{"used":false,"image":"","label":"Motorcycle","reference":false,"rawLabel":"Motorcycle","selected":false,"missing":false,"value":"motorcycle","parameters":{"name":"x_1869622_parkin_0_parking_reservation","dependent_values":[""]}}],"usedInstances":{"89e26f75-29ec-43cc-ade8-72b80404f100":["description","customfield_10080","customfield_10074"]}},{"name":"Created_1.current.vehicle_registration","label":"Trigger - Record Created➛Parking Reservation Record➛Vehicle Registration Number","reference":"","reference_display":"Vehicle Registration Number","type":"string","base_type":"string","parent_table_name":"x_1869622_parkin_0_parking_reservation","column_name":"vehicle_registration","usedInstances":{"89e26f75-29ec-43cc-ade8-72b80404f100":["description","customfield_10075"]}},{"name":"Created_1.current.parking_location","label":"Trigger - Record Created➛Parking Reservation Record➛Parking Location","reference":"","reference_display":"Parking Location","type":"choice","base_type":"choice","parent_table_name":"x_1869622_parkin_0_parking_reservation","column_name":"parking_location","choices":[{"used":false,"image":"","label":"Airport Parking Area","reference":false,"rawLabel":"Airport Parking Area","selected":false,"missing":false,"value":"airport_parking_area","parameters":{"name":"x_1869622_parkin_0_parking_reservation","dependent_values":[""]}},{"used":false,"image":"","label":"Asiatique Riverfront Parking","reference":false,"rawLabel":"Asiatique Riverfront Parking","selected":false,"missing":false,"value":"asiatique_riverfront_parking","parameters":{"name":"x_1869622_parkin_0_parking_reservation","dependent_values":[""]}},{"used":false,"image":"","label":"Ayutthaya Historical Park Parking","reference":false,"rawLabel":"Ayutthaya Historical Park Parking","selected":false,"missing":false,"value":"ayutthaya_historical_park_parking","parameters":{"name":"x_1869622_parkin_0_parking_reservation","dependent_values":[""]}},{"used":false,"image":"","label":"Bangkok Downtown Parking","reference":false,"rawLabel":"Bangkok Downtown Parking","selected":false,"missing":false,"value":"bangkok_downtown_parking","parameters":{"name":"x_1869622_parkin_0_parking_reservation","dependent_values":[""]}},{"used":false,"image":"","label":"Central Festival Hat Yai Parking","reference":false,"rawLabel":"Central Festival Hat Yai Parking","selected":false,"missing":false,"value":"central_festival_hat_yai_parking","parameters":{"name":"x_1869622_parkin_0_parking_reservation","dependent_values":[""]}},{"used":false,"image":"","label":"Central Phuket Parking","reference":false,"rawLabel":"Central Phuket Parking","selected":false,"missing":false,"value":"central_phuket_parking","parameters":{"name":"x_1869622_parkin_0_parking_reservation","dependent_values":[""]}},{"used":false,"image":"","label":"Central Plaza Khon Kaen Parking","reference":false,"rawLabel":"Central Plaza Khon Kaen Parking","selected":false,"missing":false,"value":"central_plaza_khon_kaen_parking","parameters":{"name":"x_1869622_parkin_0_parking_reservation","dependent_values":[""]}},{"used":false,"image":"","label":"Central World Parking","reference":false,"rawLabel":"Central World Parking","selected":false,"missing":false,"value":"central_world_parking","parameters":{"name":"x_1869622_parkin_0_parking_reservation","dependent_values":[""]}},{"used":false,"image":"","label":"Chatuchak Weekend Market Parking","reference":false,"rawLabel":"Chatuchak Weekend Market Parking","selected":false,"missing":false,"value":"chatuchak_weekend_market_parking","parameters":{"name":"x_1869622_parkin_0_parking_reservation","dependent_values":[""]}},{"used":false,"image":"","label":"Chiang Mai Night Bazaar Parking","reference":false,"rawLabel":"Chiang Mai Night Bazaar Parking","selected":false,"missing":false,"value":"chiang_mai_night_bazaar_parking","parameters":{"name":"x_1869622_parkin_0_parking_reservation","dependent_values":[""]}},{"used":false,"image":"","label":"Chiang Mai Old City Parking","reference":false,"rawLabel":"Chiang Mai Old City Parking","selected":false,"missing":false,"value":"chiang_mai_old_city_parking","parameters":{"name":"x_1869622_parkin_0_parking_reservation","dependent_values":[""]}},{"used":false,"image":"","label":"Kalasin City Center Parking","reference":false,"rawLabel":"Kalasin City Center Parking","selected":false,"missing":false,"value":"kalasin_city_center_parking","parameters":{"name":"x_1869622_parkin_0_parking_reservation","dependent_values":[""]}},{"used":false,"image":"","label":"Khon Kaen University Parking","reference":false,"rawLabel":"Khon Kaen University Parking","selected":false,"missing":false,"value":"khon_kaen_university_parking","parameters":{"name":"x_1869622_parkin_0_parking_reservation","dependent_values":[""]}},{"used":false,"image":"","label":"MAYA Lifestyle Shopping Center Parking","reference":false,"rawLabel":"MAYA Lifestyle Shopping Center Parking","selected":false,"missing":false,"value":"maya_lifestyle_shopping_center_parking","parameters":{"name":"x_1869622_parkin_0_parking_reservation","dependent_values":[""]}},{"used":false,"image":"","label":"MBK Center Parking","reference":false,"rawLabel":"MBK Center Parking","selected":false,"missing":false,"value":"mbk_center_parking","parameters":{"name":"x_1869622_parkin_0_parking_reservation","dependent_values":[""]}},{"used":false,"image":"","label":"Patong Beach Parking","reference":false,"rawLabel":"Patong Beach Parking","selected":false,"missing":false,"value":"patong_beach_parking","parameters":{"name":"x_1869622_parkin_0_parking_reservation","dependent_values":[""]}},{"used":false,"image":"","label":"Pattaya Beach Road Parking","reference":false,"rawLabel":"Pattaya Beach Road Parking","selected":false,"missing":false,"value":"pattaya_beach_road_parking","parameters":{"name":"x_1869622_parkin_0_parking_reservation","dependent_values":[""]}},{"used":false,"image":"","label":"Phra That Ya Khu Temple Parking","reference":false,"rawLabel":"Phra That Ya Khu Temple Parking","selected":false,"missing":false,"value":"phra_that_ya_khu_temple_parking","parameters":{"name":"x_1869622_parkin_0_parking_reservation","dependent_values":[""]}},{"used":false,"image":"","label":"Phuket Airport Parking","reference":false,"rawLabel":"Phuket Airport Parking","selected":false,"missing":false,"value":"phuket_airport_parking","parameters":{"name":"x_1869622_parkin_0_parking_reservation","dependent_values":[""]}},{"used":false,"image":"","label":"Robinson Lifestyle Kalasin Parking","reference":false,"rawLabel":"Robinson Lifestyle Kalasin Parking","selected":false,"missing":false,"value":"robinson_lifestyle_kalasin_parking","parameters":{"name":"x_1869622_parkin_0_parking_reservation","dependent_values":[""]}},{"used":false,"image":"","label":"Shopping Mall Parking","reference":false,"rawLabel":"Shopping Mall Parking","selected":false,"missing":false,"value":"shopping_mall_parking","parameters":{"name":"x_1869622_parkin_0_parking_reservation","dependent_values":[""]}},{"used":false,"image":"","label":"Siam Square Parking","reference":false,"rawLabel":"Siam Square Parking","selected":false,"missing":false,"value":"siam_square_parking","parameters":{"name":"x_1869622_parkin_0_parking_reservation","dependent_values":[""]}},{"used":false,"image":"","label":"Suvarnabhumi Airport Parking","reference":false,"rawLabel":"Suvarnabhumi Airport Parking","selected":false,"missing":false,"value":"suvarnabhumi_airport_parking","parameters":{"name":"x_1869622_parkin_0_parking_reservation","dependent_values":[""]}},{"used":false,"image":"","label":"Terminal 21 Pattaya Parking","reference":false,"rawLabel":"Terminal 21 Pattaya Parking","selected":false,"missing":false,"value":"terminal_21_pattaya_parking","parameters":{"name":"x_1869622_parkin_0_parking_reservation","dependent_values":[""]}}],"usedInstances":{"89e26f75-29ec-43cc-ade8-72b80404f100":["description","customfield_10078"]}},{"name":"Created_1.current.duration_hours","label":"Trigger - Record Created➛Parking Reservation Record➛Duration Hours","reference":"","reference_display":"Duration Hours","type":"decimal","base_type":"decimal","parent_table_name":"x_1869622_parkin_0_parking_reservation","column_name":"duration_hours","usedInstances":{"89e26f75-29ec-43cc-ade8-72b80404f100":["description"]}},{"name":"Created_1.current.parking_fee","label":"Trigger - Record Created➛Parking Reservation Record➛Parking Fee (THB)","reference":"","reference_display":"Parking Fee (THB)","type":"decimal","base_type":"decimal","parent_table_name":"x_1869622_parkin_0_parking_reservation","column_name":"parking_fee","usedInstances":{"89e26f75-29ec-43cc-ade8-72b80404f100":["description"]}},{"name":"Created_1.current.location","label":"Trigger - Record Created➛Parking Reservation Record➛Location","reference":"cmn_location","reference_display":"Location","type":"reference","base_type":"reference","parent_table_name":"x_1869622_parkin_0_parking_reservation","column_name":"location","usedInstances":{}},{"name":"Created_1.current.requester_name.first_name","label":"Trigger - Record Created➛Parking Reservation Record➛Requester Name➛First name","reference":"","reference_display":"First name","type":"string","base_type":"string","parent_table_name":"sys_user","column_name":"first_name","usedInstances":{"89e26f75-29ec-43cc-ade8-72b80404f100":["description"]}},{"name":"Created_1.current.requester_name.last_name","label":"Trigger - Record Created➛Parking Reservation Record➛Requester Name➛Last name","reference":"","reference_display":"Last name","type":"string","base_type":"string","parent_table_name":"sys_user","column_name":"last_name","usedInstances":{"89e26f75-29ec-43cc-ade8-72b80404f100":["description"]}},{"name":"Created_1.current.parking_location.name","label":"Trigger - Record Created➛Parking Reservation Record➛Parking Location➛Name","reference":"","reference_display":"Name","type":"string","base_type":"string","parent_table_name":"x_1869622_parkin_0_parking_location","column_name":"name","usedInstances":{}}]</label_cache>
+        <master>true</master>
+        <name>Sync Parking to Jira</name>
+        <natlang/>
+        <outputs/>
+        <parent_flow display_value="Sync Parking to Jira">55d713eac379b210ec76502ed40131a4</parent_flow>
+        <remote_trigger_id/>
+        <run_as>user</run_as>
+        <run_with_roles/>
+        <sc_callable>false</sc_callable>
+        <status>published</status>
+        <sys_class_name>sys_hub_flow_snapshot</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2025-12-17 03:26:53</sys_created_on>
+        <sys_domain>global</sys_domain>
+        <sys_domain_path>/</sys_domain_path>
+        <sys_id>6c4e9fe6c3b9b210ec76502ed401315f</sys_id>
+        <sys_mod_count>27</sys_mod_count>
+        <sys_name/>
+        <sys_overrides/>
+        <sys_package/>
+        <sys_policy/>
+        <sys_scope display_value="Parking Reservation System">6ea533f6c3adb290ec76502ed4013190</sys_scope>
+        <sys_update_name/>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2025-12-22 03:30:34</sys_updated_on>
+        <type>flow</type>
+        <version>2</version>
+    </sys_hub_flow_snapshot>
+    <sys_translated_text action="delete_multiple" query="documentkey=6c4e9fe6c3b9b210ec76502ed401315f"/>
+    <sys_variable_value action="delete_multiple" query="document_key=6c4e9fe6c3b9b210ec76502ed401315f"/>
+    <sys_hub_flow_stage action="delete_multiple" query="flow=6c4e9fe6c3b9b210ec76502ed401315f"/>
+    <sys_flow_cat_variable_model action="delete_multiple" query="id=6c4e9fe6c3b9b210ec76502ed401315f^sys_idNOT INe84e9fe6c3b9b210ec76502ed4013161"/>
+    <sys_flow_cat_variable_model action="INSERT_OR_UPDATE">
+        <id>6c4e9fe6c3b9b210ec76502ed401315f</id>
+        <name>Sync Rejected Parking to Jira</name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2025-12-17 03:26:53</sys_created_on>
+        <sys_id>e84e9fe6c3b9b210ec76502ed4013161</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_scope/>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2025-12-17 03:26:53</sys_updated_on>
+    </sys_flow_cat_variable_model>
+    <sys_flow_cat_variable action="delete_multiple" query="flow_catalog_model=e84e9fe6c3b9b210ec76502ed4013161"/>
+    <sys_hub_flow_input action="delete_multiple" query="model=6c4e9fe6c3b9b210ec76502ed401315f^sys_idNOT IN6c4e9fe6c3b9b210ec76502ed4013182,e44e9fe6c3b9b210ec76502ed4013163"/>
+    <sys_hub_flow_input action="INSERT_OR_UPDATE">
+        <active>true</active>
+        <array>false</array>
+        <array_denormalized>false</array_denormalized>
+        <attributes>element_mapping_provider=com.glide.flow_design.action.data.FlowDesignVariableMapper,test_input_hidden=true,uiType=table_name</attributes>
+        <audit>false</audit>
+        <calculation><![CDATA[(function calculatedFieldValue(current) {
+
+	// Add your code here
+	return '';  // return the calculated value
+
+})(current);]]></calculation>
+        <choice/>
+        <choice_field/>
+        <choice_table/>
+        <column_label/>
+        <comments/>
+        <create_roles/>
+        <default_value/>
+        <defaultsort/>
+        <delete_roles/>
+        <dependent/>
+        <dependent_on_field/>
+        <display>false</display>
+        <dynamic_creation>false</dynamic_creation>
+        <dynamic_creation_script/>
+        <dynamic_default_value/>
+        <dynamic_ref_qual/>
+        <element>table_name</element>
+        <element_reference>false</element_reference>
+        <foreign_database/>
+        <formula/>
+        <function_definition/>
+        <function_field>false</function_field>
+        <help/>
+        <hint/>
+        <internal_type display_value="">table_name</internal_type>
+        <label>Table Name</label>
+        <mandatory>false</mandatory>
+        <max_length>200</max_length>
+        <model display_value="Sync Parking to Jira">6c4e9fe6c3b9b210ec76502ed401315f</model>
+        <model_id>6c4e9fe6c3b9b210ec76502ed401315f</model_id>
+        <model_table>sys_hub_flow_snapshot</model_table>
+        <name>var__m_sys_hub_flow_input_6c4e9fe6c3b9b210ec76502ed401315f</name>
+        <next_element/>
+        <order>101</order>
+        <primary>false</primary>
+        <read_only>false</read_only>
+        <read_roles/>
+        <reference/>
+        <reference_cascade_rule/>
+        <reference_floats>false</reference_floats>
+        <reference_key/>
+        <reference_qual/>
+        <reference_qual_condition/>
+        <reference_type/>
+        <sizeclass/>
+        <spell_check>false</spell_check>
+        <staged>false</staged>
+        <sys_class_name>sys_hub_flow_input</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2025-12-17 03:26:53</sys_created_on>
+        <sys_id>6c4e9fe6c3b9b210ec76502ed4013182</sys_id>
+        <sys_mod_count>53</sys_mod_count>
+        <sys_name/>
+        <sys_package/>
+        <sys_policy/>
+        <sys_scope display_value="Parking Reservation System">6ea533f6c3adb290ec76502ed4013190</sys_scope>
+        <sys_update_name/>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2025-12-22 03:30:34</sys_updated_on>
+        <table_reference>false</table_reference>
+        <text_index>false</text_index>
+        <unique>false</unique>
+        <use_dependent_field>false</use_dependent_field>
+        <use_dynamic_default>false</use_dynamic_default>
+        <use_reference_qualifier>simple</use_reference_qualifier>
+        <virtual>false</virtual>
+        <virtual_type>script</virtual_type>
+        <widget/>
+        <write_roles/>
+        <xml_view>false</xml_view>
+    </sys_hub_flow_input>
+    <sys_hub_action_input_action_instance action="delete_multiple" query="action_input=6c4e9fe6c3b9b210ec76502ed4013182"/>
+    <sys_hub_flow_input action="INSERT_OR_UPDATE">
+        <active>true</active>
+        <array>false</array>
+        <array_denormalized>false</array_denormalized>
+        <attributes>element_mapping_provider=com.glide.flow_design.action.data.FlowDesignVariableMapper,uiType=document_id</attributes>
+        <audit>false</audit>
+        <calculation><![CDATA[(function calculatedFieldValue(current) {
+
+	// Add your code here
+	return '';  // return the calculated value
+
+})(current);]]></calculation>
+        <choice/>
+        <choice_field/>
+        <choice_table/>
+        <column_label/>
+        <comments/>
+        <create_roles/>
+        <default_value/>
+        <defaultsort/>
+        <delete_roles/>
+        <dependent>table_name</dependent>
+        <dependent_on_field>table_name</dependent_on_field>
+        <display>false</display>
+        <dynamic_creation>false</dynamic_creation>
+        <dynamic_creation_script/>
+        <dynamic_default_value/>
+        <dynamic_ref_qual/>
+        <element>current</element>
+        <element_reference>false</element_reference>
+        <foreign_database/>
+        <formula/>
+        <function_definition/>
+        <function_field>false</function_field>
+        <help/>
+        <hint/>
+        <internal_type display_value="">document_id</internal_type>
+        <label>Record</label>
+        <mandatory>true</mandatory>
+        <max_length>200</max_length>
+        <model display_value="Sync Parking to Jira">6c4e9fe6c3b9b210ec76502ed401315f</model>
+        <model_id>6c4e9fe6c3b9b210ec76502ed401315f</model_id>
+        <model_table>sys_hub_flow_snapshot</model_table>
+        <name>var__m_sys_hub_flow_input_6c4e9fe6c3b9b210ec76502ed401315f</name>
+        <next_element/>
+        <order>100</order>
+        <primary>false</primary>
+        <read_only>false</read_only>
+        <read_roles/>
+        <reference/>
+        <reference_cascade_rule/>
+        <reference_floats>false</reference_floats>
+        <reference_key/>
+        <reference_qual/>
+        <reference_qual_condition/>
+        <reference_type/>
+        <sizeclass/>
+        <spell_check>false</spell_check>
+        <staged>false</staged>
+        <sys_class_name>sys_hub_flow_input</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2025-12-17 03:26:53</sys_created_on>
+        <sys_id>e44e9fe6c3b9b210ec76502ed4013163</sys_id>
+        <sys_mod_count>53</sys_mod_count>
+        <sys_name/>
+        <sys_package/>
+        <sys_policy/>
+        <sys_scope display_value="Parking Reservation System">6ea533f6c3adb290ec76502ed4013190</sys_scope>
+        <sys_update_name/>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2025-12-22 03:30:34</sys_updated_on>
+        <table_reference>false</table_reference>
+        <text_index>false</text_index>
+        <unique>false</unique>
+        <use_dependent_field>true</use_dependent_field>
+        <use_dynamic_default>false</use_dynamic_default>
+        <use_reference_qualifier>simple</use_reference_qualifier>
+        <virtual>false</virtual>
+        <virtual_type>script</virtual_type>
+        <widget/>
+        <write_roles/>
+        <xml_view>false</xml_view>
+    </sys_hub_flow_input>
+    <sys_hub_action_input_action_instance action="delete_multiple" query="action_input=e44e9fe6c3b9b210ec76502ed4013163"/>
+    <sys_hub_flow_output action="delete_multiple" query="model=6c4e9fe6c3b9b210ec76502ed401315f"/>
+    <sys_hub_alias_mapping action="delete_multiple" query="source_id=6c4e9fe6c3b9b210ec76502ed401315f"/>
+    <sys_hub_trigger_instance_v2 action="delete_multiple" query="flow=6c4e9fe6c3b9b210ec76502ed401315f^sys_idNOT IN744e9fe6c3b9b210ec76502ed4013198"/>
+    <sys_hub_trigger_instance_v2 action="INSERT_OR_UPDATE">
+        <comment/>
+        <display_text/>
+        <flow display_value="Sync Parking to Jira">6c4e9fe6c3b9b210ec76502ed401315f</flow>
+        <generation_source/>
+        <name>Created</name>
+        <published_version/>
+        <remote_sys_id/>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2025-12-17 03:26:54</sys_created_on>
+        <sys_id>744e9fe6c3b9b210ec76502ed4013198</sys_id>
+        <sys_mod_count>2</sys_mod_count>
+        <sys_scope/>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2025-12-22 03:30:34</sys_updated_on>
+        <trigger_definition display_value="Created">798916a0c31322002841b63b12d3ae7c</trigger_definition>
+        <trigger_inputs>H4sIAAAAAAAA/9VZ227jNhD9FUFPLeACuviat62TRQPsbha2t0URBAIlkrawNOlKlBJ3kX/vUDfLujh2rGydlyAiqZnDozNnyOT+h86QS5h+pS+Qy4je030uScARW2w3BIalGnY4Wqu5NeIYSRFs9SsZRKSn00CsF2S9YUjCYopYCIMiwCTQr8yeHiMWkfk2vMUQCd5PwmQx9Wwanp8cczycDC3L2aDgu88dI/tl6QQkJEGMpC84vID9EFJt/8ze+5ou0mZ7i7yVz3BAuH51/9DTIRAklQrQj8qUr1B51EMTixiebdqWZRjWuG+6Q9s1LWwjYhgQsMpQZReygagdBeRJEo4JLtipcRgQhO842xYrVvAJUr7W6Cn0/4XoY0OtowSweySdKx6djJV02FsJ3yN3m4SMZCTFmU4KFq35lxS/4pNQFDGZ8wkjUQjxyEZBViAyRHS+Eo+zPOFHnye7yyaZ8BArnpCUge9GkoSKcOozoN5JuQlFFCToZzfTu9m189eHxfSPm5kzu5kvZrfTxc21/pzsy/knUhFThBkWJ93OcyGCjz5h6gPyaO0Cmp4eeoG/kR886ce5Fp97O31PBcd+JpGKxr18KtzXeL77QyI3jFaZe6WMudQ9EQSEJVJ1fHw7v/n8dfH3yaIdDhHCBLWI1qUl0Za33YBLNjBQ3toh+WYjx+i3bxj/k4Izn3qtgNcCE3a9C6fD5HIJkvb5JpKKrUfEZehI4SCMnRKPailgeknR6d7qsn5Z0EHEIYRTfKG6rBMiC0Y/+SFs4B6KMmcrCQnz9FMWchZxTcCnhB+aF4FSudRym6O3a7TMOKZzwognS7Kg38Ly02c/DMGZS6iLpAkrtZxFOpCXlm8pzR2emfyhy5qukx5XyKz0qJNr2zQpdQm1jJGqbNOwXWoaI2OAKLYNw7NKtV0H04pSViTxJjV+WoWHiRjZEdKrUpyBN8rVcJSM4n0N5iQoiWRGMu0GmtkRNEtBqxiifZIjFrJMh6/31Xloax0fBRCOEbyBjzVGteAIB6RMPIIZv8L9XOR9XwYi4rhqRyqm5nNtt0L7JePv1w6dkIqAHAawv+KSPHBHey5cxLcduJ9NTXdC+sQA07PB79zBZOJ6yKJ0NBwRy6y43w5GI7Z34XovqC1ukmubAzYKJ27S2wnedwbAmg+eDPB8B8yE2eh/6dz7cLrHFeEOQA0cprysZnhL5mOSz3Vb7bXU8a6+z614Op54A3M08kZwj4GKp33iIrNvDdBkNLTHg0rF16AcgikbmPkpt5twGyZAWtzgWzp1WXf1t5RtSKRU7ej0Ls3VRVm9g9IkpU6pPouWmIoItC+C/3a7W6fNCTTA5IrbVbs+BoX6sNrbwnCFXNXOC5D6dxjfS63OmS2sXNyVqiKSeH+vZ1+pSH88mFC72WLopMlidmDaYV788eLIColba63pnHGs4OPGumk9GLxCwhWZlE8MB440XZFidk6K9Xak2Gcfo/JabL1HvgbsO2phybninD6mchJH0LJ5XwsNJjRIovlUy/62SLDmbjW5IkApg/Oy+heHyn6ua5e7SB1KoeCfCyQ9gde6GQxr2QHq8hpVRQrd3oAJHqHBwG45D0+qN+AmQC/gvfi2dXJVxE1FdrB3nRa3GrOxe5Uku6+II/tSp7tubk7n7bqxPb206/Mbz6H7ewOKC20pD/8B8599zGsfAAA=</trigger_inputs>
+        <trigger_outputs/>
+        <trigger_type>record_create</trigger_type>
+        <updation_source/>
+    </sys_hub_trigger_instance_v2>
+    <sys_hub_action_instance_v2 action="delete_multiple" query="flow=6c4e9fe6c3b9b210ec76502ed401315f^sys_idNOT IN0ee7dcf6c371f210ec76502ed4013181,c9f5acb6c3f1f210ec76502ed40131d5"/>
+    <sys_hub_action_instance_v2 action="INSERT_OR_UPDATE">
+        <action_type display_value="Create Issue">4266397e9f9c02105760e6073b0a1c4e</action_type>
+        <action_type_parent display_value="Create Issue">06aeb8f69fd802105760e6073b0a1cd9</action_type_parent>
+        <attributes/>
+        <comment/>
+        <compiled_snapshot>4266397e9f9c02105760e6073b0a1c4e</compiled_snapshot>
+        <display_text/>
+        <flow display_value="Sync Parking to Jira">6c4e9fe6c3b9b210ec76502ed401315f</flow>
+        <generation_source/>
+        <order>1</order>
+        <parent_ui_id/>
+        <sys_class_name>sys_hub_action_instance_v2</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2025-12-17 07:38:46</sys_created_on>
+        <sys_id>0ee7dcf6c371f210ec76502ed4013181</sys_id>
+        <sys_mod_count>23</sys_mod_count>
+        <sys_scope display_value="Parking Reservation System">6ea533f6c3adb290ec76502ed4013190</sys_scope>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2025-12-21 14:30:03</sys_updated_on>
+        <ui_id>89e26f75-29ec-43cc-ade8-72b80404f100</ui_id>
+        <updation_source/>
+        <values>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</values>
+    </sys_hub_action_instance_v2>
+    <sys_hub_alias_mapping action="delete_multiple" query="source_id=0ee7dcf6c371f210ec76502ed4013181"/>
+    <sys_hub_action_instance_v2 action="INSERT_OR_UPDATE">
+        <action_type display_value="Update Record">f9d01dd2c31332002841b63b12d3aea1</action_type>
+        <action_type_parent display_value="Update Record">baf174c8c3c232002841b63b12d3aee4</action_type_parent>
+        <attributes/>
+        <comment/>
+        <compiled_snapshot>f9d01dd2c31332002841b63b12d3aea1</compiled_snapshot>
+        <display_text/>
+        <flow display_value="Sync Parking to Jira">6c4e9fe6c3b9b210ec76502ed401315f</flow>
+        <generation_source/>
+        <order>2</order>
+        <parent_ui_id/>
+        <sys_class_name>sys_hub_action_instance_v2</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2025-12-17 08:40:07</sys_created_on>
+        <sys_id>c9f5acb6c3f1f210ec76502ed40131d5</sys_id>
+        <sys_mod_count>1</sys_mod_count>
+        <sys_scope display_value="Parking Reservation System">6ea533f6c3adb290ec76502ed4013190</sys_scope>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2025-12-17 08:40:07</sys_updated_on>
+        <ui_id>96283e29-274e-4808-84a3-a8c0196d6227</ui_id>
+        <updation_source/>
+        <values>H4sIAAAAAAAA/+VVXW/aMBT9K8jPEDkJpcDbBKo0qWundupLV0WOfQNWnY/ZDi2L+O+7SRxgFHVU4qUaT/h+2Oec3GM/VkQKMiVDENSf+CMe+mEYUBqMh348CmM/ECED8EmfZCwFrNTAcy1wvWKqrANVNdPALIjI93ipNWR2s8G8kKZQbP3gyjDCl1IJzJPp41OfFEzjjhY0mVYHqVMhKRaDwtK7DtMhRrsu6rXIeZkirkh2wWvXOXeZ3tc5ZrCphuPTPoFXC5kABJIwZaBPUpYJZnO9JlOrSwwgaXGbqfW2Yikz2xJN2auRv/HkIa3rEkBm3ImwXUZOoDaczJll97gzt6Xe6pVLDqbVREDCSmVn+7G24LawMs/aFsti1XXnqkyzm1YRst1g73uUBkFAUfOskbe0kvtl/nLXgbySWSOJo6hyztR2xazVMi5tDacioKDROGVFIbNFVOh8JZtmhJJ6C4ULL1H5C55p5CLzGK9xe6gq864wPm/CD0zLmsQ33AabN31i1mammDE7Kqhh9KuskbTEHIWoUaGRIGomoW7mWhb2Cx61Agd803dDH1+8N2F8shuovT13g/8a+ePRZBQEEY7ys8wi6v4sIg0G9Io13+WNE763Rb27v4o+Zo4ToHfm+NGMxHEqzh9vYtf7vb2bNuHccXE2d4w/kzscjU9vj3+ZggbvXrt7k9T4wOwZAi9dDaoZaLxpf5aUhqKqxhMIRsnlxSCYAB8MQ84HTMB4cBnEYzqkw8Sn1JPGlOA9w/rY03G2fT/msROU6Dx2JUEJc0SazmCQIiELUSvVgclcsvfgkttn6GxO80e0+X0iv/03r9HTH6ZE8sCECQAA</values>
+    </sys_hub_action_instance_v2>
+    <sys_hub_alias_mapping action="delete_multiple" query="source_id=c9f5acb6c3f1f210ec76502ed40131d5"/>
+    <sys_hub_sub_flow_instance_v2 action="delete_multiple" query="flow=6c4e9fe6c3b9b210ec76502ed401315f"/>
+    <sys_hub_flow_logic_instance_v2 action="delete_multiple" query="flow=6c4e9fe6c3b9b210ec76502ed401315f"/>
+    <sys_hub_pill_compound action="delete_multiple" query="attached_to=6c4e9fe6c3b9b210ec76502ed401315f"/>
+    <sys_hub_flow_variable action="delete_multiple" query="model=6c4e9fe6c3b9b210ec76502ed401315f"/>
+    <sys_documentation action="INSERT_OR_UPDATE">
+        <element>current</element>
+        <help/>
+        <hint/>
+        <label>Record</label>
+        <language>en</language>
+        <name>var__m_sys_hub_flow_input_6c4e9fe6c3b9b210ec76502ed401315f</name>
+        <plural/>
+        <sys_class_name>sys_documentation</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2025-12-17 03:26:53</sys_created_on>
+        <sys_id>2c4e9fe6c3b9b210ec76502ed4013173</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name/>
+        <sys_package display_value="Parking Reservation System" source="x_1869622_parkin_0">6ea533f6c3adb290ec76502ed4013190</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="Parking Reservation System">6ea533f6c3adb290ec76502ed4013190</sys_scope>
+        <sys_update_name/>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2025-12-17 03:26:53</sys_updated_on>
+        <url/>
+        <url_target/>
+    </sys_documentation>
+    <sys_documentation action="INSERT_OR_UPDATE">
+        <element>table_name</element>
+        <help/>
+        <hint/>
+        <label>Table Name</label>
+        <language>en</language>
+        <name>var__m_sys_hub_flow_input_6c4e9fe6c3b9b210ec76502ed401315f</name>
+        <plural/>
+        <sys_class_name>sys_documentation</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2025-12-17 03:26:54</sys_created_on>
+        <sys_id>6c4e9fe6c3b9b210ec76502ed4013189</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name/>
+        <sys_package display_value="Parking Reservation System" source="x_1869622_parkin_0">6ea533f6c3adb290ec76502ed4013190</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="Parking Reservation System">6ea533f6c3adb290ec76502ed4013190</sys_scope>
+        <sys_update_name/>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2025-12-17 03:26:54</sys_updated_on>
+        <url/>
+        <url_target/>
+    </sys_documentation>
+    <sys_choice action="delete_multiple" query="name=var__m_sys_hub_flow_input_6c4e9fe6c3b9b210ec76502ed401315f"/>
+    <sys_choice action="delete_multiple" query="name=var__m_sys_hub_flow_output_6c4e9fe6c3b9b210ec76502ed401315f"/>
+    <sys_hub_flow action="UPDATE">
+        <sys_id>55d713eac379b210ec76502ed40131a4</sys_id>
+        <latest_snapshot>6c4e9fe6c3b9b210ec76502ed401315f</latest_snapshot>
+        <compiler_build>glide-yokohama-12-18-2024__patch9-10-22-2025_11-02-2025_1032.zip</compiler_build>
+    </sys_hub_flow>
+    <sys_flow_trigger_plan action="delete_multiple" query="plan_id=55d713eac379b210ec76502ed40131a4^sys_idNOT INcd4edfe6c3b9b210ec76502ed4013103"/>
+    <sys_flow_trigger_plan action="INSERT_OR_UPDATE">
+        <binding_strategy>com.snc.process_flow.engine.binding.OncePerRecord</binding_strategy>
+        <plan>{"type":"PlanProxy","persistor":{"@class":".ChunkingPlanPersistor","table":"sys_flow_trigger_plan","id":"cd4edfe6c3b9b210ec76502ed4013103","name":"plan","plan_signature":null}}</plan>
+        <plan_id>55d713eac379b210ec76502ed40131a4</plan_id>
+        <snapshot>01239d18c30ebe10ec76502ed401313a</snapshot>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2025-12-17 03:26:55</sys_created_on>
+        <sys_domain>global</sys_domain>
+        <sys_domain_path>/</sys_domain_path>
+        <sys_id>cd4edfe6c3b9b210ec76502ed4013103</sys_id>
+        <sys_mod_count>17</sys_mod_count>
+        <sys_overrides/>
+        <sys_scope/>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2025-12-22 03:30:35</sys_updated_on>
+        <trigger display_value="">630f0150c30ebe10ec76502ed40131e0</trigger>
+    </sys_flow_trigger_plan>
+    <sys_flow_subflow_plan action="delete_multiple" query="plan_id=55d713eac379b210ec76502ed40131a4"/>
+</record_update>

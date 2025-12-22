@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?><record_update>
-    <sys_dictionary action="INSERT_OR_UPDATE" element="parking_location" table="x_1869622_parkin_0_parking_reservation">
+    <sys_dictionary action="INSERT_OR_UPDATE" element="jira_status" table="x_1869622_parkin_0_parking_reservation">
         <active>true</active>
         <array>false</array>
         <attributes/>
         <audit>false</audit>
         <calculation/>
-        <choice>3</choice>
+        <choice>0</choice>
         <choice_field/>
         <choice_table/>
-        <column_label>Parking Location</column_label>
+        <column_label>Jira Status</column_label>
         <comments/>
         <create_roles/>
         <default_value/>
@@ -21,15 +21,15 @@
         <dynamic_creation_script/>
         <dynamic_default_value/>
         <dynamic_ref_qual/>
-        <element>parking_location</element>
+        <element>jira_status</element>
         <element_reference>false</element_reference>
         <foreign_database/>
         <formula/>
         <function_definition/>
         <function_field>false</function_field>
-        <internal_type display_value="Choice">choice</internal_type>
+        <internal_type display_value="String">string</internal_type>
         <mandatory>false</mandatory>
-        <max_length>32</max_length>
+        <max_length>50</max_length>
         <name>x_1869622_parkin_0_parking_reservation</name>
         <next_element/>
         <primary>false</primary>
@@ -46,14 +46,14 @@
         <staged>false</staged>
         <sys_class_name>sys_dictionary</sys_class_name>
         <sys_created_by>admin</sys_created_by>
-        <sys_created_on>2025-12-05 14:37:35</sys_created_on>
-        <sys_name>Parking Location</sys_name>
+        <sys_created_on>2025-12-19 04:29:31</sys_created_on>
+        <sys_name>Jira Status</sys_name>
         <sys_package display_value="Parking Reservation System" source="x_1869622_parkin_0">6ea533f6c3adb290ec76502ed4013190</sys_package>
         <sys_policy/>
         <sys_scope display_value="Parking Reservation System">6ea533f6c3adb290ec76502ed4013190</sys_scope>
-        <sys_update_name>sys_dictionary_x_1869622_parkin_0_parking_reservation_parking_location</sys_update_name>
+        <sys_update_name>sys_dictionary_x_1869622_parkin_0_parking_reservation_jira_status</sys_update_name>
         <sys_updated_by>admin</sys_updated_by>
-        <sys_updated_on>2025-12-18 09:14:46</sys_updated_on>
+        <sys_updated_on>2025-12-19 04:29:32</sys_updated_on>
         <table_reference>false</table_reference>
         <text_index>false</text_index>
         <unique>false</unique>

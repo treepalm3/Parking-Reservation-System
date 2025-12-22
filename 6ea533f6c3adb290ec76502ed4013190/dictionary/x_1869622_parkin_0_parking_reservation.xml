@@ -2,8 +2,10 @@
     <element db_object_id="6450440fc3edb290ec76502ed4013118" extends="task" label="Parking Reservation" max_length="40" name="x_1869622_parkin_0_parking_reservation" type="collection">
         <element default="71657db3c3edf210ec76502ed40131dc" label="Assignment Group" max_length="32" name="assignment_grou0" reference="sys_user_group" type="reference"/>
         <element label="Vehicle Registration Number" max_length="20" name="vehicle_registration" type="string"/>
+        <element label="Jira Status" max_length="50" name="jira_status" type="string"/>
         <element label="Parking Fee (THB)" max_length="38" name="parking_fee" read_only="true" type="decimal"/>
         <element label="Requester Name" max_length="32" name="requester_name" reference="sys_user" type="reference"/>
+        <element default="true" label="Sync to Jira" max_length="255" name="sync_to_jira" type="boolean"/>
         <element choice="3" default="pending" label="Reservation Status" max_length="40" name="reservation_status" read_only="true" type="choice">
             <choice>
                 <element inactive_on_update="false" label="rejected" sequence="2" value="rejected"/>
@@ -12,7 +14,35 @@
                 <element inactive_on_update="false" label="confirmed" sequence="1" value="confirmed"/>
             </choice>
         </element>
-        <element label="Parking Location" max_length="32" name="parking_location" reference="x_1869622_parkin_0_parking_location" type="reference"/>
+        <element choice="3" label="Parking Location" max_length="32" name="parking_location" type="choice">
+            <choice>
+                <element inactive_on_update="false" label="MBK Center Parking" sequence="14" value="mbk_center_parking"/>
+                <element inactive_on_update="false" label="Siam Square Parking" sequence="21" value="siam_square_parking"/>
+                <element inactive_on_update="false" label="Airport Parking Area" sequence="0" value="airport_parking_area"/>
+                <element inactive_on_update="false" label="Chiang Mai Old City Parking" sequence="10" value="chiang_mai_old_city_parking"/>
+                <element inactive_on_update="false" label="Phra That Ya Khu Temple Parking" sequence="17" value="phra_that_ya_khu_temple_parking"/>
+                <element inactive_on_update="false" label="Central Plaza Khon Kaen Parking" sequence="6" value="central_plaza_khon_kaen_parking"/>
+                <element inactive_on_update="false" label="Ayutthaya Historical Park Parking" sequence="2" value="ayutthaya_historical_park_parking"/>
+                <element inactive_on_update="false" label="MAYA Lifestyle Shopping Center Parking" sequence="13" value="maya_lifestyle_shopping_center_parking"/>
+                <element inactive_on_update="false" label="Shopping Mall Parking" sequence="20" value="shopping_mall_parking"/>
+                <element inactive_on_update="false" label="Chiang Mai Night Bazaar Parking" sequence="9" value="chiang_mai_night_bazaar_parking"/>
+                <element inactive_on_update="false" label="Central Phuket Parking" sequence="5" value="central_phuket_parking"/>
+                <element inactive_on_update="false" label="Pattaya Beach Road Parking" sequence="16" value="pattaya_beach_road_parking"/>
+                <element inactive_on_update="false" label="Terminal 21 Pattaya Parking" sequence="24" value="terminal_21_pattaya_parking"/>
+                <element inactive_on_update="false" label="Central Festival Hat Yai Parking" sequence="4" value="central_festival_hat_yai_parking"/>
+                <element inactive_on_update="false" label="Patong Beach Parking" sequence="15" value="patong_beach_parking"/>
+                <element inactive_on_update="false" label="Asiatique Riverfront Parking" sequence="1" value="asiatique_riverfront_parking"/>
+                <element inactive_on_update="false" label="Khon Kaen University Parking" sequence="12" value="khon_kaen_university_parking"/>
+                <element inactive_on_update="false" label="Robinson Lifestyle Kalasin Parking" sequence="19" value="robinson_lifestyle_kalasin_parking"/>
+                <element inactive_on_update="false" label="Chatuchak Weekend Market Parking" sequence="8" value="chatuchak_weekend_market_parking"/>
+                <element inactive_on_update="false" label="Suvarnabhumi Airport Parking" sequence="23" value="suvarnabhumi_airport_parking"/>
+                <element inactive_on_update="false" label="Phuket Airport Parking" sequence="18" value="phuket_airport_parking"/>
+                <element inactive_on_update="false" label="Central World Parking" sequence="7" value="central_world_parking"/>
+                <element inactive_on_update="false" label="Bangkok Downtown Parking" sequence="3" value="bangkok_downtown_parking"/>
+                <element inactive_on_update="false" label="Kalasin City Center Parking" sequence="11" value="kalasin_city_center_parking"/>
+            </choice>
+        </element>
+        <element label="Jira Issue Key" max_length="50" name="jira_issue_key" type="string"/>
         <element label="Phone Number" max_length="40" name="requester_phone" type="string"/>
         <element choice="3" label="Car Type" max_length="40" name="car_type" type="choice">
             <choice>
@@ -25,6 +55,7 @@
             </choice>
         </element>
         <element label="Email Address" max_length="100" name="requester_email" type="string"/>
+        <element label="Jira Issue URL" max_length="1024" name="jira_issue_url" type="url"/>
         <element label="Start Date Time" max_length="40" name="start_date_time" type="glide_date_time"/>
         <element label="Duration Hours" max_length="40" name="duration_hours" read_only="true" type="decimal"/>
         <element label="End Date Time" max_length="40" name="end_date_time" type="glide_date_time"/>

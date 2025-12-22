@@ -1,0 +1,520 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sys_ws_operation">
+    <sys_ws_operation action="DELETE">
+        <active>true</active>
+        <consumes>application/json,application/xml,text/xml</consumes>
+        <consumes_customized>false</consumes_customized>
+        <default_operation_uri/>
+        <enforce_acl>cf9d01d3e73003009d6247e603f6a990</enforce_acl>
+        <http_method>POST</http_method>
+        <name>Update Status from Jira</name>
+        <operation_script><![CDATA[(function process(request, response) {
+    
+    try {
+        // Parse request body
+        var requestBody = request.body.data;
+        
+        gs.info('[Jira Webhook] ========== NEW REQUEST ==========');
+        gs.info('[Jira Webhook] Full payload: ' + JSON.stringify(requestBody));
+        
+        // ดึงข้อมูลจาก Jira webhook
+        var issueKey = requestBody.issue_key || requestBody.issue.key;
+        var status = requestBody.status || requestBody.issue.fields.status.name;
+        
+        gs.info('[Jira Webhook] Issue Key: ' + issueKey);
+        gs.info('[Jira Webhook] Status: ' + status);
+        
+        // Validate
+        if (!issueKey || !status) {
+            gs.warn('[Jira Webhook] Missing issue_key or status');
+            response.setStatus(400);
+            response.setBody({
+                status: 'error',
+                message: 'Missing issue_key or status'
+            });
+            return;
+        }
+        
+        // เช็คว่า status = Done หรือไม่
+        if (status !== 'Done' && status !== 'Closed') {
+            gs.info('[Jira Webhook] Status not Done/Closed: ' + status);
+            response.setStatus(200);
+            response.setBody({
+                status: 'success',
+                message: 'Status not Done, no action taken'
+            });
+            return;
+        }
+        
+        // หา Parking Reservation จาก Jira Issue Key
+        var parking = new GlideRecord('x_1869622_parkin_0_parking_reservation');
+        parking.addQuery('jira_issue_key', issueKey);
+        parking.addQuery('reservation_status', 'pending');
+        parking.setLimit(1);
+        parking.query();
+        
+        if (parking.next()) {
+            
+            var parkingNumber = parking.getValue('number');
+            var requesterName = parking.requester_name.getDisplayValue();
+            var requesterEmail = parking.getValue('requester_email');
+            
+            gs.info('[Jira Webhook] Found parking: ' + parkingNumber);
+            gs.info('[Jira Webhook] Requester: ' + requesterName + ' (' + requesterEmail + ')');
+            
+            // อัปเดตสถานะ
+            parking.setValue('reservation_status', 'confirmed');
+            parking.setValue('jira_status', status);
+            parking.work_notes = '✓ Auto-confirmed from Jira via Webhook\n' +
+                                'Status: ' + status + '\n' +
+                                'Updated: ' + new GlideDateTime().getDisplayValue() + '\n' +
+                                'Issue Key: ' + issueKey;
+            
+            parking.update();
+            
+            gs.info('[Jira Webhook] Status updated to confirmed');
+            
+            // ส่งอีเมล
+            var emailSent = sendConfirmationEmail(parking);
+            
+            // Response
+            response.setStatus(200);
+            response.setBody({
+                status: 'success',
+                parking_number: parkingNumber,
+                new_status: 'confirmed',
+                email_sent: emailSent,
+                message: 'Parking confirmed and email sent'
+            });
+            
+        } else {
+            gs.warn('[Jira Webhook] Parking not found for issue: ' + issueKey);
+            gs.warn('[Jira Webhook] Or already confirmed');
+            
+            response.setStatus(404);
+            response.setBody({
+                status: 'error',
+                message: 'Parking reservation not found or already confirmed',
+                issue_key: issueKey
+            });
+        }
+        
+    } catch (ex) {
+        gs.error('[Jira Webhook] Exception: ' + ex.message);
+        gs.logError('[Jira Webhook] Stack trace: ' + ex.stack);
+        
+        response.setStatus(500);
+        response.setBody({
+            status: 'error',
+            message: 'Server error: ' + ex.message
+        });
+    }
+    
+    
+    // ฟังก์ชันส่งอีเมล
+    function sendConfirmationEmail(parkingRecord) {
+        try {
+            var email = new GlideEmailOutbound();
+            
+            // From
+            email.setFrom('noreply@company.com');
+            
+            // To
+            var recipientEmail = parkingRecord.getValue('requester_email');
+            if (!recipientEmail || recipientEmail == '') {
+                gs.warn('[Jira Webhook] No recipient email');
+                return false;
+            }
+            email.addAddress(recipientEmail);
+            
+            // Subject
+            var subject = '✓ Parking Confirmed - ' + parkingRecord.getValue('number');
+            email.setSubject(subject);
+            
+            // Body (HTML)
+            var body = buildEmailBody(parkingRecord);
+            email.setBody(body);
+            
+            // Send
+            email.send();
+            
+            gs.info('[Jira Webhook] Email sent to: ' + recipientEmail);
+            return true;
+            
+        } catch (ex) {
+            gs.error('[Jira Webhook] Email error: ' + ex.message);
+            return false;
+        }
+    }
+    
+    
+    // สร้าง Email Body
+    function buildEmailBody(parking) {
+        var body = '<html><body style="font-family: Arial, sans-serif;">';
+        body += '<div style="max-width: 600px; margin: 0 auto; padding: 20px; border: 1px solid #ddd;">';
+        
+        // Header
+        body += '<h2 style="color: #2c5282;">✅ Parking Reservation Confirmed!</h2>';
+        body += '<p>Dear <strong>' + parking.requester_name.getDisplayValue() + '</strong>,</p>';
+        body += '<p>Your parking reservation has been <strong style="color: green;">confirmed</strong>!</p>';
+        
+        // Details Section
+        body += '<div style="background: #f7fafc; padding: 15px; border-radius: 5px; margin: 20px 0;">';
+        body += '<h3 style="margin-top: 0;">]]>📋<![CDATA[ Reservation Details</h3>';
+        body += '<table style="width: 100%;">';
+        body += '<tr><td style="padding: 5px;"><strong>Number:</strong></td>';
+        body += '<td style="padding: 5px;">' + parking.getValue('number') + '</td></tr>';
+        body += '<tr><td style="padding: 5px;"><strong>Vehicle:</strong></td>';
+        body += '<td style="padding: 5px;">' + parking.getValue('vehicle_registration_number') + '</td></tr>';
+        body += '<tr><td style="padding: 5px;"><strong>Car Type:</strong></td>';
+        body += '<td style="padding: 5px;">' + parking.getValue('car_type') + '</td></tr>';
+        body += '<tr><td style="padding: 5px;"><strong>Location:</strong></td>';
+        body += '<td style="padding: 5px;">' + parking.parking_location.getDisplayValue() + '</td></tr>';
+        body += '</table>';
+        body += '</div>';
+        
+        // Date Section
+        body += '<div style="background: #fff5f5; padding: 15px; border-radius: 5px; border-left: 4px solid #f56565; margin: 20px 0;">';
+        body += '<h3 style="margin-top: 0; color: #c53030;">⏰ Important Dates</h3>';
+        body += '<table style="width: 100%;">';
+        body += '<tr><td style="padding: 5px;"><strong>Start:</strong></td>';
+        body += '<td style="padding: 5px;">' + parking.start_date_time.getDisplayValue() + '</td></tr>';
+        body += '<tr><td style="padding: 5px;"><strong>End:</strong></td>';
+        body += '<td style="padding: 5px;">' + parking.end_date_time.getDisplayValue() + '</td></tr>';
+        body += '<tr><td style="padding: 5px;"><strong>Duration:</strong></td>';
+        body += '<td style="padding: 5px;">' + parking.getValue('duration_hours') + ' hours</td></tr>';
+        body += '</table>';
+        body += '</div>';
+        
+        // Payment Section
+        body += '<div style="background: #f0fff4; padding: 15px; border-radius: 5px; border-left: 4px solid #48bb78; margin: 20px 0;">';
+        body += '<h3 style="margin-top: 0; color: #22543d;">]]>💰<![CDATA[ Payment</h3>';
+        body += '<p style="font-size: 24px; font-weight: bold; color: #22543d; margin: 10px 0;">';
+        body += parking.getValue('parking_fee') + ' THB';
+        body += '</p>';
+        body += '</div>';
+        
+        // Footer
+        body += '<div style="margin-top: 30px; padding-top: 20px; border-top: 1px solid #ddd;">';
+        body += '<p style="color: #666; font-size: 14px;">';
+        body += 'Please arrive on time and show this confirmation email at the parking entrance.';
+        body += '</p>';
+        body += '<p style="color: #666; font-size: 14px;">';
+        body += '<strong>Jira Ticket:</strong> ' + parking.getValue('jira_issue_key') + '<br>';
+        body += '<strong>Status:</strong> ✅ Confirmed';
+        body += '</p>';
+        body += '</div>';
+        
+        // View Details Button
+        var instanceUrl = gs.getProperty('glide.servlet.uri');
+        var recordUrl = instanceUrl + 'x_1869622_parkin_0_parking_reservation.do?sys_id=' + parking.sys_id;
+        body += '<div style="margin-top: 20px; text-align: center;">';
+        body += '<a href="' + recordUrl + '" ';
+        body += 'style="display: inline-block; background: #2c5282; color: white; ';
+        body += 'padding: 12px 30px; text-decoration: none; border-radius: 5px; font-weight: bold;">';
+        body += 'View Full Details';
+        body += '</a>';
+        body += '</div>';
+        
+        // Disclaimer
+        body += '<div style="margin-top: 30px; padding-top: 20px; border-top: 1px solid #ddd; text-align: center; color: #999; font-size: 12px;">';
+        body += '<p>This is an automated message from Parking Reservation System</p>';
+        body += '<p>Please do not reply to this email</p>';
+        body += '</div>';
+        
+        body += '</div>';
+        body += '</body></html>';
+        
+        return body;
+    }
+    
+})(request, response);]]></operation_script>
+        <operation_uri>/api/x_1869622_parkin_0/jira_webhook/status-update</operation_uri>
+        <produces>application/json,application/xml,text/xml</produces>
+        <produces_customized>false</produces_customized>
+        <relative_path>/status-update</relative_path>
+        <request_example/>
+        <requires_acl_authorization>true</requires_acl_authorization>
+        <requires_authentication>true</requires_authentication>
+        <requires_snc_internal_role>true</requires_snc_internal_role>
+        <short_description/>
+        <sys_class_name>sys_ws_operation</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2025-12-19 03:22:03</sys_created_on>
+        <sys_id>cdffa55fc3f5f610ec76502ed4013121</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>Update Status from Jira</sys_name>
+        <sys_package display_value="Parking Reservation System" source="x_1869622_parkin_0">6ea533f6c3adb290ec76502ed4013190</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="Parking Reservation System">6ea533f6c3adb290ec76502ed4013190</sys_scope>
+        <sys_update_name>sys_ws_operation_cdffa55fc3f5f610ec76502ed4013121</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2025-12-19 03:22:03</sys_updated_on>
+        <web_service_definition display_value="Jira Webhook Handler">393feddbc3f5f610ec76502ed40131a1</web_service_definition>
+        <web_service_version/>
+    </sys_ws_operation>
+    <sys_update_version action="INSERT_OR_UPDATE">
+        <action>DELETE</action>
+        <application display_value="Parking Reservation System">6ea533f6c3adb290ec76502ed4013190</application>
+        <file_path/>
+        <instance_id>b63623e43b702e54a36804e0b5e45a2d</instance_id>
+        <instance_name>dev318569</instance_name>
+        <name>sys_ws_operation_cdffa55fc3f5f610ec76502ed4013121</name>
+        <payload>&lt;?xml version="1.0" encoding="UTF-8"?&gt;&lt;record_update table="sys_ws_operation"&gt;&lt;sys_ws_operation action="INSERT_OR_UPDATE"&gt;&lt;active&gt;true&lt;/active&gt;&lt;consumes&gt;application/json,application/xml,text/xml&lt;/consumes&gt;&lt;consumes_customized&gt;false&lt;/consumes_customized&gt;&lt;default_operation_uri/&gt;&lt;enforce_acl&gt;cf9d01d3e73003009d6247e603f6a990&lt;/enforce_acl&gt;&lt;http_method&gt;POST&lt;/http_method&gt;&lt;name&gt;Update Status from Jira&lt;/name&gt;&lt;operation_script&gt;&lt;![CDATA[(function process(request, response) {
+    
+    try {
+        // Parse request body
+        var requestBody = request.body.data;
+        
+        gs.info('[Jira Webhook] ========== NEW REQUEST ==========');
+        gs.info('[Jira Webhook] Full payload: ' + JSON.stringify(requestBody));
+        
+        // ดึงข้อมูลจาก Jira webhook
+        var issueKey = requestBody.issue_key || requestBody.issue.key;
+        var status = requestBody.status || requestBody.issue.fields.status.name;
+        
+        gs.info('[Jira Webhook] Issue Key: ' + issueKey);
+        gs.info('[Jira Webhook] Status: ' + status);
+        
+        // Validate
+        if (!issueKey || !status) {
+            gs.warn('[Jira Webhook] Missing issue_key or status');
+            response.setStatus(400);
+            response.setBody({
+                status: 'error',
+                message: 'Missing issue_key or status'
+            });
+            return;
+        }
+        
+        // เช็คว่า status = Done หรือไม่
+        if (status !== 'Done' &amp;&amp; status !== 'Closed') {
+            gs.info('[Jira Webhook] Status not Done/Closed: ' + status);
+            response.setStatus(200);
+            response.setBody({
+                status: 'success',
+                message: 'Status not Done, no action taken'
+            });
+            return;
+        }
+        
+        // หา Parking Reservation จาก Jira Issue Key
+        var parking = new GlideRecord('x_1869622_parkin_0_parking_reservation');
+        parking.addQuery('jira_issue_key', issueKey);
+        parking.addQuery('reservation_status', 'pending');
+        parking.setLimit(1);
+        parking.query();
+        
+        if (parking.next()) {
+            
+            var parkingNumber = parking.getValue('number');
+            var requesterName = parking.requester_name.getDisplayValue();
+            var requesterEmail = parking.getValue('requester_email');
+            
+            gs.info('[Jira Webhook] Found parking: ' + parkingNumber);
+            gs.info('[Jira Webhook] Requester: ' + requesterName + ' (' + requesterEmail + ')');
+            
+            // อัปเดตสถานะ
+            parking.setValue('reservation_status', 'confirmed');
+            parking.setValue('jira_status', status);
+            parking.work_notes = '✓ Auto-confirmed from Jira via Webhook\n' +
+                                'Status: ' + status + '\n' +
+                                'Updated: ' + new GlideDateTime().getDisplayValue() + '\n' +
+                                'Issue Key: ' + issueKey;
+            
+            parking.update();
+            
+            gs.info('[Jira Webhook] Status updated to confirmed');
+            
+            // ส่งอีเมล
+            var emailSent = sendConfirmationEmail(parking);
+            
+            // Response
+            response.setStatus(200);
+            response.setBody({
+                status: 'success',
+                parking_number: parkingNumber,
+                new_status: 'confirmed',
+                email_sent: emailSent,
+                message: 'Parking confirmed and email sent'
+            });
+            
+        } else {
+            gs.warn('[Jira Webhook] Parking not found for issue: ' + issueKey);
+            gs.warn('[Jira Webhook] Or already confirmed');
+            
+            response.setStatus(404);
+            response.setBody({
+                status: 'error',
+                message: 'Parking reservation not found or already confirmed',
+                issue_key: issueKey
+            });
+        }
+        
+    } catch (ex) {
+        gs.error('[Jira Webhook] Exception: ' + ex.message);
+        gs.logError('[Jira Webhook] Stack trace: ' + ex.stack);
+        
+        response.setStatus(500);
+        response.setBody({
+            status: 'error',
+            message: 'Server error: ' + ex.message
+        });
+    }
+    
+    
+    // ฟังก์ชันส่งอีเมล
+    function sendConfirmationEmail(parkingRecord) {
+        try {
+            var email = new GlideEmailOutbound();
+            
+            // From
+            email.setFrom('noreply@company.com');
+            
+            // To
+            var recipientEmail = parkingRecord.getValue('requester_email');
+            if (!recipientEmail || recipientEmail == '') {
+                gs.warn('[Jira Webhook] No recipient email');
+                return false;
+            }
+            email.addAddress(recipientEmail);
+            
+            // Subject
+            var subject = '✓ Parking Confirmed - ' + parkingRecord.getValue('number');
+            email.setSubject(subject);
+            
+            // Body (HTML)
+            var body = buildEmailBody(parkingRecord);
+            email.setBody(body);
+            
+            // Send
+            email.send();
+            
+            gs.info('[Jira Webhook] Email sent to: ' + recipientEmail);
+            return true;
+            
+        } catch (ex) {
+            gs.error('[Jira Webhook] Email error: ' + ex.message);
+            return false;
+        }
+    }
+    
+    
+    // สร้าง Email Body
+    function buildEmailBody(parking) {
+        var body = '&lt;html&gt;&lt;body style="font-family: Arial, sans-serif;"&gt;';
+        body += '&lt;div style="max-width: 600px; margin: 0 auto; padding: 20px; border: 1px solid #ddd;"&gt;';
+        
+        // Header
+        body += '&lt;h2 style="color: #2c5282;"&gt;✅ Parking Reservation Confirmed!&lt;/h2&gt;';
+        body += '&lt;p&gt;Dear &lt;strong&gt;' + parking.requester_name.getDisplayValue() + '&lt;/strong&gt;,&lt;/p&gt;';
+        body += '&lt;p&gt;Your parking reservation has been &lt;strong style="color: green;"&gt;confirmed&lt;/strong&gt;!&lt;/p&gt;';
+        
+        // Details Section
+        body += '&lt;div style="background: #f7fafc; padding: 15px; border-radius: 5px; margin: 20px 0;"&gt;';
+        body += '&lt;h3 style="margin-top: 0;"&gt;]]&gt;📋&lt;![CDATA[ Reservation Details&lt;/h3&gt;';
+        body += '&lt;table style="width: 100%;"&gt;';
+        body += '&lt;tr&gt;&lt;td style="padding: 5px;"&gt;&lt;strong&gt;Number:&lt;/strong&gt;&lt;/td&gt;';
+        body += '&lt;td style="padding: 5px;"&gt;' + parking.getValue('number') + '&lt;/td&gt;&lt;/tr&gt;';
+        body += '&lt;tr&gt;&lt;td style="padding: 5px;"&gt;&lt;strong&gt;Vehicle:&lt;/strong&gt;&lt;/td&gt;';
+        body += '&lt;td style="padding: 5px;"&gt;' + parking.getValue('vehicle_registration_number') + '&lt;/td&gt;&lt;/tr&gt;';
+        body += '&lt;tr&gt;&lt;td style="padding: 5px;"&gt;&lt;strong&gt;Car Type:&lt;/strong&gt;&lt;/td&gt;';
+        body += '&lt;td style="padding: 5px;"&gt;' + parking.getValue('car_type') + '&lt;/td&gt;&lt;/tr&gt;';
+        body += '&lt;tr&gt;&lt;td style="padding: 5px;"&gt;&lt;strong&gt;Location:&lt;/strong&gt;&lt;/td&gt;';
+        body += '&lt;td style="padding: 5px;"&gt;' + parking.parking_location.getDisplayValue() + '&lt;/td&gt;&lt;/tr&gt;';
+        body += '&lt;/table&gt;';
+        body += '&lt;/div&gt;';
+        
+        // Date Section
+        body += '&lt;div style="background: #fff5f5; padding: 15px; border-radius: 5px; border-left: 4px solid #f56565; margin: 20px 0;"&gt;';
+        body += '&lt;h3 style="margin-top: 0; color: #c53030;"&gt;⏰ Important Dates&lt;/h3&gt;';
+        body += '&lt;table style="width: 100%;"&gt;';
+        body += '&lt;tr&gt;&lt;td style="padding: 5px;"&gt;&lt;strong&gt;Start:&lt;/strong&gt;&lt;/td&gt;';
+        body += '&lt;td style="padding: 5px;"&gt;' + parking.start_date_time.getDisplayValue() + '&lt;/td&gt;&lt;/tr&gt;';
+        body += '&lt;tr&gt;&lt;td style="padding: 5px;"&gt;&lt;strong&gt;End:&lt;/strong&gt;&lt;/td&gt;';
+        body += '&lt;td style="padding: 5px;"&gt;' + parking.end_date_time.getDisplayValue() + '&lt;/td&gt;&lt;/tr&gt;';
+        body += '&lt;tr&gt;&lt;td style="padding: 5px;"&gt;&lt;strong&gt;Duration:&lt;/strong&gt;&lt;/td&gt;';
+        body += '&lt;td style="padding: 5px;"&gt;' + parking.getValue('duration_hours') + ' hours&lt;/td&gt;&lt;/tr&gt;';
+        body += '&lt;/table&gt;';
+        body += '&lt;/div&gt;';
+        
+        // Payment Section
+        body += '&lt;div style="background: #f0fff4; padding: 15px; border-radius: 5px; border-left: 4px solid #48bb78; margin: 20px 0;"&gt;';
+        body += '&lt;h3 style="margin-top: 0; color: #22543d;"&gt;]]&gt;💰&lt;![CDATA[ Payment&lt;/h3&gt;';
+        body += '&lt;p style="font-size: 24px; font-weight: bold; color: #22543d; margin: 10px 0;"&gt;';
+        body += parking.getValue('parking_fee') + ' THB';
+        body += '&lt;/p&gt;';
+        body += '&lt;/div&gt;';
+        
+        // Footer
+        body += '&lt;div style="margin-top: 30px; padding-top: 20px; border-top: 1px solid #ddd;"&gt;';
+        body += '&lt;p style="color: #666; font-size: 14px;"&gt;';
+        body += 'Please arrive on time and show this confirmation email at the parking entrance.';
+        body += '&lt;/p&gt;';
+        body += '&lt;p style="color: #666; font-size: 14px;"&gt;';
+        body += '&lt;strong&gt;Jira Ticket:&lt;/strong&gt; ' + parking.getValue('jira_issue_key') + '&lt;br&gt;';
+        body += '&lt;strong&gt;Status:&lt;/strong&gt; ✅ Confirmed';
+        body += '&lt;/p&gt;';
+        body += '&lt;/div&gt;';
+        
+        // View Details Button
+        var instanceUrl = gs.getProperty('glide.servlet.uri');
+        var recordUrl = instanceUrl + 'x_1869622_parkin_0_parking_reservation.do?sys_id=' + parking.sys_id;
+        body += '&lt;div style="margin-top: 20px; text-align: center;"&gt;';
+        body += '&lt;a href="' + recordUrl + '" ';
+        body += 'style="display: inline-block; background: #2c5282; color: white; ';
+        body += 'padding: 12px 30px; text-decoration: none; border-radius: 5px; font-weight: bold;"&gt;';
+        body += 'View Full Details';
+        body += '&lt;/a&gt;';
+        body += '&lt;/div&gt;';
+        
+        // Disclaimer
+        body += '&lt;div style="margin-top: 30px; padding-top: 20px; border-top: 1px solid #ddd; text-align: center; color: #999; font-size: 12px;"&gt;';
+        body += '&lt;p&gt;This is an automated message from Parking Reservation System&lt;/p&gt;';
+        body += '&lt;p&gt;Please do not reply to this email&lt;/p&gt;';
+        body += '&lt;/div&gt;';
+        
+        body += '&lt;/div&gt;';
+        body += '&lt;/body&gt;&lt;/html&gt;';
+        
+        return body;
+    }
+    
+})(request, response);]]&gt;&lt;/operation_script&gt;&lt;operation_uri&gt;/api/x_1869622_parkin_0/jira_webhook/status-update&lt;/operation_uri&gt;&lt;produces&gt;application/json,application/xml,text/xml&lt;/produces&gt;&lt;produces_customized&gt;false&lt;/produces_customized&gt;&lt;relative_path&gt;/status-update&lt;/relative_path&gt;&lt;request_example/&gt;&lt;requires_acl_authorization&gt;true&lt;/requires_acl_authorization&gt;&lt;requires_authentication&gt;true&lt;/requires_authentication&gt;&lt;requires_snc_internal_role&gt;true&lt;/requires_snc_internal_role&gt;&lt;short_description/&gt;&lt;sys_class_name&gt;sys_ws_operation&lt;/sys_class_name&gt;&lt;sys_created_by&gt;admin&lt;/sys_created_by&gt;&lt;sys_created_on&gt;2025-12-19 03:22:03&lt;/sys_created_on&gt;&lt;sys_id&gt;cdffa55fc3f5f610ec76502ed4013121&lt;/sys_id&gt;&lt;sys_mod_count&gt;0&lt;/sys_mod_count&gt;&lt;sys_name&gt;Update Status from Jira&lt;/sys_name&gt;&lt;sys_package display_value="Parking Reservation System" source="x_1869622_parkin_0"&gt;6ea533f6c3adb290ec76502ed4013190&lt;/sys_package&gt;&lt;sys_policy/&gt;&lt;sys_scope display_value="Parking Reservation System"&gt;6ea533f6c3adb290ec76502ed4013190&lt;/sys_scope&gt;&lt;sys_update_name&gt;sys_ws_operation_cdffa55fc3f5f610ec76502ed4013121&lt;/sys_update_name&gt;&lt;sys_updated_by&gt;admin&lt;/sys_updated_by&gt;&lt;sys_updated_on&gt;2025-12-19 03:22:03&lt;/sys_updated_on&gt;&lt;web_service_definition display_value="Jira Webhook Handler"&gt;393feddbc3f5f610ec76502ed40131a1&lt;/web_service_definition&gt;&lt;web_service_version/&gt;&lt;/sys_ws_operation&gt;&lt;/record_update&gt;</payload>
+        <payload_hash>1900517867</payload_hash>
+        <record_name>Update Status from Jira</record_name>
+        <reverted_from/>
+        <source>d2e952c6c375ba10ec76502ed4013129</source>
+        <source_table>sys_update_set</source_table>
+        <state>previous</state>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2025-12-19 03:22:03</sys_created_on>
+        <sys_id>d150719fc3f5f610ec76502ed4013170</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_recorded_at>19b34a0fa3d0000001</sys_recorded_at>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2025-12-19 03:22:03</sys_updated_on>
+        <type>Scripted REST Resource</type>
+        <update_guid>d150f9dbe2f5f610b490ebbdea35e426</update_guid>
+        <update_guid_history>d150f9dbe2f5f610b490ebbdea35e426:1900517867</update_guid_history>
+    </sys_update_version>
+    <sys_metadata_delete action="INSERT_OR_UPDATE">
+        <sys_audit_delete/>
+        <sys_class_name>sys_metadata_delete</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2025-12-19 06:45:56</sys_created_on>
+        <sys_db_object display_value="" name="sys_ws_operation">sys_ws_operation</sys_db_object>
+        <sys_id>3491b9f5d6b5436797c5f27a4970eca9</sys_id>
+        <sys_metadata>cdffa55fc3f5f610ec76502ed4013121</sys_metadata>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>Update Status from Jira</sys_name>
+        <sys_package display_value="Parking Reservation System" source="x_1869622_parkin_0">6ea533f6c3adb290ec76502ed4013190</sys_package>
+        <sys_parent/>
+        <sys_policy/>
+        <sys_scope display_value="Parking Reservation System">6ea533f6c3adb290ec76502ed4013190</sys_scope>
+        <sys_scope_delete display_value="">5c63e0b7913e4fdd8a9afa8940bdb1b9</sys_scope_delete>
+        <sys_update_name>sys_ws_operation_cdffa55fc3f5f610ec76502ed4013121</sys_update_name>
+        <sys_update_version display_value="sys_ws_operation_cdffa55fc3f5f610ec76502ed4013121">d150719fc3f5f610ec76502ed4013170</sys_update_version>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2025-12-19 06:45:56</sys_updated_on>
+    </sys_metadata_delete>
+</record_update>

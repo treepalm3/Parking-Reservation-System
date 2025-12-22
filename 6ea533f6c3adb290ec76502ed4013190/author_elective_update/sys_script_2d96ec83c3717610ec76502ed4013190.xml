@@ -1,0 +1,541 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update sys_domain="global" table="sys_script">
+    <sys_script action="DELETE">
+        <abort_action>false</abort_action>
+        <access>package_private</access>
+        <action_delete>false</action_delete>
+        <action_insert>true</action_insert>
+        <action_query>false</action_query>
+        <action_update>false</action_update>
+        <active>true</active>
+        <add_message>false</add_message>
+        <advanced>true</advanced>
+        <change_fields>false</change_fields>
+        <client_callable>false</client_callable>
+        <collection>x_1869622_parkin_0_parking_reservation</collection>
+        <condition/>
+        <description/>
+        <execute_function>false</execute_function>
+        <filter_condition/>
+        <is_rest>false</is_rest>
+        <message/>
+        <name>Create Jira Issue</name>
+        <order>100</order>
+        <priority>100</priority>
+        <rest_method/>
+        <rest_method_text/>
+        <rest_service/>
+        <rest_service_text/>
+        <rest_variables/>
+        <role_conditions/>
+        <script><![CDATA[(function executeRule(current, previous) {
+    
+    try {
+        // ตรวจสอบว่ามี Jira Issue แล้วหรือยัง
+        if (current.getValue('jira_issue_key')) {
+            gs.info('[Jira] Issue already exists: ' + current.getValue('jira_issue_key'));
+            return;
+        }
+        
+        // ตรวจสอบว่าต้องการ sync หรือไม่
+        if (current.getValue('sync_to_jira') != 'true') {
+            gs.info('[Jira] Sync disabled for: ' + current.getValue('number'));
+            return;
+        }
+        
+        // สร้าง REST Message
+        var restMessage = new sn_ws.RESTMessageV2('Jira Parking Integration', 'createParkingIssue');
+        
+        // ServiceNow URL
+        var instanceUrl = gs.getProperty('glide.servlet.uri');
+        var recordUrl = instanceUrl + 'x_1869622_parkin_0_parking_reservation.do?sys_id=' + current.sys_id;
+        
+        // สร้าง Summary
+        var summary = ']]>🅿<![CDATA[️ Parking: ' + current.getValue('number') + ' - ' + 
+                      current.requester_name.getDisplayValue();
+        
+        // สร้าง Description (Jira Atlassian Document Format)
+        var description = {
+            "type": "doc",
+            "version": 1,
+            "content": [
+                {
+                    "type": "heading",
+                    "attrs": { "level": 2 },
+                    "content": [
+                        { "type": "text", "text": "Parking Reservation Details" }
+                    ]
+                },
+                {
+                    "type": "paragraph",
+                    "content": [
+                        { "type": "text", "marks": [{ "type": "strong" }], "text": "Reservation Number: " },
+                        { "type": "text", "text": current.getValue('number') }
+                    ]
+                },
+                {
+                    "type": "paragraph",
+                    "content": [
+                        { "type": "text", "marks": [{ "type": "strong" }], "text": "Requester: " },
+                        { "type": "text", "text": current.requester_name.getDisplayValue() }
+                    ]
+                },
+                {
+                    "type": "paragraph",
+                    "content": [
+                        { "type": "text", "marks": [{ "type": "strong" }], "text": "Email: " },
+                        { "type": "text", "text": current.getValue('requester_email') }
+                    ]
+                },
+                {
+                    "type": "paragraph",
+                    "content": [
+                        { "type": "text", "marks": [{ "type": "strong" }], "text": "Phone: " },
+                        { "type": "text", "text": current.getValue('requester_phone') }
+                    ]
+                },
+                {
+                    "type": "rule"
+                },
+                {
+                    "type": "heading",
+                    "attrs": { "level": 3 },
+                    "content": [
+                        { "type": "text", "text": "]]>🚗<![CDATA[ Vehicle Information" }
+                    ]
+                },
+                {
+                    "type": "paragraph",
+                    "content": [
+                        { "type": "text", "marks": [{ "type": "strong" }], "text": "License Plate: " },
+                        { "type": "text", "text": current.getValue('vehicle_registration_number') }
+                    ]
+                },
+                {
+                    "type": "paragraph",
+                    "content": [
+                        { "type": "text", "marks": [{ "type": "strong" }], "text": "Car Type: " },
+                        { "type": "text", "text": current.getValue('car_type') }
+                    ]
+                },
+                {
+                    "type": "rule"
+                },
+                {
+                    "type": "heading",
+                    "attrs": { "level": 3 },
+                    "content": [
+                        { "type": "text", "text": "]]>📅<![CDATA[ Booking Details" }
+                    ]
+                },
+                {
+                    "type": "paragraph",
+                    "content": [
+                        { "type": "text", "marks": [{ "type": "strong" }], "text": "Start: " },
+                        { "type": "text", "text": current.start_date_time.getDisplayValue() }
+                    ]
+                },
+                {
+                    "type": "paragraph",
+                    "content": [
+                        { "type": "text", "marks": [{ "type": "strong" }], "text": "End: " },
+                        { "type": "text", "text": current.end_date_time.getDisplayValue() }
+                    ]
+                },
+                {
+                    "type": "paragraph",
+                    "content": [
+                        { "type": "text", "marks": [{ "type": "strong" }], "text": "Duration: " },
+                        { "type": "text", "text": current.getValue('duration_hours') + ' hours' }
+                    ]
+                },
+                {
+                    "type": "paragraph",
+                    "content": [
+                        { "type": "text", "marks": [{ "type": "strong" }], "text": "Location: " },
+                        { "type": "text", "text": current.parking_location.getDisplayValue() }
+                    ]
+                },
+                {
+                    "type": "rule"
+                },
+                {
+                    "type": "heading",
+                    "attrs": { "level": 3 },
+                    "content": [
+                        { "type": "text", "text": "]]>💰<![CDATA[ Payment" }
+                    ]
+                },
+                {
+                    "type": "paragraph",
+                    "content": [
+                        { "type": "text", "marks": [{ "type": "strong" }], "text": "Fee: " },
+                        { "type": "text", "marks": [{ "type": "strong" }], "text": current.getValue('parking_fee') + ' THB' }
+                    ]
+                },
+                {
+                    "type": "rule"
+                },
+                {
+                    "type": "paragraph",
+                    "content": [
+                        { "type": "text", "marks": [{ "type": "em" }], "text": "ServiceNow: " },
+                        { "type": "text", "marks": [{ "type": "link", "attrs": { "href": recordUrl } }], "text": recordUrl }
+                    ]
+                }
+            ]
+        };
+        
+        // เตรียม Request Body
+        var requestBody = {
+            "fields": {
+                "project": {
+                    "key": "PARK"  // แก้เป็น Project Key จริงของคุณ
+                },
+                "summary": summary,
+                "description": description,
+                "issuetype": {
+                    "name": "Task"  // หรือ "Story", "Bug" ตามที่ต้องการ
+                },
+                "priority": {
+                    "name": "Medium"
+                },
+                "labels": [
+                    "parking",
+                    "reservation",
+                    "servicenow"
+                ]
+            }
+        };
+        
+        // ส่ง Request
+        restMessage.setRequestBody(JSON.stringify(requestBody));
+        var response = restMessage.execute();
+        var responseBody = response.getBody();
+        var statusCode = response.getStatusCode();
+        
+        // Log request
+        gs.info('[Jira] Request sent for: ' + current.getValue('number'));
+        gs.info('[Jira] Status Code: ' + statusCode);
+        
+        // ตรวจสอบผลลัพธ์
+        if (statusCode == 201 || statusCode == 200) {
+            var responseObj = JSON.parse(responseBody);
+            var issueKey = responseObj.key;
+            var issueId = responseObj.id;
+            
+            // สร้าง Jira URL
+            var jiraBaseUrl = 'https://mfec-team-eacabvze.atlassian.net';  // แก้เป็น domain จริง
+            var issueUrl = jiraBaseUrl + '/browse/' + issueKey;
+            
+            // บันทึกข้อมูลกลับใน ServiceNow
+            current.setValue('jira_issue_key', issueKey);
+            current.setValue('jira_issue_url', issueUrl);
+            current.setValue('jira_status', 'Open');
+            current.update();
+            
+            // แสดง Success Message
+            gs.addInfoMessage('✓ Jira issue created: ' + issueKey);
+            gs.info('[Jira] Issue created successfully: ' + issueKey);
+            
+        } else {
+            // Error handling
+            gs.error('[Jira] Failed to create issue. Status: ' + statusCode);
+            gs.error('[Jira] Response: ' + responseBody);
+            gs.addErrorMessage('❌ Failed to create Jira issue. Check system logs.');
+        }
+        
+    } catch (ex) {
+        gs.error('[Jira] Exception: ' + ex.message);
+        gs.logError(ex.message, 'Parking Jira Integration');
+        gs.addErrorMessage('❌ Error creating Jira issue: ' + ex.message);
+    }
+    
+})(current, previous);]]></script>
+        <sys_class_name>sys_script</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2025-12-18 03:25:39</sys_created_on>
+        <sys_domain>global</sys_domain>
+        <sys_domain_path>/</sys_domain_path>
+        <sys_id>2d96ec83c3717610ec76502ed4013190</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>Create Jira Issue</sys_name>
+        <sys_overrides/>
+        <sys_package display_value="Parking Reservation System" source="x_1869622_parkin_0">6ea533f6c3adb290ec76502ed4013190</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="Parking Reservation System">6ea533f6c3adb290ec76502ed4013190</sys_scope>
+        <sys_update_name>sys_script_2d96ec83c3717610ec76502ed4013190</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2025-12-18 03:25:39</sys_updated_on>
+        <template/>
+        <when>after</when>
+    </sys_script>
+    <sys_translated_text action="DELETE" query="documentkey=2d96ec83c3717610ec76502ed4013190"/>
+    <sys_update_version action="INSERT_OR_UPDATE">
+        <action>DELETE</action>
+        <application display_value="Parking Reservation System">6ea533f6c3adb290ec76502ed4013190</application>
+        <file_path/>
+        <instance_id>b63623e43b702e54a36804e0b5e45a2d</instance_id>
+        <instance_name>dev318569</instance_name>
+        <name>sys_script_2d96ec83c3717610ec76502ed4013190</name>
+        <payload>&lt;?xml version="1.0" encoding="UTF-8"?&gt;&lt;record_update sys_domain="global" table="sys_script"&gt;&lt;sys_script action="INSERT_OR_UPDATE"&gt;&lt;abort_action&gt;false&lt;/abort_action&gt;&lt;access&gt;package_private&lt;/access&gt;&lt;action_delete&gt;false&lt;/action_delete&gt;&lt;action_insert&gt;true&lt;/action_insert&gt;&lt;action_query&gt;false&lt;/action_query&gt;&lt;action_update&gt;false&lt;/action_update&gt;&lt;active&gt;true&lt;/active&gt;&lt;add_message&gt;false&lt;/add_message&gt;&lt;advanced&gt;true&lt;/advanced&gt;&lt;change_fields&gt;false&lt;/change_fields&gt;&lt;client_callable&gt;false&lt;/client_callable&gt;&lt;collection&gt;x_1869622_parkin_0_parking_reservation&lt;/collection&gt;&lt;condition/&gt;&lt;description/&gt;&lt;execute_function&gt;false&lt;/execute_function&gt;&lt;filter_condition/&gt;&lt;is_rest&gt;false&lt;/is_rest&gt;&lt;message/&gt;&lt;name&gt;Create Jira Issue&lt;/name&gt;&lt;order&gt;100&lt;/order&gt;&lt;priority&gt;100&lt;/priority&gt;&lt;rest_method/&gt;&lt;rest_method_text/&gt;&lt;rest_service/&gt;&lt;rest_service_text/&gt;&lt;rest_variables/&gt;&lt;role_conditions/&gt;&lt;script&gt;&lt;![CDATA[(function executeRule(current, previous) {
+    
+    try {
+        // ตรวจสอบว่ามี Jira Issue แล้วหรือยัง
+        if (current.getValue('jira_issue_key')) {
+            gs.info('[Jira] Issue already exists: ' + current.getValue('jira_issue_key'));
+            return;
+        }
+        
+        // ตรวจสอบว่าต้องการ sync หรือไม่
+        if (current.getValue('sync_to_jira') != 'true') {
+            gs.info('[Jira] Sync disabled for: ' + current.getValue('number'));
+            return;
+        }
+        
+        // สร้าง REST Message
+        var restMessage = new sn_ws.RESTMessageV2('Jira Parking Integration', 'createParkingIssue');
+        
+        // ServiceNow URL
+        var instanceUrl = gs.getProperty('glide.servlet.uri');
+        var recordUrl = instanceUrl + 'x_1869622_parkin_0_parking_reservation.do?sys_id=' + current.sys_id;
+        
+        // สร้าง Summary
+        var summary = ']]&gt;🅿&lt;![CDATA[️ Parking: ' + current.getValue('number') + ' - ' + 
+                      current.requester_name.getDisplayValue();
+        
+        // สร้าง Description (Jira Atlassian Document Format)
+        var description = {
+            "type": "doc",
+            "version": 1,
+            "content": [
+                {
+                    "type": "heading",
+                    "attrs": { "level": 2 },
+                    "content": [
+                        { "type": "text", "text": "Parking Reservation Details" }
+                    ]
+                },
+                {
+                    "type": "paragraph",
+                    "content": [
+                        { "type": "text", "marks": [{ "type": "strong" }], "text": "Reservation Number: " },
+                        { "type": "text", "text": current.getValue('number') }
+                    ]
+                },
+                {
+                    "type": "paragraph",
+                    "content": [
+                        { "type": "text", "marks": [{ "type": "strong" }], "text": "Requester: " },
+                        { "type": "text", "text": current.requester_name.getDisplayValue() }
+                    ]
+                },
+                {
+                    "type": "paragraph",
+                    "content": [
+                        { "type": "text", "marks": [{ "type": "strong" }], "text": "Email: " },
+                        { "type": "text", "text": current.getValue('requester_email') }
+                    ]
+                },
+                {
+                    "type": "paragraph",
+                    "content": [
+                        { "type": "text", "marks": [{ "type": "strong" }], "text": "Phone: " },
+                        { "type": "text", "text": current.getValue('requester_phone') }
+                    ]
+                },
+                {
+                    "type": "rule"
+                },
+                {
+                    "type": "heading",
+                    "attrs": { "level": 3 },
+                    "content": [
+                        { "type": "text", "text": "]]&gt;🚗&lt;![CDATA[ Vehicle Information" }
+                    ]
+                },
+                {
+                    "type": "paragraph",
+                    "content": [
+                        { "type": "text", "marks": [{ "type": "strong" }], "text": "License Plate: " },
+                        { "type": "text", "text": current.getValue('vehicle_registration_number') }
+                    ]
+                },
+                {
+                    "type": "paragraph",
+                    "content": [
+                        { "type": "text", "marks": [{ "type": "strong" }], "text": "Car Type: " },
+                        { "type": "text", "text": current.getValue('car_type') }
+                    ]
+                },
+                {
+                    "type": "rule"
+                },
+                {
+                    "type": "heading",
+                    "attrs": { "level": 3 },
+                    "content": [
+                        { "type": "text", "text": "]]&gt;📅&lt;![CDATA[ Booking Details" }
+                    ]
+                },
+                {
+                    "type": "paragraph",
+                    "content": [
+                        { "type": "text", "marks": [{ "type": "strong" }], "text": "Start: " },
+                        { "type": "text", "text": current.start_date_time.getDisplayValue() }
+                    ]
+                },
+                {
+                    "type": "paragraph",
+                    "content": [
+                        { "type": "text", "marks": [{ "type": "strong" }], "text": "End: " },
+                        { "type": "text", "text": current.end_date_time.getDisplayValue() }
+                    ]
+                },
+                {
+                    "type": "paragraph",
+                    "content": [
+                        { "type": "text", "marks": [{ "type": "strong" }], "text": "Duration: " },
+                        { "type": "text", "text": current.getValue('duration_hours') + ' hours' }
+                    ]
+                },
+                {
+                    "type": "paragraph",
+                    "content": [
+                        { "type": "text", "marks": [{ "type": "strong" }], "text": "Location: " },
+                        { "type": "text", "text": current.parking_location.getDisplayValue() }
+                    ]
+                },
+                {
+                    "type": "rule"
+                },
+                {
+                    "type": "heading",
+                    "attrs": { "level": 3 },
+                    "content": [
+                        { "type": "text", "text": "]]&gt;💰&lt;![CDATA[ Payment" }
+                    ]
+                },
+                {
+                    "type": "paragraph",
+                    "content": [
+                        { "type": "text", "marks": [{ "type": "strong" }], "text": "Fee: " },
+                        { "type": "text", "marks": [{ "type": "strong" }], "text": current.getValue('parking_fee') + ' THB' }
+                    ]
+                },
+                {
+                    "type": "rule"
+                },
+                {
+                    "type": "paragraph",
+                    "content": [
+                        { "type": "text", "marks": [{ "type": "em" }], "text": "ServiceNow: " },
+                        { "type": "text", "marks": [{ "type": "link", "attrs": { "href": recordUrl } }], "text": recordUrl }
+                    ]
+                }
+            ]
+        };
+        
+        // เตรียม Request Body
+        var requestBody = {
+            "fields": {
+                "project": {
+                    "key": "PARK"  // แก้เป็น Project Key จริงของคุณ
+                },
+                "summary": summary,
+                "description": description,
+                "issuetype": {
+                    "name": "Task"  // หรือ "Story", "Bug" ตามที่ต้องการ
+                },
+                "priority": {
+                    "name": "Medium"
+                },
+                "labels": [
+                    "parking",
+                    "reservation",
+                    "servicenow"
+                ]
+            }
+        };
+        
+        // ส่ง Request
+        restMessage.setRequestBody(JSON.stringify(requestBody));
+        var response = restMessage.execute();
+        var responseBody = response.getBody();
+        var statusCode = response.getStatusCode();
+        
+        // Log request
+        gs.info('[Jira] Request sent for: ' + current.getValue('number'));
+        gs.info('[Jira] Status Code: ' + statusCode);
+        
+        // ตรวจสอบผลลัพธ์
+        if (statusCode == 201 || statusCode == 200) {
+            var responseObj = JSON.parse(responseBody);
+            var issueKey = responseObj.key;
+            var issueId = responseObj.id;
+            
+            // สร้าง Jira URL
+            var jiraBaseUrl = 'https://mfec-team-eacabvze.atlassian.net';  // แก้เป็น domain จริง
+            var issueUrl = jiraBaseUrl + '/browse/' + issueKey;
+            
+            // บันทึกข้อมูลกลับใน ServiceNow
+            current.setValue('jira_issue_key', issueKey);
+            current.setValue('jira_issue_url', issueUrl);
+            current.setValue('jira_status', 'Open');
+            current.update();
+            
+            // แสดง Success Message
+            gs.addInfoMessage('✓ Jira issue created: ' + issueKey);
+            gs.info('[Jira] Issue created successfully: ' + issueKey);
+            
+        } else {
+            // Error handling
+            gs.error('[Jira] Failed to create issue. Status: ' + statusCode);
+            gs.error('[Jira] Response: ' + responseBody);
+            gs.addErrorMessage('❌ Failed to create Jira issue. Check system logs.');
+        }
+        
+    } catch (ex) {
+        gs.error('[Jira] Exception: ' + ex.message);
+        gs.logError(ex.message, 'Parking Jira Integration');
+        gs.addErrorMessage('❌ Error creating Jira issue: ' + ex.message);
+    }
+    
+})(current, previous);]]&gt;&lt;/script&gt;&lt;sys_class_name&gt;sys_script&lt;/sys_class_name&gt;&lt;sys_created_by&gt;admin&lt;/sys_created_by&gt;&lt;sys_created_on&gt;2025-12-18 03:25:39&lt;/sys_created_on&gt;&lt;sys_domain&gt;global&lt;/sys_domain&gt;&lt;sys_domain_path&gt;/&lt;/sys_domain_path&gt;&lt;sys_id&gt;2d96ec83c3717610ec76502ed4013190&lt;/sys_id&gt;&lt;sys_mod_count&gt;0&lt;/sys_mod_count&gt;&lt;sys_name&gt;Create Jira Issue&lt;/sys_name&gt;&lt;sys_overrides/&gt;&lt;sys_package display_value="Parking Reservation System" source="x_1869622_parkin_0"&gt;6ea533f6c3adb290ec76502ed4013190&lt;/sys_package&gt;&lt;sys_policy/&gt;&lt;sys_scope display_value="Parking Reservation System"&gt;6ea533f6c3adb290ec76502ed4013190&lt;/sys_scope&gt;&lt;sys_update_name&gt;sys_script_2d96ec83c3717610ec76502ed4013190&lt;/sys_update_name&gt;&lt;sys_updated_by&gt;admin&lt;/sys_updated_by&gt;&lt;sys_updated_on&gt;2025-12-18 03:25:39&lt;/sys_updated_on&gt;&lt;template/&gt;&lt;when&gt;after&lt;/when&gt;&lt;/sys_script&gt;&lt;sys_translated_text action="delete_multiple" query="documentkey=2d96ec83c3717610ec76502ed4013190"/&gt;&lt;/record_update&gt;</payload>
+        <payload_hash>-1639470512</payload_hash>
+        <record_name>Create Jira Issue</record_name>
+        <reverted_from/>
+        <source>d2e952c6c375ba10ec76502ed4013129</source>
+        <source_table>sys_update_set</source_table>
+        <state>previous</state>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2025-12-18 03:25:39</sys_created_on>
+        <sys_id>50972c07c3717610ec76502ed40131cf</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_recorded_at>19b2f7de9d20000001</sys_recorded_at>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2025-12-18 03:25:39</sys_updated_on>
+        <type>Business Rule</type>
+        <update_guid>d8972c077171761054bc8fd78fade1cd</update_guid>
+        <update_guid_history>d8972c077171761054bc8fd78fade1cd:-1639470512</update_guid_history>
+    </sys_update_version>
+    <sys_metadata_delete action="INSERT_OR_UPDATE">
+        <sys_audit_delete/>
+        <sys_class_name>sys_metadata_delete</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2025-12-18 03:40:46</sys_created_on>
+        <sys_db_object display_value="" name="sys_script">sys_script</sys_db_object>
+        <sys_id>011de47846e04d0ca84094158fd68110</sys_id>
+        <sys_metadata>2d96ec83c3717610ec76502ed4013190</sys_metadata>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>Create Jira Issue</sys_name>
+        <sys_package display_value="Parking Reservation System" source="x_1869622_parkin_0">6ea533f6c3adb290ec76502ed4013190</sys_package>
+        <sys_parent display_value="Parking Reservation">6450440fc3edb290ec76502ed4013118</sys_parent>
+        <sys_policy/>
+        <sys_scope display_value="Parking Reservation System">6ea533f6c3adb290ec76502ed4013190</sys_scope>
+        <sys_scope_delete display_value="">5c63e0b7913e4fdd8a9afa8940bdb1b9</sys_scope_delete>
+        <sys_update_name>sys_script_2d96ec83c3717610ec76502ed4013190</sys_update_name>
+        <sys_update_version display_value="sys_script_2d96ec83c3717610ec76502ed4013190">50972c07c3717610ec76502ed40131cf</sys_update_version>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2025-12-18 03:40:46</sys_updated_on>
+    </sys_metadata_delete>
+</record_update>

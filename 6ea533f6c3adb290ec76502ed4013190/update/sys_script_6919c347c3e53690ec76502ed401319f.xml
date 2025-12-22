@@ -19,7 +19,7 @@
         <is_rest>false</is_rest>
         <message/>
         <name>Calculate Parking Fee</name>
-        <order>200</order>
+        <order>100</order>
         <priority>100</priority>
         <rest_method/>
         <rest_method_text/>
@@ -29,74 +29,89 @@
         <role_conditions/>
         <script><![CDATA[(function executeRule(current, previous) {
     
+    // ดึงค่า dates
     var startDateTime = current.getValue('start_date_time');
     var endDateTime = current.getValue('end_date_time');
-    var now = new GlideDateTime();
     
-    // ========================================
-    // ตรวจสอบ Start Date
-    // ========================================
-    
-    if (!startDateTime) {
-        gs.addErrorMessage('❌ กรุณาระบุวันเริ่มต้น');
-        current.setAbortAction(true);
+    // ต้องมีทั้ง 2 ค่า
+    if (!startDateTime || !endDateTime) {
+        gs.warn('[Parking Fee] Missing start or end date');
         return;
     }
     
-    var startDate = new GlideDateTime(startDateTime);
-    
-    // Start ไม่เป็นอดีต
-    if (startDate.getNumericValue() < now.getNumericValue()) {
-        gs.addErrorMessage('❌ ไม่สามารถจองเวลาย้อนหลังได้ (Start Date)');
-        current.setAbortAction(true);
-        return;
-    }
-    
-    // ========================================
-    // ตรวจสอบ End Date
-    // ========================================
-    
-    if (!endDateTime) {
-        gs.addErrorMessage('❌ กรุณาระบุวันสิ้นสุด');
-        current.setAbortAction(true);
-        return;
-    }
-    
-    var endDate = new GlideDateTime(endDateTime);
-    
-    // End ต้องมากกว่า Start
-    if (endDate.getNumericValue() <= startDate.getNumericValue()) {
-        gs.addErrorMessage('❌ เวลาสิ้นสุดต้องมากกว่าเวลาเริ่มต้น');
-        current.setAbortAction(true);
-        return;
-    }
-    
-    // End ไม่เป็นอดีต
-    if (endDate.getNumericValue() < now.getNumericValue()) {
-        gs.addErrorMessage('❌ ไม่สามารถจองเวลาย้อนหลังได้ (End Date)');
-        current.setAbortAction(true);
-        return;
-    }
-    
-    // ========================================
-    // ตรวจสอบระยะเวลาสูงสุด (optional)
-    // ========================================
-    
-    var diffMs = endDate.getNumericValue() - startDate.getNumericValue();
-    var diffHours = diffMs / (1000 * 60 * 60);
-    
-    // ไม่เกิน 7 วัน (168 ชม)
-    if (diffHours > 168) {
-        gs.addErrorMessage('❌ ไม่สามารถจองเกิน 7 วัน (168 ชั่วโมง)');
-        current.setAbortAction(true);
-        return;
-    }
-    
-    // ต้องมีระยะเวลาอย่างน้อย 1 ชั่วโมง
-    if (diffHours < 1) {
-        gs.addErrorMessage('❌ ระยะเวลาต้องมากกว่า 1 ชั่วโมง');
-        current.setAbortAction(true);
-        return;
+    try {
+        // คำนวณ duration
+        var startDate = new GlideDateTime(startDateTime);
+        var endDate = new GlideDateTime(endDateTime);
+        
+        var diffMs = endDate.getNumericValue() - startDate.getNumericValue();
+        var diffHours = diffMs / (1000 * 60 * 60);
+        var durationHours = Math.ceil(diffHours);
+        
+        gs.info('[Parking Fee] Duration: ' + durationHours + ' hours');
+        
+        // Validate duration
+        if (durationHours <= 0) {
+            gs.warn('[Parking Fee] Invalid duration: ' + durationHours);
+            return;
+        }
+        
+        // Set duration
+        current.setValue('duration_hours', durationHours);
+        
+        // คำนวณค่าจอด (Progressive rate)
+        var parkingFee = 0;
+        var fullDays = Math.floor(durationHours / 24);
+        var remainingHours = durationHours % 24;
+        
+        // Full days: 200฿/day
+        if (fullDays > 0) {
+            parkingFee += fullDays * 200;
+            gs.info('[Parking Fee] Full days: ' + fullDays + ' x 200 = ' + (fullDays * 200));
+        }
+        
+        // Remaining hours
+        if (remainingHours > 0) {
+            if (remainingHours > 8) {
+                // เกิน 8 ชม = flat rate 200฿
+                parkingFee += 200;
+                gs.info('[Parking Fee] Remaining > 8 hours: flat 200');
+            } else {
+                // Progressive rate
+                var hoursLeft = remainingHours;
+                
+                // Tier 1: Hour 1 = 10฿
+                if (hoursLeft > 0) {
+                    var tier1 = Math.min(hoursLeft, 1);
+                    parkingFee += tier1 * 10;
+                    hoursLeft -= tier1;
+                    gs.info('[Parking Fee] Tier 1: ' + tier1 + ' x 10 = ' + (tier1 * 10));
+                }
+                
+                // Tier 2: Hours 2-4 = 15฿/hour
+                if (hoursLeft > 0) {
+                    var tier2 = Math.min(hoursLeft, 3);
+                    parkingFee += tier2 * 15;
+                    hoursLeft -= tier2;
+                    gs.info('[Parking Fee] Tier 2: ' + tier2 + ' x 15 = ' + (tier2 * 15));
+                }
+                
+                // Tier 3: Hours 5-8 = 20฿/hour
+                if (hoursLeft > 0) {
+                    var tier3 = Math.min(hoursLeft, 4);
+                    parkingFee += tier3 * 20;
+                    gs.info('[Parking Fee] Tier 3: ' + tier3 + ' x 20 = ' + (tier3 * 20));
+                }
+            }
+        }
+        
+        // Set parking fee
+        current.setValue('parking_fee', parkingFee);
+        
+        gs.info('[Parking Fee] Total fee: ' + parkingFee + ' THB');
+        
+    } catch (ex) {
+        gs.error('[Parking Fee] Error: ' + ex.message);
     }
     
 })(current, previous);]]></script>
@@ -106,7 +121,7 @@
         <sys_domain>global</sys_domain>
         <sys_domain_path>/</sys_domain_path>
         <sys_id>6919c347c3e53690ec76502ed401319f</sys_id>
-        <sys_mod_count>3</sys_mod_count>
+        <sys_mod_count>4</sys_mod_count>
         <sys_name>Calculate Parking Fee</sys_name>
         <sys_overrides/>
         <sys_package display_value="Parking Reservation System" source="x_1869622_parkin_0">6ea533f6c3adb290ec76502ed4013190</sys_package>
@@ -114,7 +129,7 @@
         <sys_scope display_value="Parking Reservation System">6ea533f6c3adb290ec76502ed4013190</sys_scope>
         <sys_update_name>sys_script_6919c347c3e53690ec76502ed401319f</sys_update_name>
         <sys_updated_by>admin</sys_updated_by>
-        <sys_updated_on>2025-12-15 07:37:00</sys_updated_on>
+        <sys_updated_on>2025-12-18 08:29:45</sys_updated_on>
         <template/>
         <when>before</when>
     </sys_script>

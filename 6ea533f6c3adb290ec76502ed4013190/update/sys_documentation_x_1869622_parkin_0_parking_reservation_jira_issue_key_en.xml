@@ -1,24 +1,24 @@
 <?xml version="1.0" encoding="UTF-8"?><record_update>
-    <sys_documentation element="parking_location" label="Parking Location" language="en" table="x_1869622_parkin_0_parking_reservation">
+    <sys_documentation element="jira_issue_key" label="Jira Issue Key" language="en" table="x_1869622_parkin_0_parking_reservation">
         <sys_documentation action="INSERT_OR_UPDATE">
-            <element>parking_location</element>
+            <element>jira_issue_key</element>
             <help/>
             <hint/>
-            <label>Parking Location</label>
+            <label>Jira Issue Key</label>
             <language>en</language>
             <name>x_1869622_parkin_0_parking_reservation</name>
             <plural/>
             <sys_class_name>sys_documentation</sys_class_name>
             <sys_created_by>admin</sys_created_by>
-            <sys_created_on>2025-12-05 14:37:35</sys_created_on>
-            <sys_mod_count>5</sys_mod_count>
-            <sys_name>Parking Location</sys_name>
+            <sys_created_on>2025-12-19 04:26:38</sys_created_on>
+            <sys_mod_count>3</sys_mod_count>
+            <sys_name>Jira Issue Key</sys_name>
             <sys_package display_value="Parking Reservation System" source="x_1869622_parkin_0">6ea533f6c3adb290ec76502ed4013190</sys_package>
             <sys_policy/>
             <sys_scope display_value="Parking Reservation System">6ea533f6c3adb290ec76502ed4013190</sys_scope>
-            <sys_update_name>sys_documentation_x_1869622_parkin_0_parking_reservation_parking_location_en</sys_update_name>
+            <sys_update_name>sys_documentation_x_1869622_parkin_0_parking_reservation_jira_issue_key_en</sys_update_name>
             <sys_updated_by>admin</sys_updated_by>
-            <sys_updated_on>2025-12-18 09:14:48</sys_updated_on>
+            <sys_updated_on>2025-12-19 04:26:39</sys_updated_on>
             <url/>
             <url_target/>
         </sys_documentation>
