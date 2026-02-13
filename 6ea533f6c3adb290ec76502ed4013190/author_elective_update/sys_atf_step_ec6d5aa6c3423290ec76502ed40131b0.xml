@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sys_atf_step">
+    <sys_atf_step action="DELETE">
+        <active>true</active>
+        <callable_outputs/>
+        <copied_from/>
+        <description>Set the following values on the form:
+Work notes = ขอ Reject เพราะเอกสารไม่ครบ</description>
+        <display_name>Set Field Values</display_name>
+        <inputs/>
+        <mugshots_cache_json/>
+        <notes/>
+        <order>8</order>
+        <step_config display_value="Set Field Values">fcae4a935332120028bc29cac2dc340e</step_config>
+        <sys_class_name>sys_atf_step</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2025-12-29 09:00:48</sys_created_on>
+        <sys_id>ec6d5aa6c3423290ec76502ed40131b0</sys_id>
+        <sys_mod_count>2</sys_mod_count>
+        <sys_name>Set Field Values</sys_name>
+        <sys_package display_value="Parking Reservation System" source="x_1869622_parkin_0">6ea533f6c3adb290ec76502ed4013190</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="Parking Reservation System">6ea533f6c3adb290ec76502ed4013190</sys_scope>
+        <sys_update_name>sys_atf_step_ec6d5aa6c3423290ec76502ed40131b0</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2025-12-29 09:01:12</sys_updated_on>
+        <table>x_1869622_parkin_0_parking_reservation</table>
+        <test display_value="CPR - Create Reservation &amp; Admin Reject">4d611e26c3cefe50ec76502ed4013120</test>
+        <timeout/>
+        <warning_message/>
+    </sys_atf_step>
+    <sys_variable_value action="DELETE" query="document_key=ec6d5aa6c3423290ec76502ed40131b0"/>
+    <sys_variable_value action="DELETE">
+        <document>sys_atf_step</document>
+        <document_key>ec6d5aa6c3423290ec76502ed40131b0</document_key>
+        <order>50</order>
+        <sys_class_name>sys_variable_value</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2025-12-29 09:00:48</sys_created_on>
+        <sys_id>3ccd1a2ac3423290ec76502ed40131d0</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2025-12-29 09:00:48</sys_updated_on>
+        <value>standard_ui</value>
+        <variable display_value="Form UI">946f3c1a0f23330072e6452bc4767eda</variable>
+    </sys_variable_value>
+    <sys_variable_value action="DELETE">
+        <document>sys_atf_step</document>
+        <document_key>ec6d5aa6c3423290ec76502ed40131b0</document_key>
+        <order>100</order>
+        <sys_class_name>sys_variable_value</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2025-12-29 09:00:48</sys_created_on>
+        <sys_id>70cd1a2ac3423290ec76502ed40131d1</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2025-12-29 09:00:48</sys_updated_on>
+        <value>x_1869622_parkin_0_parking_reservation</value>
+        <variable display_value="Table">424ca6465320220002c6435723dc34b5</variable>
+    </sys_variable_value>
+    <sys_variable_value action="DELETE">
+        <document>sys_atf_step</document>
+        <document_key>ec6d5aa6c3423290ec76502ed40131b0</document_key>
+        <order>100</order>
+        <sys_class_name>sys_variable_value</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2025-12-29 09:00:48</sys_created_on>
+        <sys_id>b4cd1a2ac3423290ec76502ed40131d1</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2025-12-29 09:00:48</sys_updated_on>
+        <value>work_notes=ขอ Reject เพราะเอกสารไม่ครบ^EQ</value>
+        <variable display_value="Field values">b3dba2465320220002c6435723dc34f0</variable>
+    </sys_variable_value>
+    <sys_element_mapping action="DELETE" query="table=var__m_atf_input_variable_fcae4a935332120028bc29cac2dc340e^id=ec6d5aa6c3423290ec76502ed40131b0"/>
+    <sys_update_version action="INSERT_OR_UPDATE">
+        <action>DELETE</action>
+        <application display_value="Parking Reservation System">6ea533f6c3adb290ec76502ed4013190</application>
+        <file_path/>
+        <instance_id>b63623e43b702e54a36804e0b5e45a2d</instance_id>
+        <instance_name>dev318569</instance_name>
+        <name>sys_atf_step_ec6d5aa6c3423290ec76502ed40131b0</name>
+        <payload><![CDATA[<?xml version="1.0" encoding="UTF-8"?><record_update table="sys_atf_step"><sys_atf_step action="INSERT_OR_UPDATE"><active>true</active><callable_outputs/><copied_from/><description>Set the following values on the form:
+Work notes = ขอ Reject เพราะเอกสารไม่ครบ</description><display_name>Set Field Values</display_name><inputs/><mugshots_cache_json/><notes/><order>8</order><step_config display_value="Set Field Values">fcae4a935332120028bc29cac2dc340e</step_config><sys_class_name>sys_atf_step</sys_class_name><sys_created_by>admin</sys_created_by><sys_created_on>2025-12-29 09:00:48</sys_created_on><sys_id>ec6d5aa6c3423290ec76502ed40131b0</sys_id><sys_mod_count>2</sys_mod_count><sys_name>Set Field Values</sys_name><sys_package display_value="Parking Reservation System" source="x_1869622_parkin_0">6ea533f6c3adb290ec76502ed4013190</sys_package><sys_policy/><sys_scope display_value="Parking Reservation System">6ea533f6c3adb290ec76502ed4013190</sys_scope><sys_update_name>sys_atf_step_ec6d5aa6c3423290ec76502ed40131b0</sys_update_name><sys_updated_by>admin</sys_updated_by><sys_updated_on>2025-12-29 09:01:12</sys_updated_on><table>x_1869622_parkin_0_parking_reservation</table><test display_value="CPR - Create Reservation &amp; Admin Reject">4d611e26c3cefe50ec76502ed4013120</test><timeout/><warning_message/></sys_atf_step><sys_variable_value action="delete_multiple" query="document_key=ec6d5aa6c3423290ec76502ed40131b0"/><sys_variable_value action="INSERT_OR_UPDATE"><document>sys_atf_step</document><document_key>ec6d5aa6c3423290ec76502ed40131b0</document_key><order>50</order><sys_class_name>sys_variable_value</sys_class_name><sys_created_by>admin</sys_created_by><sys_created_on>2025-12-29 09:00:48</sys_created_on><sys_id>3ccd1a2ac3423290ec76502ed40131d0</sys_id><sys_mod_count>0</sys_mod_count><sys_updated_by>admin</sys_updated_by><sys_updated_on>2025-12-29 09:00:48</sys_updated_on><value>standard_ui</value><variable display_value="Form UI">946f3c1a0f23330072e6452bc4767eda</variable></sys_variable_value><sys_variable_value action="INSERT_OR_UPDATE"><document>sys_atf_step</document><document_key>ec6d5aa6c3423290ec76502ed40131b0</document_key><order>100</order><sys_class_name>sys_variable_value</sys_class_name><sys_created_by>admin</sys_created_by><sys_created_on>2025-12-29 09:00:48</sys_created_on><sys_id>70cd1a2ac3423290ec76502ed40131d1</sys_id><sys_mod_count>0</sys_mod_count><sys_updated_by>admin</sys_updated_by><sys_updated_on>2025-12-29 09:00:48</sys_updated_on><value>x_1869622_parkin_0_parking_reservation</value><variable display_value="Table">424ca6465320220002c6435723dc34b5</variable></sys_variable_value><sys_variable_value action="INSERT_OR_UPDATE"><document>sys_atf_step</document><document_key>ec6d5aa6c3423290ec76502ed40131b0</document_key><order>100</order><sys_class_name>sys_variable_value</sys_class_name><sys_created_by>admin</sys_created_by><sys_created_on>2025-12-29 09:00:48</sys_created_on><sys_id>b4cd1a2ac3423290ec76502ed40131d1</sys_id><sys_mod_count>0</sys_mod_count><sys_updated_by>admin</sys_updated_by><sys_updated_on>2025-12-29 09:00:48</sys_updated_on><value>work_notes=ขอ Reject เพราะเอกสารไม่ครบ^EQ</value><variable display_value="Field values">b3dba2465320220002c6435723dc34f0</variable></sys_variable_value><sys_element_mapping action="delete_multiple" query="table=var__m_atf_input_variable_fcae4a935332120028bc29cac2dc340e^id=ec6d5aa6c3423290ec76502ed40131b0"/></record_update>]]></payload>
+        <payload_hash>1303241699</payload_hash>
+        <record_name>Set Field Values</record_name>
+        <reverted_from/>
+        <source>d2e952c6c375ba10ec76502ed4013129</source>
+        <source_table>sys_update_set</source_table>
+        <state>previous</state>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2025-12-29 09:01:12</sys_created_on>
+        <sys_id>3addda2ac3423290ec76502ed401318c</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_recorded_at>19b695713400000001</sys_recorded_at>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2025-12-29 09:01:12</sys_updated_on>
+        <type>Test Step</type>
+        <update_guid>b6ddda2a24423290381c851b1d1aa78b</update_guid>
+        <update_guid_history>b6ddda2a24423290381c851b1d1aa78b:1303241699,38cd1a2a554232906c3dae99f8a966d5:1568202724</update_guid_history>
+    </sys_update_version>
+    <sys_metadata_delete action="INSERT_OR_UPDATE">
+        <sys_audit_delete/>
+        <sys_class_name>sys_metadata_delete</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2025-12-29 09:05:52</sys_created_on>
+        <sys_db_object display_value="" name="sys_atf_step">sys_atf_step</sys_db_object>
+        <sys_id>78a7c2ac28cd4010a4f350ca96336900</sys_id>
+        <sys_metadata>ec6d5aa6c3423290ec76502ed40131b0</sys_metadata>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>Set Field Values</sys_name>
+        <sys_package display_value="Parking Reservation System" source="x_1869622_parkin_0">6ea533f6c3adb290ec76502ed4013190</sys_package>
+        <sys_parent/>
+        <sys_policy/>
+        <sys_scope display_value="Parking Reservation System">6ea533f6c3adb290ec76502ed4013190</sys_scope>
+        <sys_scope_delete display_value="">5c63e0b7913e4fdd8a9afa8940bdb1b9</sys_scope_delete>
+        <sys_update_name>sys_atf_step_ec6d5aa6c3423290ec76502ed40131b0</sys_update_name>
+        <sys_update_version display_value="sys_atf_step_ec6d5aa6c3423290ec76502ed40131b0">3addda2ac3423290ec76502ed401318c</sys_update_version>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2025-12-29 09:05:52</sys_updated_on>
+    </sys_metadata_delete>
+</record_update>

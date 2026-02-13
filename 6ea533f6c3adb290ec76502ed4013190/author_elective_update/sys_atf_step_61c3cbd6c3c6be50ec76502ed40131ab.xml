@@ -1,0 +1,188 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sys_atf_step">
+    <sys_atf_step action="DELETE">
+        <active>true</active>
+        <callable_outputs/>
+        <copied_from/>
+        <description>Validate record from table 'x_1869622_parkin_0_parking_reservation' matches the following condition:
+
+With a failure timeout of 5 Seconds</description>
+        <display_name>Record Validation</display_name>
+        <inputs/>
+        <inputs/>
+        <mugshots_cache_json/>
+        <notes/>
+        <order>3</order>
+        <step_config display_value="Record Validation">1f39a288df60220062fe6c7a4df2639d</step_config>
+        <sys_class_name>sys_atf_step</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2025-12-28 17:10:18</sys_created_on>
+        <sys_id>61c3cbd6c3c6be50ec76502ed40131ab</sys_id>
+        <sys_mod_count>8</sys_mod_count>
+        <sys_name>Record Validation</sys_name>
+        <sys_package display_value="Parking Reservation System" source="x_1869622_parkin_0">6ea533f6c3adb290ec76502ed4013190</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="Parking Reservation System">6ea533f6c3adb290ec76502ed4013190</sys_scope>
+        <sys_update_name>sys_atf_step_61c3cbd6c3c6be50ec76502ed40131ab</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2025-12-29 06:46:33</sys_updated_on>
+        <table>x_1869622_parkin_0_parking_reservation</table>
+        <test display_value="Parking - Create Successful Booking">f8ccf65ec386be50ec76502ed401314d</test>
+        <timeout>1970-01-01 00:00:05</timeout>
+        <warning_message/>
+    </sys_atf_step>
+    <sys_variable_value action="DELETE" query="document_key=61c3cbd6c3c6be50ec76502ed40131ab"/>
+    <sys_variable_value action="DELETE">
+        <document>sys_atf_step</document>
+        <document_key>61c3cbd6c3c6be50ec76502ed40131ab</document_key>
+        <order>100</order>
+        <sys_class_name>sys_variable_value</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2025-12-28 17:10:18</sys_created_on>
+        <sys_id>21348f5ec3c6be50ec76502ed40131fb</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2025-12-28 17:10:18</sys_updated_on>
+        <value>record_validated</value>
+        <variable display_value="Assert type">67400008676003007ba405225685efa4</variable>
+    </sys_variable_value>
+    <sys_variable_value action="DELETE">
+        <document>sys_atf_step</document>
+        <document_key>61c3cbd6c3c6be50ec76502ed40131ab</document_key>
+        <order>300</order>
+        <sys_class_name>sys_variable_value</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2025-12-28 17:10:18</sys_created_on>
+        <sys_id>25348f5ec3c6be50ec76502ed40131fc</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2025-12-28 17:10:18</sys_updated_on>
+        <value/>
+        <variable display_value="Field values">ff6e125353a0220002c6435723dc3442</variable>
+    </sys_variable_value>
+    <sys_variable_value action="DELETE">
+        <document>sys_atf_step</document>
+        <document_key>61c3cbd6c3c6be50ec76502ed40131ab</document_key>
+        <order>200</order>
+        <sys_class_name>sys_variable_value</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2025-12-28 17:10:18</sys_created_on>
+        <sys_id>65348f5ec3c6be50ec76502ed40131fb</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2025-12-28 17:10:18</sys_updated_on>
+        <value/>
+        <variable display_value="Record">52ed1e5b5360220002c6435723dc3421</variable>
+    </sys_variable_value>
+    <sys_variable_value action="DELETE">
+        <document>sys_atf_step</document>
+        <document_key>61c3cbd6c3c6be50ec76502ed40131ab</document_key>
+        <order>10</order>
+        <sys_class_name>sys_variable_value</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2025-12-28 17:10:18</sys_created_on>
+        <sys_id>a9348f5ec3c6be50ec76502ed40131fb</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2025-12-28 17:10:18</sys_updated_on>
+        <value>1</value>
+        <variable display_value="Enforce security">cbddfa135320220002c6435723dc3415</variable>
+    </sys_variable_value>
+    <sys_variable_value action="DELETE">
+        <document>sys_atf_step</document>
+        <document_key>61c3cbd6c3c6be50ec76502ed40131ab</document_key>
+        <order>100</order>
+        <sys_class_name>sys_variable_value</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2025-12-28 17:10:18</sys_created_on>
+        <sys_id>ed348f5ec3c6be50ec76502ed40131fb</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2025-12-28 17:10:18</sys_updated_on>
+        <value>x_1869622_parkin_0_parking_reservation</value>
+        <variable display_value="Table">6aad5a575360220002c6435723dc34b0</variable>
+    </sys_variable_value>
+    <sys_element_mapping action="DELETE" query="id=61c3cbd6c3c6be50ec76502ed40131ab"/>
+    <sys_element_mapping action="DELETE">
+        <field>enforce_security</field>
+        <id>61c3cbd6c3c6be50ec76502ed40131ab</id>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2025-12-28 17:10:18</sys_created_on>
+        <sys_id>29348f5ec3c6be50ec76502ed40131fa</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2025-12-28 17:10:18</sys_updated_on>
+        <table>var__m_atf_input_variable_1f39a288df60220062fe6c7a4df2639d</table>
+        <value/>
+    </sys_element_mapping>
+    <sys_element_mapping action="DELETE">
+        <field>field_values</field>
+        <id>61c3cbd6c3c6be50ec76502ed40131ab</id>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2025-12-28 17:10:18</sys_created_on>
+        <sys_id>6d348f5ec3c6be50ec76502ed40131fa</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2025-12-28 17:10:18</sys_updated_on>
+        <table>var__m_atf_input_variable_1f39a288df60220062fe6c7a4df2639d</table>
+        <value/>
+    </sys_element_mapping>
+    <sys_element_mapping action="DELETE">
+        <field>record_id</field>
+        <id>61c3cbd6c3c6be50ec76502ed40131ab</id>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2025-12-28 17:10:18</sys_created_on>
+        <sys_id>e1348f5ec3c6be50ec76502ed40131fa</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2025-12-28 17:10:18</sys_updated_on>
+        <table>var__m_atf_input_variable_1f39a288df60220062fe6c7a4df2639d</table>
+        <value>{{step['9673c7d6c3c6be50ec76502ed40131ec'].record_id}}</value>
+    </sys_element_mapping>
+    <sys_update_version action="INSERT_OR_UPDATE">
+        <action>DELETE</action>
+        <application display_value="Parking Reservation System">6ea533f6c3adb290ec76502ed4013190</application>
+        <file_path/>
+        <instance_id>b63623e43b702e54a36804e0b5e45a2d</instance_id>
+        <instance_name>dev318569</instance_name>
+        <name>sys_atf_step_61c3cbd6c3c6be50ec76502ed40131ab</name>
+        <payload><![CDATA[<?xml version="1.0" encoding="UTF-8"?><record_update table="sys_atf_step"><sys_atf_step action="INSERT_OR_UPDATE"><active>true</active><callable_outputs/><copied_from/><description>Validate record from table 'x_1869622_parkin_0_parking_reservation' matches the following condition:
+
+With a failure timeout of 5 Seconds</description><display_name>Record Validation</display_name><inputs/><inputs/><mugshots_cache_json/><notes/><order>3</order><step_config display_value="Record Validation">1f39a288df60220062fe6c7a4df2639d</step_config><sys_class_name>sys_atf_step</sys_class_name><sys_created_by>admin</sys_created_by><sys_created_on>2025-12-28 17:10:18</sys_created_on><sys_id>61c3cbd6c3c6be50ec76502ed40131ab</sys_id><sys_mod_count>8</sys_mod_count><sys_name>Record Validation</sys_name><sys_package display_value="Parking Reservation System" source="x_1869622_parkin_0">6ea533f6c3adb290ec76502ed4013190</sys_package><sys_policy/><sys_scope display_value="Parking Reservation System">6ea533f6c3adb290ec76502ed4013190</sys_scope><sys_update_name>sys_atf_step_61c3cbd6c3c6be50ec76502ed40131ab</sys_update_name><sys_updated_by>admin</sys_updated_by><sys_updated_on>2025-12-29 06:46:33</sys_updated_on><table>x_1869622_parkin_0_parking_reservation</table><test display_value="Parking - Create Successful Booking">f8ccf65ec386be50ec76502ed401314d</test><timeout>1970-01-01 00:00:05</timeout><warning_message/></sys_atf_step><sys_variable_value action="delete_multiple" query="document_key=61c3cbd6c3c6be50ec76502ed40131ab"/><sys_variable_value action="INSERT_OR_UPDATE"><document>sys_atf_step</document><document_key>61c3cbd6c3c6be50ec76502ed40131ab</document_key><order>100</order><sys_class_name>sys_variable_value</sys_class_name><sys_created_by>admin</sys_created_by><sys_created_on>2025-12-28 17:10:18</sys_created_on><sys_id>21348f5ec3c6be50ec76502ed40131fb</sys_id><sys_mod_count>0</sys_mod_count><sys_updated_by>admin</sys_updated_by><sys_updated_on>2025-12-28 17:10:18</sys_updated_on><value>record_validated</value><variable display_value="Assert type">67400008676003007ba405225685efa4</variable></sys_variable_value><sys_variable_value action="INSERT_OR_UPDATE"><document>sys_atf_step</document><document_key>61c3cbd6c3c6be50ec76502ed40131ab</document_key><order>300</order><sys_class_name>sys_variable_value</sys_class_name><sys_created_by>admin</sys_created_by><sys_created_on>2025-12-28 17:10:18</sys_created_on><sys_id>25348f5ec3c6be50ec76502ed40131fc</sys_id><sys_mod_count>0</sys_mod_count><sys_updated_by>admin</sys_updated_by><sys_updated_on>2025-12-28 17:10:18</sys_updated_on><value/><variable display_value="Field values">ff6e125353a0220002c6435723dc3442</variable></sys_variable_value><sys_variable_value action="INSERT_OR_UPDATE"><document>sys_atf_step</document><document_key>61c3cbd6c3c6be50ec76502ed40131ab</document_key><order>200</order><sys_class_name>sys_variable_value</sys_class_name><sys_created_by>admin</sys_created_by><sys_created_on>2025-12-28 17:10:18</sys_created_on><sys_id>65348f5ec3c6be50ec76502ed40131fb</sys_id><sys_mod_count>0</sys_mod_count><sys_updated_by>admin</sys_updated_by><sys_updated_on>2025-12-28 17:10:18</sys_updated_on><value/><variable display_value="Record">52ed1e5b5360220002c6435723dc3421</variable></sys_variable_value><sys_variable_value action="INSERT_OR_UPDATE"><document>sys_atf_step</document><document_key>61c3cbd6c3c6be50ec76502ed40131ab</document_key><order>10</order><sys_class_name>sys_variable_value</sys_class_name><sys_created_by>admin</sys_created_by><sys_created_on>2025-12-28 17:10:18</sys_created_on><sys_id>a9348f5ec3c6be50ec76502ed40131fb</sys_id><sys_mod_count>0</sys_mod_count><sys_updated_by>admin</sys_updated_by><sys_updated_on>2025-12-28 17:10:18</sys_updated_on><value>1</value><variable display_value="Enforce security">cbddfa135320220002c6435723dc3415</variable></sys_variable_value><sys_variable_value action="INSERT_OR_UPDATE"><document>sys_atf_step</document><document_key>61c3cbd6c3c6be50ec76502ed40131ab</document_key><order>100</order><sys_class_name>sys_variable_value</sys_class_name><sys_created_by>admin</sys_created_by><sys_created_on>2025-12-28 17:10:18</sys_created_on><sys_id>ed348f5ec3c6be50ec76502ed40131fb</sys_id><sys_mod_count>0</sys_mod_count><sys_updated_by>admin</sys_updated_by><sys_updated_on>2025-12-28 17:10:18</sys_updated_on><value>x_1869622_parkin_0_parking_reservation</value><variable display_value="Table">6aad5a575360220002c6435723dc34b0</variable></sys_variable_value><sys_element_mapping action="delete_multiple" query="id=61c3cbd6c3c6be50ec76502ed40131ab"/><sys_element_mapping action="INSERT_OR_UPDATE"><field>enforce_security</field><id>61c3cbd6c3c6be50ec76502ed40131ab</id><sys_created_by>admin</sys_created_by><sys_created_on>2025-12-28 17:10:18</sys_created_on><sys_id>29348f5ec3c6be50ec76502ed40131fa</sys_id><sys_mod_count>0</sys_mod_count><sys_updated_by>admin</sys_updated_by><sys_updated_on>2025-12-28 17:10:18</sys_updated_on><table>var__m_atf_input_variable_1f39a288df60220062fe6c7a4df2639d</table><value/></sys_element_mapping><sys_element_mapping action="INSERT_OR_UPDATE"><field>field_values</field><id>61c3cbd6c3c6be50ec76502ed40131ab</id><sys_created_by>admin</sys_created_by><sys_created_on>2025-12-28 17:10:18</sys_created_on><sys_id>6d348f5ec3c6be50ec76502ed40131fa</sys_id><sys_mod_count>0</sys_mod_count><sys_updated_by>admin</sys_updated_by><sys_updated_on>2025-12-28 17:10:18</sys_updated_on><table>var__m_atf_input_variable_1f39a288df60220062fe6c7a4df2639d</table><value/></sys_element_mapping><sys_element_mapping action="INSERT_OR_UPDATE"><field>record_id</field><id>61c3cbd6c3c6be50ec76502ed40131ab</id><sys_created_by>admin</sys_created_by><sys_created_on>2025-12-28 17:10:18</sys_created_on><sys_id>e1348f5ec3c6be50ec76502ed40131fa</sys_id><sys_mod_count>0</sys_mod_count><sys_updated_by>admin</sys_updated_by><sys_updated_on>2025-12-28 17:10:18</sys_updated_on><table>var__m_atf_input_variable_1f39a288df60220062fe6c7a4df2639d</table><value>{{step['9673c7d6c3c6be50ec76502ed40131ec'].record_id}}</value></sys_element_mapping></record_update>]]></payload>
+        <payload_hash>594351262</payload_hash>
+        <record_name>Record Validation</record_name>
+        <reverted_from/>
+        <source>d2e952c6c375ba10ec76502ed4013129</source>
+        <source_table>sys_update_set</source_table>
+        <state>previous</state>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2025-12-29 06:46:33</sys_created_on>
+        <sys_id>2a0f792ac34efe50ec76502ed401310a</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_recorded_at>19b68dbcc6f0000001</sys_recorded_at>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2025-12-29 06:46:33</sys_updated_on>
+        <type>Test Step</type>
+        <update_guid>960f792aa74efe5064ed6f7657d52f09</update_guid>
+        <update_guid_history>960f792aa74efe5064ed6f7657d52f09:594351262,aafeb52a594efe50ff9636b2f22fd9b7:768065725,c2eef12a1d4efe50684ee80b03e4f8ea:941780188,8eee2daaadcafe50faba406eb4e6efe3:1115494651,e134cb9ee7c6be5042085f31b2517970:941780188</update_guid_history>
+    </sys_update_version>
+    <sys_metadata_delete action="INSERT_OR_UPDATE">
+        <sys_audit_delete/>
+        <sys_class_name>sys_metadata_delete</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2025-12-29 06:46:45</sys_created_on>
+        <sys_db_object display_value="" name="sys_atf_step">sys_atf_step</sys_db_object>
+        <sys_id>2312e3ec2dcd4a7fac0ea67ab86ab8a1</sys_id>
+        <sys_metadata>61c3cbd6c3c6be50ec76502ed40131ab</sys_metadata>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>Record Validation</sys_name>
+        <sys_package display_value="Parking Reservation System" source="x_1869622_parkin_0">6ea533f6c3adb290ec76502ed4013190</sys_package>
+        <sys_parent/>
+        <sys_policy/>
+        <sys_scope display_value="Parking Reservation System">6ea533f6c3adb290ec76502ed4013190</sys_scope>
+        <sys_scope_delete display_value="">5c63e0b7913e4fdd8a9afa8940bdb1b9</sys_scope_delete>
+        <sys_update_name>sys_atf_step_61c3cbd6c3c6be50ec76502ed40131ab</sys_update_name>
+        <sys_update_version display_value="sys_atf_step_61c3cbd6c3c6be50ec76502ed40131ab">2a0f792ac34efe50ec76502ed401310a</sys_update_version>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2025-12-29 06:46:45</sys_updated_on>
+    </sys_metadata_delete>
+</record_update>

@@ -4,7 +4,7 @@
         <element label="Vehicle Registration Number" max_length="20" name="vehicle_registration" type="string"/>
         <element label="Jira Status" max_length="50" name="jira_status" type="string"/>
         <element label="Parking Fee (THB)" max_length="38" name="parking_fee" read_only="true" type="decimal"/>
-        <element label="Requester Name" max_length="32" name="requester_name" reference="sys_user" type="reference"/>
+        <element label="Requester Name" max_length="32" name="requester_name" reference="sys_user" type="reference" use_dependent_field="true"/>
         <element default="true" label="Sync to Jira" max_length="255" name="sync_to_jira" type="boolean"/>
         <element choice="3" default="pending" label="Reservation Status" max_length="40" name="reservation_status" read_only="true" type="choice">
             <choice>
@@ -43,7 +43,7 @@
             </choice>
         </element>
         <element label="Jira Issue Key" max_length="50" name="jira_issue_key" type="string"/>
-        <element label="Phone Number" max_length="40" name="requester_phone" type="string"/>
+        <element dependent="requester_name" dependent_on_field="requester_name" label="Phone Number" max_length="40" name="requester_phone" type="string" use_dependent_field="true"/>
         <element choice="3" label="Car Type" max_length="40" name="car_type" type="choice">
             <choice>
                 <element inactive_on_update="false" label="Hatchback" sequence="4" value="hatchback"/>
@@ -54,7 +54,9 @@
                 <element inactive_on_update="false" label="Motorcycle" sequence="5" value="motorcycle"/>
             </choice>
         </element>
-        <element label="Email Address" max_length="100" name="requester_email" type="string"/>
+        <element choice="1" label="Email Address" max_length="100" name="requester_email" type="string" use_dependent_field="true">
+            <choice/>
+        </element>
         <element label="Jira Issue URL" max_length="1024" name="jira_issue_url" type="url"/>
         <element label="Start Date Time" max_length="40" name="start_date_time" type="glide_date_time"/>
         <element label="Duration Hours" max_length="40" name="duration_hours" read_only="true" type="decimal"/>

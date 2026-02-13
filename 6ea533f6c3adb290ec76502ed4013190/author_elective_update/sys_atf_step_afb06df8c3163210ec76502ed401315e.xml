@@ -1,0 +1,160 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sys_atf_step">
+    <sys_atf_step action="DELETE">
+        <active>true</active>
+        <callable_outputs/>
+        <copied_from display_value="Click a UI Action">b2258ee2c38efe50ec76502ed4013182</copied_from>
+        <description>Confirm that browser submits 'Parking Reservation' form to server within 5 Seconds of clicking UI action 'Confirm'</description>
+        <display_name>Click a UI Action</display_name>
+        <inputs/>
+        <mugshots_cache_json/>
+        <notes/>
+        <order>8</order>
+        <step_config display_value="Click a UI Action">0f4a128297202200abe4bb7503ac4af0</step_config>
+        <sys_class_name>sys_atf_step</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2026-01-05 04:20:32</sys_created_on>
+        <sys_id>afb06df8c3163210ec76502ed401315e</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>Click a UI Action</sys_name>
+        <sys_package display_value="Parking Reservation System" source="x_1869622_parkin_0">6ea533f6c3adb290ec76502ed4013190</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="Parking Reservation System">6ea533f6c3adb290ec76502ed4013190</sys_scope>
+        <sys_update_name>sys_atf_step_afb06df8c3163210ec76502ed401315e</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2026-01-05 04:20:32</sys_updated_on>
+        <table>x_1869622_parkin_0_parking_reservation</table>
+        <test display_value="CPR_01_Create Reservation &amp; Admin Approve copy">27b02df8c3163210ec76502ed40131f3</test>
+        <timeout>1970-01-01 00:00:05</timeout>
+        <warning_message/>
+    </sys_atf_step>
+    <sys_variable_value action="DELETE" query="document_key=afb06df8c3163210ec76502ed401315e"/>
+    <sys_variable_value action="DELETE">
+        <document>sys_atf_step</document>
+        <document_key>afb06df8c3163210ec76502ed401315e</document_key>
+        <order>500</order>
+        <sys_class_name>sys_variable_value</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2026-01-05 04:20:32</sys_created_on>
+        <sys_id>23b06df8c3163210ec76502ed4013162</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2026-01-05 04:20:32</sys_updated_on>
+        <value>form_submitted_to_server</value>
+        <variable display_value="Assert type">7600f16353e0220002c6435723dc34d5</variable>
+    </sys_variable_value>
+    <sys_variable_value action="DELETE">
+        <document>sys_atf_step</document>
+        <document_key>afb06df8c3163210ec76502ed401315e</document_key>
+        <order>400</order>
+        <sys_class_name>sys_variable_value</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2026-01-05 04:20:32</sys_created_on>
+        <sys_id>27b06df8c3163210ec76502ed4013163</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2026-01-05 04:20:32</sys_updated_on>
+        <value/>
+        <variable display_value="Declarative Action">51547e3953212110248dddeeff7b126b</variable>
+    </sys_variable_value>
+    <sys_variable_value action="DELETE">
+        <document>sys_atf_step</document>
+        <document_key>afb06df8c3163210ec76502ed401315e</document_key>
+        <order>400</order>
+        <sys_class_name>sys_variable_value</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2026-01-05 04:20:32</sys_created_on>
+        <sys_id>67b06df8c3163210ec76502ed4013162</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2026-01-05 04:20:32</sys_updated_on>
+        <value>6697c34dc3f1f210ec76502ed4013184</value>
+        <variable display_value="UI action">7c5f6d2353e0220002c6435723dc34f6</variable>
+    </sys_variable_value>
+    <sys_variable_value action="DELETE">
+        <document>sys_atf_step</document>
+        <document_key>afb06df8c3163210ec76502ed401315e</document_key>
+        <order>100</order>
+        <sys_class_name>sys_variable_value</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2026-01-05 04:20:32</sys_created_on>
+        <sys_id>6bb06df8c3163210ec76502ed4013163</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2026-01-05 04:20:32</sys_updated_on>
+        <value>x_1869622_parkin_0_parking_reservation</value>
+        <variable display_value="Table">3eee292353e0220002c6435723dc343c</variable>
+    </sys_variable_value>
+    <sys_variable_value action="DELETE">
+        <document>sys_atf_step</document>
+        <document_key>afb06df8c3163210ec76502ed401315e</document_key>
+        <order>50</order>
+        <sys_class_name>sys_variable_value</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2026-01-05 04:20:32</sys_created_on>
+        <sys_id>abb06df8c3163210ec76502ed4013162</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2026-01-05 04:20:32</sys_updated_on>
+        <value>standard_ui</value>
+        <variable display_value="Form UI">535cb5ab53233300f06fddeeff7b1247</variable>
+    </sys_variable_value>
+    <sys_variable_value action="DELETE">
+        <document>sys_atf_step</document>
+        <document_key>afb06df8c3163210ec76502ed401315e</document_key>
+        <order>150</order>
+        <sys_class_name>sys_variable_value</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2026-01-05 04:20:32</sys_created_on>
+        <sys_id>efb06df8c3163210ec76502ed4013162</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2026-01-05 04:20:32</sys_updated_on>
+        <value>ui_action</value>
+        <variable display_value="Action Type">334ea2f153212110248dddeeff7b1255</variable>
+    </sys_variable_value>
+    <sys_update_version action="INSERT_OR_UPDATE">
+        <action>DELETE</action>
+        <application display_value="Parking Reservation System">6ea533f6c3adb290ec76502ed4013190</application>
+        <file_path/>
+        <instance_id>b63623e43b702e54a36804e0b5e45a2d</instance_id>
+        <instance_name>dev318569</instance_name>
+        <name>sys_atf_step_afb06df8c3163210ec76502ed401315e</name>
+        <payload><![CDATA[<?xml version="1.0" encoding="UTF-8"?><record_update table="sys_atf_step"><sys_atf_step action="INSERT_OR_UPDATE"><active>true</active><callable_outputs/><copied_from display_value="Click a UI Action">b2258ee2c38efe50ec76502ed4013182</copied_from><description>Confirm that browser submits 'Parking Reservation' form to server within 5 Seconds of clicking UI action 'Confirm'</description><display_name>Click a UI Action</display_name><inputs/><mugshots_cache_json/><notes/><order>8</order><step_config display_value="Click a UI Action">0f4a128297202200abe4bb7503ac4af0</step_config><sys_class_name>sys_atf_step</sys_class_name><sys_created_by>admin</sys_created_by><sys_created_on>2026-01-05 04:20:32</sys_created_on><sys_id>afb06df8c3163210ec76502ed401315e</sys_id><sys_mod_count>0</sys_mod_count><sys_name>Click a UI Action</sys_name><sys_package display_value="Parking Reservation System" source="x_1869622_parkin_0">6ea533f6c3adb290ec76502ed4013190</sys_package><sys_policy/><sys_scope display_value="Parking Reservation System">6ea533f6c3adb290ec76502ed4013190</sys_scope><sys_update_name>sys_atf_step_afb06df8c3163210ec76502ed401315e</sys_update_name><sys_updated_by>admin</sys_updated_by><sys_updated_on>2026-01-05 04:20:32</sys_updated_on><table>x_1869622_parkin_0_parking_reservation</table><test display_value="CPR_01_Create Reservation &amp; Admin Approve copy">27b02df8c3163210ec76502ed40131f3</test><timeout>1970-01-01 00:00:05</timeout><warning_message/></sys_atf_step><sys_variable_value action="delete_multiple" query="document_key=afb06df8c3163210ec76502ed401315e"/><sys_variable_value action="INSERT_OR_UPDATE"><document>sys_atf_step</document><document_key>afb06df8c3163210ec76502ed401315e</document_key><order>500</order><sys_class_name>sys_variable_value</sys_class_name><sys_created_by>admin</sys_created_by><sys_created_on>2026-01-05 04:20:32</sys_created_on><sys_id>23b06df8c3163210ec76502ed4013162</sys_id><sys_mod_count>0</sys_mod_count><sys_updated_by>admin</sys_updated_by><sys_updated_on>2026-01-05 04:20:32</sys_updated_on><value>form_submitted_to_server</value><variable display_value="Assert type">7600f16353e0220002c6435723dc34d5</variable></sys_variable_value><sys_variable_value action="INSERT_OR_UPDATE"><document>sys_atf_step</document><document_key>afb06df8c3163210ec76502ed401315e</document_key><order>400</order><sys_class_name>sys_variable_value</sys_class_name><sys_created_by>admin</sys_created_by><sys_created_on>2026-01-05 04:20:32</sys_created_on><sys_id>27b06df8c3163210ec76502ed4013163</sys_id><sys_mod_count>0</sys_mod_count><sys_updated_by>admin</sys_updated_by><sys_updated_on>2026-01-05 04:20:32</sys_updated_on><value/><variable display_value="Declarative Action">51547e3953212110248dddeeff7b126b</variable></sys_variable_value><sys_variable_value action="INSERT_OR_UPDATE"><document>sys_atf_step</document><document_key>afb06df8c3163210ec76502ed401315e</document_key><order>400</order><sys_class_name>sys_variable_value</sys_class_name><sys_created_by>admin</sys_created_by><sys_created_on>2026-01-05 04:20:32</sys_created_on><sys_id>67b06df8c3163210ec76502ed4013162</sys_id><sys_mod_count>0</sys_mod_count><sys_updated_by>admin</sys_updated_by><sys_updated_on>2026-01-05 04:20:32</sys_updated_on><value>6697c34dc3f1f210ec76502ed4013184</value><variable display_value="UI action">7c5f6d2353e0220002c6435723dc34f6</variable></sys_variable_value><sys_variable_value action="INSERT_OR_UPDATE"><document>sys_atf_step</document><document_key>afb06df8c3163210ec76502ed401315e</document_key><order>100</order><sys_class_name>sys_variable_value</sys_class_name><sys_created_by>admin</sys_created_by><sys_created_on>2026-01-05 04:20:32</sys_created_on><sys_id>6bb06df8c3163210ec76502ed4013163</sys_id><sys_mod_count>0</sys_mod_count><sys_updated_by>admin</sys_updated_by><sys_updated_on>2026-01-05 04:20:32</sys_updated_on><value>x_1869622_parkin_0_parking_reservation</value><variable display_value="Table">3eee292353e0220002c6435723dc343c</variable></sys_variable_value><sys_variable_value action="INSERT_OR_UPDATE"><document>sys_atf_step</document><document_key>afb06df8c3163210ec76502ed401315e</document_key><order>50</order><sys_class_name>sys_variable_value</sys_class_name><sys_created_by>admin</sys_created_by><sys_created_on>2026-01-05 04:20:32</sys_created_on><sys_id>abb06df8c3163210ec76502ed4013162</sys_id><sys_mod_count>0</sys_mod_count><sys_updated_by>admin</sys_updated_by><sys_updated_on>2026-01-05 04:20:32</sys_updated_on><value>standard_ui</value><variable display_value="Form UI">535cb5ab53233300f06fddeeff7b1247</variable></sys_variable_value><sys_variable_value action="INSERT_OR_UPDATE"><document>sys_atf_step</document><document_key>afb06df8c3163210ec76502ed401315e</document_key><order>150</order><sys_class_name>sys_variable_value</sys_class_name><sys_created_by>admin</sys_created_by><sys_created_on>2026-01-05 04:20:32</sys_created_on><sys_id>efb06df8c3163210ec76502ed4013162</sys_id><sys_mod_count>0</sys_mod_count><sys_updated_by>admin</sys_updated_by><sys_updated_on>2026-01-05 04:20:32</sys_updated_on><value>ui_action</value><variable display_value="Action Type">334ea2f153212110248dddeeff7b1255</variable></sys_variable_value></record_update>]]></payload>
+        <payload_hash>-309527900</payload_hash>
+        <record_name>Click a UI Action</record_name>
+        <reverted_from/>
+        <source>d2e952c6c375ba10ec76502ed4013129</source>
+        <source_table>sys_update_set</source_table>
+        <state>previous</state>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2026-01-05 04:20:32</sys_created_on>
+        <sys_id>77b06df8c3163210ec76502ed4013168</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_recorded_at>19b8c62a2110000001</sys_recorded_at>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2026-01-05 04:20:32</sys_updated_on>
+        <type>Test Step</type>
+        <update_guid>73b06df8cb163210339e001b5e553e67</update_guid>
+        <update_guid_history>73b06df8cb163210339e001b5e553e67:-309527900</update_guid_history>
+    </sys_update_version>
+    <sys_metadata_delete action="INSERT_OR_UPDATE">
+        <sys_audit_delete/>
+        <sys_class_name>sys_metadata_delete</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2026-01-05 09:57:13</sys_created_on>
+        <sys_db_object display_value="" name="sys_atf_step">sys_atf_step</sys_db_object>
+        <sys_id>740b1bb4628f4238a87cdc7986270040</sys_id>
+        <sys_metadata>afb06df8c3163210ec76502ed401315e</sys_metadata>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>Click a UI Action</sys_name>
+        <sys_package display_value="Parking Reservation System" source="x_1869622_parkin_0">6ea533f6c3adb290ec76502ed4013190</sys_package>
+        <sys_parent/>
+        <sys_policy/>
+        <sys_scope display_value="Parking Reservation System">6ea533f6c3adb290ec76502ed4013190</sys_scope>
+        <sys_scope_delete display_value="">5c63e0b7913e4fdd8a9afa8940bdb1b9</sys_scope_delete>
+        <sys_update_name>sys_atf_step_afb06df8c3163210ec76502ed401315e</sys_update_name>
+        <sys_update_version display_value="sys_atf_step_afb06df8c3163210ec76502ed401315e">77b06df8c3163210ec76502ed4013168</sys_update_version>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2026-01-05 09:57:13</sys_updated_on>
+    </sys_metadata_delete>
+</record_update>

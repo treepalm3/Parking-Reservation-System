@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update sys_domain="global" table="sys_ux_applicability">
+    <sys_ux_applicability action="DELETE">
+        <active>true</active>
+        <api_name>x_1869622_parkin_0.Parking Reservation System Users</api_name>
+        <description>Audience of users with the Parking Reservation System user role</description>
+        <name>Parking Reservation System Users</name>
+        <role_names>x_1869622_parkin_0.parking_reservation_user,x_1869622_parkin_0.user,x_1869622_parkin_0.parking_location_user</role_names>
+        <roles/>
+        <sys_class_name>sys_ux_applicability</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2026-02-10 03:29:51</sys_created_on>
+        <sys_domain>global</sys_domain>
+        <sys_domain_path>/</sys_domain_path>
+        <sys_id>dc1ee290c34bf250ec76502ed401319a</sys_id>
+        <sys_mod_count>3</sys_mod_count>
+        <sys_name>Parking Reservation System Users</sys_name>
+        <sys_overrides/>
+        <sys_package display_value="Parking Reservation System" source="x_1869622_parkin_0">6ea533f6c3adb290ec76502ed4013190</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="Parking Reservation System">6ea533f6c3adb290ec76502ed4013190</sys_scope>
+        <sys_update_name>sys_ux_applicability_dc1ee290c34bf250ec76502ed401319a</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2026-02-10 09:06:55</sys_updated_on>
+    </sys_ux_applicability>
+    <sys_update_version action="INSERT_OR_UPDATE">
+        <action>DELETE</action>
+        <application display_value="Parking Reservation System">6ea533f6c3adb290ec76502ed4013190</application>
+        <file_path/>
+        <instance_id>b63623e43b702e54a36804e0b5e45a2d</instance_id>
+        <instance_name>dev318569</instance_name>
+        <name>sys_ux_applicability_dc1ee290c34bf250ec76502ed401319a</name>
+        <payload><![CDATA[<?xml version="1.0" encoding="UTF-8"?><record_update sys_domain="global" table="sys_ux_applicability"><sys_ux_applicability action="INSERT_OR_UPDATE"><active>true</active><api_name>x_1869622_parkin_0.Parking Reservation System Users</api_name><description>Audience of users with the Parking Reservation System user role</description><name>Parking Reservation System Users</name><role_names>x_1869622_parkin_0.parking_reservation_user,x_1869622_parkin_0.user,x_1869622_parkin_0.parking_location_user</role_names><roles/><sys_class_name>sys_ux_applicability</sys_class_name><sys_created_by>admin</sys_created_by><sys_created_on>2026-02-10 03:29:51</sys_created_on><sys_domain>global</sys_domain><sys_domain_path>/</sys_domain_path><sys_id>dc1ee290c34bf250ec76502ed401319a</sys_id><sys_mod_count>3</sys_mod_count><sys_name>Parking Reservation System Users</sys_name><sys_overrides/><sys_package display_value="Parking Reservation System" source="x_1869622_parkin_0">6ea533f6c3adb290ec76502ed4013190</sys_package><sys_policy/><sys_scope display_value="Parking Reservation System">6ea533f6c3adb290ec76502ed4013190</sys_scope><sys_update_name>sys_ux_applicability_dc1ee290c34bf250ec76502ed401319a</sys_update_name><sys_updated_by>admin</sys_updated_by><sys_updated_on>2026-02-10 09:06:55</sys_updated_on></sys_ux_applicability></record_update>]]></payload>
+        <payload_hash>-391832804</payload_hash>
+        <record_name>Parking Reservation System Users</record_name>
+        <reverted_from/>
+        <source>62c9771cc3833650ec76502ed4013177</source>
+        <source_table>sys_update_set</source_table>
+        <state>previous</state>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2026-02-10 09:06:55</sys_created_on>
+        <sys_id>398b7fdcc3833650ec76502ed40131d1</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_recorded_at>19c46cdc12b0000001</sys_recorded_at>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2026-02-10 09:06:55</sys_updated_on>
+        <type>Audience</type>
+        <update_guid>798b7fdc53833650475cf302ae6fd5d0</update_guid>
+        <update_guid_history>798b7fdc53833650475cf302ae6fd5d0:-391832804,bb64f7508e8336507cea9488948fc86d:-1864392371,3b80ff58ec43365003628e2fe4c36dfa:-580967550,9c6ea214cf4bf2507a9f00cf14d7dae0:-391832804</update_guid_history>
+    </sys_update_version>
+    <sys_metadata_delete action="INSERT_OR_UPDATE">
+        <sys_audit_delete/>
+        <sys_class_name>sys_metadata_delete</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2026-02-11 03:05:10</sys_created_on>
+        <sys_db_object display_value="" name="sys_ux_applicability">sys_ux_applicability</sys_db_object>
+        <sys_id>47d8a4c7f2164591ba334d7d77cb8c71</sys_id>
+        <sys_metadata>dc1ee290c34bf250ec76502ed401319a</sys_metadata>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>Parking Reservation System Users</sys_name>
+        <sys_package display_value="Parking Reservation System" source="x_1869622_parkin_0">6ea533f6c3adb290ec76502ed4013190</sys_package>
+        <sys_parent/>
+        <sys_policy/>
+        <sys_scope display_value="Parking Reservation System">6ea533f6c3adb290ec76502ed4013190</sys_scope>
+        <sys_scope_delete display_value="">5c63e0b7913e4fdd8a9afa8940bdb1b9</sys_scope_delete>
+        <sys_update_name>sys_ux_applicability_dc1ee290c34bf250ec76502ed401319a</sys_update_name>
+        <sys_update_version display_value="sys_ux_applicability_dc1ee290c34bf250ec76502ed401319a">398b7fdcc3833650ec76502ed40131d1</sys_update_version>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2026-02-11 03:05:10</sys_updated_on>
+    </sys_metadata_delete>
+</record_update>

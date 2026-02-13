@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sys_atf_step">
+    <sys_atf_step action="DELETE">
+        <active>true</active>
+        <callable_outputs/>
+        <copied_from display_value="Open a Record Producer">0d611222c3023290ec76502ed401314f</copied_from>
+        <description>Open 'Car Parking Reservation' Record Producer</description>
+        <display_name>Open a Record Producer</display_name>
+        <inputs/>
+        <mugshots_cache_json/>
+        <notes/>
+        <order>3</order>
+        <step_config display_value="Open a Record Producer">77409f72c300320076173b0ac3d3ae19</step_config>
+        <sys_class_name>sys_atf_step</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2026-01-05 07:35:11</sys_created_on>
+        <sys_id>b24d8e70c39a3210ec76502ed40131ef</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>Open a Record Producer</sys_name>
+        <sys_package display_value="Parking Reservation System" source="x_1869622_parkin_0">6ea533f6c3adb290ec76502ed4013190</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="Parking Reservation System">6ea533f6c3adb290ec76502ed4013190</sys_scope>
+        <sys_update_name>sys_atf_step_b24d8e70c39a3210ec76502ed40131ef</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2026-01-05 07:35:11</sys_updated_on>
+        <table/>
+        <test display_value="CPR_02_Create Reservation &amp; Admin Reject copy">f64d8a70c39a3210ec76502ed401314b</test>
+        <timeout/>
+        <warning_message/>
+    </sys_atf_step>
+    <sys_variable_value action="DELETE" query="document_key=b24d8e70c39a3210ec76502ed40131ef"/>
+    <sys_variable_value action="DELETE">
+        <document>sys_atf_step</document>
+        <document_key>b24d8e70c39a3210ec76502ed40131ef</document_key>
+        <order>100</order>
+        <sys_class_name>sys_variable_value</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2026-01-05 07:35:11</sys_created_on>
+        <sys_id>324d8e70c39a3210ec76502ed40131f1</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2026-01-05 07:35:11</sys_updated_on>
+        <value>48ece84bc325f290ec76502ed40131e5</value>
+        <variable display_value="Record Producer">a9145b43c300320076173b0ac3d3ae0e</variable>
+    </sys_variable_value>
+    <sys_element_mapping action="DELETE" query="table=var__m_atf_input_variable_77409f72c300320076173b0ac3d3ae19^id=b24d8e70c39a3210ec76502ed40131ef"/>
+    <sys_update_version action="INSERT_OR_UPDATE">
+        <action>DELETE</action>
+        <application display_value="Parking Reservation System">6ea533f6c3adb290ec76502ed4013190</application>
+        <file_path/>
+        <instance_id>b63623e43b702e54a36804e0b5e45a2d</instance_id>
+        <instance_name>dev318569</instance_name>
+        <name>sys_atf_step_b24d8e70c39a3210ec76502ed40131ef</name>
+        <payload><![CDATA[<?xml version="1.0" encoding="UTF-8"?><record_update table="sys_atf_step"><sys_atf_step action="INSERT_OR_UPDATE"><active>true</active><callable_outputs/><copied_from display_value="Open a Record Producer">0d611222c3023290ec76502ed401314f</copied_from><description>Open 'Car Parking Reservation' Record Producer</description><display_name>Open a Record Producer</display_name><inputs/><mugshots_cache_json/><notes/><order>3</order><step_config display_value="Open a Record Producer">77409f72c300320076173b0ac3d3ae19</step_config><sys_class_name>sys_atf_step</sys_class_name><sys_created_by>admin</sys_created_by><sys_created_on>2026-01-05 07:35:11</sys_created_on><sys_id>b24d8e70c39a3210ec76502ed40131ef</sys_id><sys_mod_count>0</sys_mod_count><sys_name>Open a Record Producer</sys_name><sys_package display_value="Parking Reservation System" source="x_1869622_parkin_0">6ea533f6c3adb290ec76502ed4013190</sys_package><sys_policy/><sys_scope display_value="Parking Reservation System">6ea533f6c3adb290ec76502ed4013190</sys_scope><sys_update_name>sys_atf_step_b24d8e70c39a3210ec76502ed40131ef</sys_update_name><sys_updated_by>admin</sys_updated_by><sys_updated_on>2026-01-05 07:35:11</sys_updated_on><table/><test display_value="CPR_02_Create Reservation &amp; Admin Reject copy">f64d8a70c39a3210ec76502ed401314b</test><timeout/><warning_message/></sys_atf_step><sys_variable_value action="delete_multiple" query="document_key=b24d8e70c39a3210ec76502ed40131ef"/><sys_variable_value action="INSERT_OR_UPDATE"><document>sys_atf_step</document><document_key>b24d8e70c39a3210ec76502ed40131ef</document_key><order>100</order><sys_class_name>sys_variable_value</sys_class_name><sys_created_by>admin</sys_created_by><sys_created_on>2026-01-05 07:35:11</sys_created_on><sys_id>324d8e70c39a3210ec76502ed40131f1</sys_id><sys_mod_count>0</sys_mod_count><sys_updated_by>admin</sys_updated_by><sys_updated_on>2026-01-05 07:35:11</sys_updated_on><value>48ece84bc325f290ec76502ed40131e5</value><variable display_value="Record Producer">a9145b43c300320076173b0ac3d3ae0e</variable></sys_variable_value><sys_element_mapping action="delete_multiple" query="table=var__m_atf_input_variable_77409f72c300320076173b0ac3d3ae19^id=b24d8e70c39a3210ec76502ed40131ef"/></record_update>]]></payload>
+        <payload_hash>420609714</payload_hash>
+        <record_name>Open a Record Producer</record_name>
+        <reverted_from/>
+        <source>d2e952c6c375ba10ec76502ed4013129</source>
+        <source_table>sys_update_set</source_table>
+        <state>previous</state>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2026-01-05 07:35:11</sys_created_on>
+        <sys_id>b24d8e70c39a3210ec76502ed40131f5</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_recorded_at>19b8d14d55d0000001</sys_recorded_at>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2026-01-05 07:35:11</sys_updated_on>
+        <type>Test Step</type>
+        <update_guid>be4d8e702e9a321022863d3f553b13f3</update_guid>
+        <update_guid_history>be4d8e702e9a321022863d3f553b13f3:420609714</update_guid_history>
+    </sys_update_version>
+    <sys_metadata_delete action="INSERT_OR_UPDATE">
+        <sys_audit_delete/>
+        <sys_class_name>sys_metadata_delete</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2026-01-05 09:57:28</sys_created_on>
+        <sys_db_object display_value="" name="sys_atf_step">sys_atf_step</sys_db_object>
+        <sys_id>0d9924cd62d341ee86ff93d00a562844</sys_id>
+        <sys_metadata>b24d8e70c39a3210ec76502ed40131ef</sys_metadata>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>Open a Record Producer</sys_name>
+        <sys_package display_value="Parking Reservation System" source="x_1869622_parkin_0">6ea533f6c3adb290ec76502ed4013190</sys_package>
+        <sys_parent/>
+        <sys_policy/>
+        <sys_scope display_value="Parking Reservation System">6ea533f6c3adb290ec76502ed4013190</sys_scope>
+        <sys_scope_delete display_value="">5c63e0b7913e4fdd8a9afa8940bdb1b9</sys_scope_delete>
+        <sys_update_name>sys_atf_step_b24d8e70c39a3210ec76502ed40131ef</sys_update_name>
+        <sys_update_version display_value="sys_atf_step_b24d8e70c39a3210ec76502ed40131ef">b24d8e70c39a3210ec76502ed40131f5</sys_update_version>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2026-01-05 09:57:28</sys_updated_on>
+    </sys_metadata_delete>
+</record_update>

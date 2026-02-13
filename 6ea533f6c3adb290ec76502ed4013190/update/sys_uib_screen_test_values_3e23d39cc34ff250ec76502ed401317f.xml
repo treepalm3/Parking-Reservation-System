@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sys_uib_screen_test_values">
+    <sys_uib_screen_test_values action="INSERT_OR_UPDATE">
+        <macroponent_config>{
+    "5865e308432021105571609dc7b8f23b": {
+        "allRecordsSelected": false,
+        "columnFilteringPopoverDisplay": "",
+        "columnLimit": 0,
+        "columnPreferenceKey": "",
+        "columns": "number,u_requester_name,state,u_requester_manager",
+        "currentPage": 0,
+        "enableCellFiltering": true,
+        "enableColumnFiltering": false,
+        "enableColumnGrouping": true,
+        "enableColumnSorting": true,
+        "enableDeclarativeActions": true,
+        "enableDotWalk": true,
+        "enableInfiniteScroll": false,
+        "enableLiveList": false,
+        "enableQuickEdit": false,
+        "enableQuickFormNavigation": false,
+        "enableReferenceLinks": true,
+        "enforceViewRulesForQuickForm": false,
+        "fetchHighlightedValues": true,
+        "filter": "",
+        "fixedFilter": "",
+        "groupBy": "",
+        "listControllerId": "C58Ae4743vDEdJ9gEPxaZhJfo7",
+        "listId": null,
+        "listType": "simple",
+        "nestBy": "",
+        "onlyEnableSelectionWhenRequiredByActions": true,
+        "pageSysId": "a19e1a08c34b7250ec76502ed40131da",
+        "rowLimit": 10,
+        "showListOpenedByLinkSection": null,
+        "table": "x_1869622_reques_0_name_card",
+        "view": ""
+    },
+    "table": "x_1869622_parkin_0_parking_reservation"
+}</macroponent_config>
+        <screen display_value="Home User">b223d39cc34ff250ec76502ed4013177</screen>
+        <sys_class_name>sys_uib_screen_test_values</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2026-02-10 06:10:35</sys_created_on>
+        <sys_id>3e23d39cc34ff250ec76502ed401317f</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name/>
+        <sys_package display_value="Parking Reservation System" source="x_1869622_parkin_0">6ea533f6c3adb290ec76502ed4013190</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="Parking Reservation System">6ea533f6c3adb290ec76502ed4013190</sys_scope>
+        <sys_update_name>sys_uib_screen_test_values_3e23d39cc34ff250ec76502ed401317f</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2026-02-10 06:10:35</sys_updated_on>
+    </sys_uib_screen_test_values>
+</record_update>

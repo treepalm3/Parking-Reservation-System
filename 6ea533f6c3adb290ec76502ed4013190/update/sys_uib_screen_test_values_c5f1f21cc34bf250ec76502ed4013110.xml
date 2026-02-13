@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sys_uib_screen_test_values">
+    <sys_uib_screen_test_values action="INSERT_OR_UPDATE">
+        <macroponent_config>{
+    "5865e308432021105571609dc7b8f23b": {
+        "allRecordsSelected": false,
+        "columnFilteringPopoverDisplay": "",
+        "columnLimit": 0,
+        "columnPreferenceKey": "",
+        "columns": "",
+        "currentPage": 0,
+        "enableCellFiltering": true,
+        "enableColumnFiltering": false,
+        "enableColumnGrouping": true,
+        "enableColumnSorting": true,
+        "enableDeclarativeActions": true,
+        "enableDotWalk": true,
+        "enableInfiniteScroll": false,
+        "enableLiveList": false,
+        "enableQuickEdit": false,
+        "enableQuickFormNavigation": false,
+        "enableReferenceLinks": true,
+        "enforceViewRulesForQuickForm": false,
+        "fetchHighlightedValues": true,
+        "filter": "",
+        "fixedFilter": "",
+        "groupBy": "",
+        "listControllerId": "VjLaEACKCULk43FEBGWM3eMtT",
+        "listId": null,
+        "listType": "simple",
+        "nestBy": "",
+        "onlyEnableSelectionWhenRequiredByActions": true,
+        "pageSysId": "00307034c3c7b650ec76502ed40131f0",
+        "rowLimit": 10,
+        "showListOpenedByLinkSection": null,
+        "table": "x_1869622_parkin_0_parking_reservation",
+        "view": ""
+    },
+    "table": "x_1869622_parkin_0_parking_reservation",
+    "listTitle": "All Reservations",
+    "query": "active=true",
+    "listView": "Default view"
+}</macroponent_config>
+        <screen display_value="simple list">89f1f21cc34bf250ec76502ed401310a</screen>
+        <sys_class_name>sys_uib_screen_test_values</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2026-02-10 03:45:28</sys_created_on>
+        <sys_id>c5f1f21cc34bf250ec76502ed4013110</sys_id>
+        <sys_mod_count>2</sys_mod_count>
+        <sys_name/>
+        <sys_package display_value="Parking Reservation System" source="x_1869622_parkin_0">6ea533f6c3adb290ec76502ed4013190</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="Parking Reservation System">6ea533f6c3adb290ec76502ed4013190</sys_scope>
+        <sys_update_name>sys_uib_screen_test_values_c5f1f21cc34bf250ec76502ed4013110</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2026-02-12 06:13:32</sys_updated_on>
+    </sys_uib_screen_test_values>
+</record_update>

@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update sys_domain="global" table="sys_ux_applicability">
+    <sys_ux_applicability action="INSERT_OR_UPDATE">
+        <active>true</active>
+        <api_name>x_1869622_parkin_0.Parking Reservation System Admins</api_name>
+        <description>Audience of users with the Parking Reservation System admin role</description>
+        <name>Parking Reservation System Admins</name>
+        <role_names>x_1869622_parkin_0.admin</role_names>
+        <roles/>
+        <sys_class_name>sys_ux_applicability</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2026-02-10 03:26:55</sys_created_on>
+        <sys_domain>global</sys_domain>
+        <sys_domain_path>/</sys_domain_path>
+        <sys_id>4b0da290c34bf250ec76502ed40131aa</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>Parking Reservation System Admins</sys_name>
+        <sys_overrides/>
+        <sys_package display_value="Parking Reservation System" source="x_1869622_parkin_0">6ea533f6c3adb290ec76502ed4013190</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="Parking Reservation System">6ea533f6c3adb290ec76502ed4013190</sys_scope>
+        <sys_update_name>sys_ux_applicability_4b0da290c34bf250ec76502ed40131aa</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2026-02-10 03:26:55</sys_updated_on>
+    </sys_ux_applicability>
+</record_update>

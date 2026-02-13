@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sys_atf_step">
+    <sys_atf_step action="INSERT_OR_UPDATE">
+        <active>true</active>
+        <callable_outputs/>
+        <copied_from/>
+        <description>Submit the Record Producer and confirm submission to server</description>
+        <display_name>Submit Record Producer</display_name>
+        <inputs/>
+        <mugshots_cache_json/>
+        <notes/>
+        <order>8</order>
+        <step_config display_value="Submit Record Producer">ed59d8e5c332220076173b0ac3d3ae6a</step_config>
+        <sys_class_name>sys_atf_step</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2025-12-29 10:04:08</sys_created_on>
+        <sys_id>4e0c66e2c3c23290ec76502ed40131d2</sys_id>
+        <sys_mod_count>3</sys_mod_count>
+        <sys_name>Submit Record Producer</sys_name>
+        <sys_package display_value="Parking Reservation System" source="x_1869622_parkin_0">6ea533f6c3adb290ec76502ed4013190</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="Parking Reservation System">6ea533f6c3adb290ec76502ed4013190</sys_scope>
+        <sys_update_name>sys_atf_step_4e0c66e2c3c23290ec76502ed40131d2</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2025-12-30 03:02:14</sys_updated_on>
+        <table/>
+        <test display_value="CPR_03_Duplicate_Booking_Check">9404a6e2c3823290ec76502ed40131dc</test>
+        <timeout/>
+        <warning_message/>
+    </sys_atf_step>
+    <sys_variable_value action="delete_multiple" query="document_key=4e0c66e2c3c23290ec76502ed40131d2"/>
+    <sys_variable_value action="INSERT_OR_UPDATE">
+        <document>sys_atf_step</document>
+        <document_key>4e0c66e2c3c23290ec76502ed40131d2</document_key>
+        <order>200</order>
+        <sys_class_name>sys_variable_value</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2025-12-29 10:04:08</sys_created_on>
+        <sys_id>e84ceea2c3c23290ec76502ed4013101</sys_id>
+        <sys_mod_count>3</sys_mod_count>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2025-12-30 03:02:14</sys_updated_on>
+        <value>form_submitted_to_server</value>
+        <variable display_value="Assert type">ffaf5469c332220076173b0ac3d3aea9</variable>
+    </sys_variable_value>
+</record_update>

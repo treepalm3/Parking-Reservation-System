@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sys_uib_screen_test_values">
+    <sys_uib_screen_test_values action="INSERT_OR_UPDATE">
+        <macroponent_config>{
+    "5865e308432021105571609dc7b8f23b": {
+        "allRecordsSelected": false,
+        "columnFilteringPopoverDisplay": "",
+        "columnLimit": 0,
+        "columnPreferenceKey": "",
+        "columns": "number,vehicle_registration,start_date_time,end_date_time,parking_location,reservation_status",
+        "currentPage": 0,
+        "enableCellFiltering": true,
+        "enableColumnFiltering": false,
+        "enableColumnGrouping": true,
+        "enableColumnSorting": true,
+        "enableDeclarativeActions": true,
+        "enableDotWalk": true,
+        "enableInfiniteScroll": false,
+        "enableLiveList": false,
+        "enableQuickEdit": false,
+        "enableQuickFormNavigation": false,
+        "enableReferenceLinks": true,
+        "enforceViewRulesForQuickForm": false,
+        "fetchHighlightedValues": true,
+        "filter": "",
+        "fixedFilter": "active=true",
+        "groupBy": "",
+        "listControllerId": "VjLaEACKCULk43FEBGWM3eMtT",
+        "listId": null,
+        "listType": "simple",
+        "nestBy": "",
+        "onlyEnableSelectionWhenRequiredByActions": true,
+        "pageSysId": "00307034c3c7b650ec76502ed40131f0",
+        "rowLimit": 10,
+        "showListOpenedByLinkSection": null,
+        "table": "x_1869622_parkin_0_parking_reservation",
+        "view": ""
+    },
+    "table": "x_1869622_parkin_0_parking_reservation",
+    "listTitle": "All Reservations",
+    "query": "active=true",
+    "listView": "Default view",
+    "029f04e053610110ac9bddeeff7b1294": {
+        "activityLogs": null,
+        "detailsContext": null,
+        "fields": null,
+        "forcedViewName": null,
+        "inputExtraParams": null,
+        "inputQuery": null,
+        "inputSysId": "00c6b645c371f210ec76502ed4013176",
+        "inputTable": "x_1869622_parkin_0_parking_reservation",
+        "isMappedToAppShell": true,
+        "screen": null,
+        "shouldSuppressGlobalEvents": true,
+        "userPrefs": null
+    },
+    "sysId": "978ee195302c3210559066cad9e25218"
+}</macroponent_config>
+        <screen display_value="Home user">c7da9a15c303fa50ec76502ed40131cf</screen>
+        <sys_class_name>sys_uib_screen_test_values</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2026-02-13 04:38:30</sys_created_on>
+        <sys_id>13dada15c303fa50ec76502ed4013116</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name/>
+        <sys_package display_value="Parking Reservation System" source="x_1869622_parkin_0">6ea533f6c3adb290ec76502ed4013190</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="Parking Reservation System">6ea533f6c3adb290ec76502ed4013190</sys_scope>
+        <sys_update_name>sys_uib_screen_test_values_13dada15c303fa50ec76502ed4013116</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2026-02-13 04:38:30</sys_updated_on>
+    </sys_uib_screen_test_values>
+</record_update>

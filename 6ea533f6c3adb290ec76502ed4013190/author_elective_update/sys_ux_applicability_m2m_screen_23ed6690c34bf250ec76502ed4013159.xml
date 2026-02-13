@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sys_ux_applicability_m2m_screen">
+    <sys_ux_applicability_m2m_screen action="DELETE">
+        <active>true</active>
+        <applicability display_value="Parking Reservation System Admins">4b0da290c34bf250ec76502ed40131aa</applicability>
+        <order>100</order>
+        <screen display_value="Home admin">0966ae14c30bf250ec76502ed401317b</screen>
+        <sys_class_name>sys_ux_applicability_m2m_screen</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2026-02-10 03:27:53</sys_created_on>
+        <sys_id>23ed6690c34bf250ec76502ed4013159</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name/>
+        <sys_package display_value="Parking Reservation System" source="x_1869622_parkin_0">6ea533f6c3adb290ec76502ed4013190</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="Parking Reservation System">6ea533f6c3adb290ec76502ed4013190</sys_scope>
+        <sys_update_name>sys_ux_applicability_m2m_screen_23ed6690c34bf250ec76502ed4013159</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2026-02-10 03:27:53</sys_updated_on>
+    </sys_ux_applicability_m2m_screen>
+    <sys_update_version action="INSERT_OR_UPDATE">
+        <action>DELETE</action>
+        <application display_value="Parking Reservation System">6ea533f6c3adb290ec76502ed4013190</application>
+        <file_path/>
+        <instance_id>b63623e43b702e54a36804e0b5e45a2d</instance_id>
+        <instance_name>dev318569</instance_name>
+        <name>sys_ux_applicability_m2m_screen_23ed6690c34bf250ec76502ed4013159</name>
+        <payload><![CDATA[<?xml version="1.0" encoding="UTF-8"?><record_update table="sys_ux_applicability_m2m_screen"><sys_ux_applicability_m2m_screen action="INSERT_OR_UPDATE"><active>true</active><applicability display_value="Parking Reservation System Admins">4b0da290c34bf250ec76502ed40131aa</applicability><order>100</order><screen display_value="Home admin">0966ae14c30bf250ec76502ed401317b</screen><sys_class_name>sys_ux_applicability_m2m_screen</sys_class_name><sys_created_by>admin</sys_created_by><sys_created_on>2026-02-10 03:27:53</sys_created_on><sys_id>23ed6690c34bf250ec76502ed4013159</sys_id><sys_mod_count>0</sys_mod_count><sys_name/><sys_package display_value="Parking Reservation System" source="x_1869622_parkin_0">6ea533f6c3adb290ec76502ed4013190</sys_package><sys_policy/><sys_scope display_value="Parking Reservation System">6ea533f6c3adb290ec76502ed4013190</sys_scope><sys_update_name>sys_ux_applicability_m2m_screen_23ed6690c34bf250ec76502ed4013159</sys_update_name><sys_updated_by>admin</sys_updated_by><sys_updated_on>2026-02-10 03:27:53</sys_updated_on></sys_ux_applicability_m2m_screen></record_update>]]></payload>
+        <payload_hash>-1036573884</payload_hash>
+        <record_name/>
+        <reverted_from/>
+        <source>d2e952c6c375ba10ec76502ed4013129</source>
+        <source_table>sys_update_set</source_table>
+        <state>previous</state>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2026-02-10 03:27:53</sys_created_on>
+        <sys_id>afed6690c34bf250ec76502ed401315e</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_recorded_at>19c45975d8a0000001</sys_recorded_at>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2026-02-10 03:27:53</sys_updated_on>
+        <type>Screen Applicability</type>
+        <update_guid>6bed66904d4bf250c58ff10da0df505d</update_guid>
+        <update_guid_history>6bed66904d4bf250c58ff10da0df505d:-1036573884</update_guid_history>
+    </sys_update_version>
+    <sys_metadata_delete action="INSERT_OR_UPDATE">
+        <sys_audit_delete/>
+        <sys_class_name>sys_metadata_delete</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2026-02-11 02:58:57</sys_created_on>
+        <sys_db_object display_value="" name="sys_ux_applicability_m2m_screen">sys_ux_applicability_m2m_screen</sys_db_object>
+        <sys_id>157a0643d35d4d3c894dc549c64f9444</sys_id>
+        <sys_metadata>23ed6690c34bf250ec76502ed4013159</sys_metadata>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name/>
+        <sys_package display_value="Parking Reservation System" source="x_1869622_parkin_0">6ea533f6c3adb290ec76502ed4013190</sys_package>
+        <sys_parent/>
+        <sys_policy/>
+        <sys_scope display_value="Parking Reservation System">6ea533f6c3adb290ec76502ed4013190</sys_scope>
+        <sys_scope_delete display_value="">5c63e0b7913e4fdd8a9afa8940bdb1b9</sys_scope_delete>
+        <sys_update_name>sys_ux_applicability_m2m_screen_23ed6690c34bf250ec76502ed4013159</sys_update_name>
+        <sys_update_version display_value="sys_ux_applicability_m2m_screen_23ed6690c34bf250ec76502ed4013159">afed6690c34bf250ec76502ed401315e</sys_update_version>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2026-02-11 02:58:57</sys_updated_on>
+    </sys_metadata_delete>
+</record_update>

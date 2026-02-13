@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sys_ux_applicability_m2m_screen">
+    <sys_ux_applicability_m2m_screen action="INSERT_OR_UPDATE">
+        <active>true</active>
+        <applicability display_value="Parking Reservation System Users">0a72f724c3cf7650ec76502ed4013117</applicability>
+        <order>200</order>
+        <screen display_value="Home User">b223d39cc34ff250ec76502ed4013177</screen>
+        <sys_class_name>sys_ux_applicability_m2m_screen</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2026-02-11 03:08:50</sys_created_on>
+        <sys_id>1a23f328c3cf7650ec76502ed40131eb</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name/>
+        <sys_package display_value="Parking Reservation System" source="x_1869622_parkin_0">6ea533f6c3adb290ec76502ed4013190</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="Parking Reservation System">6ea533f6c3adb290ec76502ed4013190</sys_scope>
+        <sys_update_name>sys_ux_applicability_m2m_screen_1a23f328c3cf7650ec76502ed40131eb</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2026-02-11 03:08:50</sys_updated_on>
+    </sys_ux_applicability_m2m_screen>
+</record_update>

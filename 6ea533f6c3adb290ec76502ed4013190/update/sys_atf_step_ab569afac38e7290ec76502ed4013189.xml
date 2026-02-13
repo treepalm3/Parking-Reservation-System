@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sys_atf_step">
+    <sys_atf_step action="INSERT_OR_UPDATE">
+        <active>true</active>
+        <callable_outputs/>
+        <copied_from/>
+        <description>Answer the questions on the form as follows:
+Requester Name = Allyson Gillispie
+and Car Type = Motorcycle
+and Vehicle Registration Number = น8975
+and Start Date Time = 2026-01-19 05:00:00
+and End Date Time = 2026-01-19 02:00:00
+and Parking Location = Shopping Mall Parking</description>
+        <display_name>Set Variable Values</display_name>
+        <inputs/>
+        <mugshots_cache_json/>
+        <notes/>
+        <order>4</order>
+        <step_config display_value="Set Variable Values">323ca6e1c3b2220076173b0ac3d3aec1</step_config>
+        <sys_class_name>sys_atf_step</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2025-12-30 03:09:28</sys_created_on>
+        <sys_id>ab569afac38e7290ec76502ed4013189</sys_id>
+        <sys_mod_count>2</sys_mod_count>
+        <sys_name>Set Variable Values</sys_name>
+        <sys_package display_value="Parking Reservation System" source="x_1869622_parkin_0">6ea533f6c3adb290ec76502ed4013190</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="Parking Reservation System">6ea533f6c3adb290ec76502ed4013190</sys_scope>
+        <sys_update_name>sys_atf_step_ab569afac38e7290ec76502ed4013189</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2026-01-05 03:37:37</sys_updated_on>
+        <table/>
+        <test display_value="CPR_04_Past_Date_Check">29a5127ac34e7290ec76502ed40131d7</test>
+        <timeout/>
+        <warning_message/>
+    </sys_atf_step>
+    <sys_variable_value action="delete_multiple" query="document_key=ab569afac38e7290ec76502ed4013189"/>
+    <sys_variable_value action="INSERT_OR_UPDATE">
+        <document>sys_atf_step</document>
+        <document_key>ab569afac38e7290ec76502ed4013189</document_key>
+        <order>100</order>
+        <sys_class_name>sys_variable_value</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2025-12-30 03:09:28</sys_created_on>
+        <sys_id>08f69a3ec38e7290ec76502ed40131f6</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2025-12-30 03:09:28</sys_updated_on>
+        <value>48ece84bc325f290ec76502ed40131e5</value>
+        <variable display_value="Item">571e6a25c3b2220076173b0ac3d3ae46</variable>
+    </sys_variable_value>
+    <sys_variable_value action="INSERT_OR_UPDATE">
+        <document>sys_atf_step</document>
+        <document_key>ab569afac38e7290ec76502ed4013189</document_key>
+        <order>200</order>
+        <sys_class_name>sys_variable_value</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2025-12-30 03:09:28</sys_created_on>
+        <sys_id>c0f69a3ec38e7290ec76502ed40131f6</sys_id>
+        <sys_mod_count>2</sys_mod_count>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2026-01-05 03:37:37</sys_updated_on>
+        <value>IO:f1ade0c3c365f290ec76502ed4013145=06826bf03710200044e0bfc8bcbe5d8a^IO:ae06ae0bc3a13690ec76502ed40131e2=motorcycle^IO:8d17a607c3e13690ec76502ed40131ab=น8975^IO:29a7ae47c3e13690ec76502ed4013142=2026-01-19 13:00:00^IO:17f7ae47c3e13690ec76502ed40131b3=2026-01-19 10:00:00^IO:1debaecbc3e13690ec76502ed401316f=shopping_mall_parking^EQ</value>
+        <variable display_value="Variable Values">346eea25c3b2220076173b0ac3d3ae8b</variable>
+    </sys_variable_value>
+    <sys_element_mapping action="delete_multiple" query="table=var__m_atf_input_variable_323ca6e1c3b2220076173b0ac3d3aec1^id=ab569afac38e7290ec76502ed4013189"/>
+</record_update>
