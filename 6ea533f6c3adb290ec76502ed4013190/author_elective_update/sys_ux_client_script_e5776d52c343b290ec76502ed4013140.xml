@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sys_ux_client_script">
+    <sys_ux_client_script action="DELETE">
+        <controller_preset/>
+        <includes/>
+        <macroponent display_value="Home admin">e977a1dec303b290ec76502ed4013181</macroponent>
+        <name>Auto Fill User Info</name>
+        <preset/>
+        <required_translations>[]</required_translations>
+        <script><![CDATA[function handler({api, event, helpers, imports}) {
+    const userId = event.payload.value; // ดึง sys_id ของ User ที่ถูกเลือก
+    if (userId) {
+        // สั่งให้ Data Resource ไปดึง Email และ Phone มา
+        // จากนั้นใช้ api.setState หรือ g_form.setValue เพื่อใส่ค่าลงฟอร์ม
+    }
+}]]></script>
+        <script_api_version>2.0.0</script_api_version>
+        <sys_class_name>sys_ux_client_script</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2026-02-16 03:27:52</sys_created_on>
+        <sys_id>e5776d52c343b290ec76502ed4013140</sys_id>
+        <sys_mod_count>1</sys_mod_count>
+        <sys_name>Auto Fill User Info</sys_name>
+        <sys_package display_value="Parking Reservation System" source="x_1869622_parkin_0">6ea533f6c3adb290ec76502ed4013190</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="Parking Reservation System">6ea533f6c3adb290ec76502ed4013190</sys_scope>
+        <sys_update_name>sys_ux_client_script_e5776d52c343b290ec76502ed4013140</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2026-02-16 03:27:52</sys_updated_on>
+        <target>macroponent</target>
+        <type>default</type>
+    </sys_ux_client_script>
+    <sys_update_version action="INSERT_OR_UPDATE">
+        <action>DELETE</action>
+        <application display_value="Parking Reservation System">6ea533f6c3adb290ec76502ed4013190</application>
+        <file_path/>
+        <instance_id>b63623e43b702e54a36804e0b5e45a2d</instance_id>
+        <instance_name>dev318569</instance_name>
+        <name>sys_ux_client_script_e5776d52c343b290ec76502ed4013140</name>
+        <payload>&lt;?xml version="1.0" encoding="UTF-8"?&gt;&lt;record_update table="sys_ux_client_script"&gt;&lt;sys_ux_client_script action="INSERT_OR_UPDATE"&gt;&lt;controller_preset/&gt;&lt;includes/&gt;&lt;macroponent display_value="Home admin"&gt;e977a1dec303b290ec76502ed4013181&lt;/macroponent&gt;&lt;name&gt;Auto Fill User Info&lt;/name&gt;&lt;preset/&gt;&lt;required_translations&gt;[]&lt;/required_translations&gt;&lt;script&gt;&lt;![CDATA[function handler({api, event, helpers, imports}) {
+    const userId = event.payload.value; // ดึง sys_id ของ User ที่ถูกเลือก
+    if (userId) {
+        // สั่งให้ Data Resource ไปดึง Email และ Phone มา
+        // จากนั้นใช้ api.setState หรือ g_form.setValue เพื่อใส่ค่าลงฟอร์ม
+    }
+}]]&gt;&lt;/script&gt;&lt;script_api_version&gt;2.0.0&lt;/script_api_version&gt;&lt;sys_class_name&gt;sys_ux_client_script&lt;/sys_class_name&gt;&lt;sys_created_by&gt;admin&lt;/sys_created_by&gt;&lt;sys_created_on&gt;2026-02-16 03:27:52&lt;/sys_created_on&gt;&lt;sys_id&gt;e5776d52c343b290ec76502ed4013140&lt;/sys_id&gt;&lt;sys_mod_count&gt;1&lt;/sys_mod_count&gt;&lt;sys_name&gt;Auto Fill User Info&lt;/sys_name&gt;&lt;sys_package display_value="Parking Reservation System" source="x_1869622_parkin_0"&gt;6ea533f6c3adb290ec76502ed4013190&lt;/sys_package&gt;&lt;sys_policy/&gt;&lt;sys_scope display_value="Parking Reservation System"&gt;6ea533f6c3adb290ec76502ed4013190&lt;/sys_scope&gt;&lt;sys_update_name&gt;sys_ux_client_script_e5776d52c343b290ec76502ed4013140&lt;/sys_update_name&gt;&lt;sys_updated_by&gt;admin&lt;/sys_updated_by&gt;&lt;sys_updated_on&gt;2026-02-16 03:27:52&lt;/sys_updated_on&gt;&lt;target&gt;macroponent&lt;/target&gt;&lt;type&gt;default&lt;/type&gt;&lt;/sys_ux_client_script&gt;&lt;/record_update&gt;</payload>
+        <payload_hash>-1126837021</payload_hash>
+        <record_name>Auto Fill User Info</record_name>
+        <reverted_from/>
+        <source>d2e952c6c375ba10ec76502ed4013129</source>
+        <source_table>sys_update_set</source_table>
+        <state>previous</state>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2026-02-16 03:27:52</sys_created_on>
+        <sys_id>69776d52c343b290ec76502ed4013147</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_recorded_at>19c647d803d0000001</sys_recorded_at>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2026-02-16 03:27:52</sys_updated_on>
+        <type>UX Client Script</type>
+        <update_guid>65776d520743b290b1cb2d3da990fc46</update_guid>
+        <update_guid_history>65776d520743b290b1cb2d3da990fc46:-1126837021</update_guid_history>
+    </sys_update_version>
+    <sys_metadata_delete action="INSERT_OR_UPDATE">
+        <sys_audit_delete/>
+        <sys_class_name>sys_metadata_delete</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2026-02-16 03:57:22</sys_created_on>
+        <sys_db_object display_value="" name="sys_ux_client_script">sys_ux_client_script</sys_db_object>
+        <sys_id>034065f9a83c4da482abf5194646cc90</sys_id>
+        <sys_metadata>e5776d52c343b290ec76502ed4013140</sys_metadata>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>Auto Fill User Info</sys_name>
+        <sys_package display_value="Parking Reservation System" source="x_1869622_parkin_0">6ea533f6c3adb290ec76502ed4013190</sys_package>
+        <sys_parent/>
+        <sys_policy/>
+        <sys_scope display_value="Parking Reservation System">6ea533f6c3adb290ec76502ed4013190</sys_scope>
+        <sys_scope_delete display_value="">5c63e0b7913e4fdd8a9afa8940bdb1b9</sys_scope_delete>
+        <sys_update_name>sys_ux_client_script_e5776d52c343b290ec76502ed4013140</sys_update_name>
+        <sys_update_version display_value="sys_ux_client_script_e5776d52c343b290ec76502ed4013140">69776d52c343b290ec76502ed4013147</sys_update_version>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2026-02-16 03:57:22</sys_updated_on>
+    </sys_metadata_delete>
+</record_update>

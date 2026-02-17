@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update sys_domain="global" table="sys_script_client">
+    <sys_script_client action="DELETE">
+        <active>true</active>
+        <applies_extended>false</applies_extended>
+        <condition/>
+        <description/>
+        <field/>
+        <global>true</global>
+        <isolate_script>true</isolate_script>
+        <messages/>
+        <name>Validate Date on Submit</name>
+        <order/>
+        <script><![CDATA[function onSubmit() {
+    // 1. ดึงค่าเวลาจากฟอร์ม
+    var start = g_form.getValue('start_date_time');
+    var end = g_form.getValue('end_date_time');
+
+    if (start && end) {
+        var startDate = new Date(g_form.getFormControl('start_date_time').value).getTime();
+        var endDate = new Date(g_form.getFormControl('end_date_time').value).getTime();
+
+        // 2. ถ้าเวลาผิดพลาด ให้แจ้งเตือนและส่งค่า false เพื่อหยุดการบันทึก
+        if (startDate >= endDate) {
+            g_form.addErrorMessage('บันทึกไม่ได้! วันที่สิ้นสุดต้องมากกว่าวันที่เริ่มจองนะครับรัน');
+            return false; // การ return false ใน onSubmit จะทำให้กดบันทึกไม่สำเร็จครับ
+        }
+    }
+    return true; // ถ้าถูกต้องให้บันทึกได้ปกติ
+}]]></script>
+        <sys_class_name>sys_script_client</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2026-02-16 08:31:16</sys_created_on>
+        <sys_domain>global</sys_domain>
+        <sys_domain_path>/</sys_domain_path>
+        <sys_id>eeac269ac34bb290ec76502ed4013159</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>Validate Date on Submit</sys_name>
+        <sys_overrides/>
+        <sys_package display_value="Parking Reservation System" source="x_1869622_parkin_0">6ea533f6c3adb290ec76502ed4013190</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="Parking Reservation System">6ea533f6c3adb290ec76502ed4013190</sys_scope>
+        <sys_update_name>sys_script_client_eeac269ac34bb290ec76502ed4013159</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2026-02-16 08:31:16</sys_updated_on>
+        <table>x_1869622_parkin_0_parking_reservation</table>
+        <type>onSubmit</type>
+        <ui_type>10</ui_type>
+        <view/>
+    </sys_script_client>
+    <sys_update_version action="INSERT_OR_UPDATE">
+        <action>DELETE</action>
+        <application display_value="Parking Reservation System">6ea533f6c3adb290ec76502ed4013190</application>
+        <file_path/>
+        <instance_id>b63623e43b702e54a36804e0b5e45a2d</instance_id>
+        <instance_name>dev318569</instance_name>
+        <name>sys_script_client_eeac269ac34bb290ec76502ed4013159</name>
+        <payload>&lt;?xml version="1.0" encoding="UTF-8"?&gt;&lt;record_update sys_domain="global" table="sys_script_client"&gt;&lt;sys_script_client action="INSERT_OR_UPDATE"&gt;&lt;active&gt;true&lt;/active&gt;&lt;applies_extended&gt;false&lt;/applies_extended&gt;&lt;condition/&gt;&lt;description/&gt;&lt;field/&gt;&lt;global&gt;true&lt;/global&gt;&lt;isolate_script&gt;true&lt;/isolate_script&gt;&lt;messages/&gt;&lt;name&gt;Validate Date on Submit&lt;/name&gt;&lt;order/&gt;&lt;script&gt;&lt;![CDATA[function onSubmit() {
+    // 1. ดึงค่าเวลาจากฟอร์ม
+    var start = g_form.getValue('start_date_time');
+    var end = g_form.getValue('end_date_time');
+
+    if (start &amp;&amp; end) {
+        var startDate = new Date(g_form.getFormControl('start_date_time').value).getTime();
+        var endDate = new Date(g_form.getFormControl('end_date_time').value).getTime();
+
+        // 2. ถ้าเวลาผิดพลาด ให้แจ้งเตือนและส่งค่า false เพื่อหยุดการบันทึก
+        if (startDate &gt;= endDate) {
+            g_form.addErrorMessage('บันทึกไม่ได้! วันที่สิ้นสุดต้องมากกว่าวันที่เริ่มจองนะครับรัน');
+            return false; // การ return false ใน onSubmit จะทำให้กดบันทึกไม่สำเร็จครับ
+        }
+    }
+    return true; // ถ้าถูกต้องให้บันทึกได้ปกติ
+}]]&gt;&lt;/script&gt;&lt;sys_class_name&gt;sys_script_client&lt;/sys_class_name&gt;&lt;sys_created_by&gt;admin&lt;/sys_created_by&gt;&lt;sys_created_on&gt;2026-02-16 08:31:16&lt;/sys_created_on&gt;&lt;sys_domain&gt;global&lt;/sys_domain&gt;&lt;sys_domain_path&gt;/&lt;/sys_domain_path&gt;&lt;sys_id&gt;eeac269ac34bb290ec76502ed4013159&lt;/sys_id&gt;&lt;sys_mod_count&gt;0&lt;/sys_mod_count&gt;&lt;sys_name&gt;Validate Date on Submit&lt;/sys_name&gt;&lt;sys_overrides/&gt;&lt;sys_package display_value="Parking Reservation System" source="x_1869622_parkin_0"&gt;6ea533f6c3adb290ec76502ed4013190&lt;/sys_package&gt;&lt;sys_policy/&gt;&lt;sys_scope display_value="Parking Reservation System"&gt;6ea533f6c3adb290ec76502ed4013190&lt;/sys_scope&gt;&lt;sys_update_name&gt;sys_script_client_eeac269ac34bb290ec76502ed4013159&lt;/sys_update_name&gt;&lt;sys_updated_by&gt;admin&lt;/sys_updated_by&gt;&lt;sys_updated_on&gt;2026-02-16 08:31:16&lt;/sys_updated_on&gt;&lt;table&gt;x_1869622_parkin_0_parking_reservation&lt;/table&gt;&lt;type&gt;onSubmit&lt;/type&gt;&lt;ui_type&gt;10&lt;/ui_type&gt;&lt;view/&gt;&lt;/sys_script_client&gt;&lt;/record_update&gt;</payload>
+        <payload_hash>1841969463</payload_hash>
+        <record_name>Validate Date on Submit</record_name>
+        <reverted_from/>
+        <source>d2e952c6c375ba10ec76502ed4013129</source>
+        <source_table>sys_update_set</source_table>
+        <state>previous</state>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2026-02-16 08:31:16</sys_created_on>
+        <sys_id>ceec2e9ac34bb290ec76502ed40131e2</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_recorded_at>19c659346240000001</sys_recorded_at>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2026-02-16 08:31:16</sys_updated_on>
+        <type>Client Script</type>
+        <update_guid>caec2e9a3a4bb290e8ccec49063645e1</update_guid>
+        <update_guid_history>caec2e9a3a4bb290e8ccec49063645e1:1841969463</update_guid_history>
+    </sys_update_version>
+    <sys_metadata_delete action="INSERT_OR_UPDATE">
+        <sys_audit_delete/>
+        <sys_class_name>sys_metadata_delete</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2026-02-16 08:33:26</sys_created_on>
+        <sys_db_object display_value="" name="sys_script_client">sys_script_client</sys_db_object>
+        <sys_id>08f5603e64054f5e8175be64cde6b584</sys_id>
+        <sys_metadata>eeac269ac34bb290ec76502ed4013159</sys_metadata>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>Validate Date on Submit</sys_name>
+        <sys_package display_value="Parking Reservation System" source="x_1869622_parkin_0">6ea533f6c3adb290ec76502ed4013190</sys_package>
+        <sys_parent display_value="Parking Reservation">6450440fc3edb290ec76502ed4013118</sys_parent>
+        <sys_policy/>
+        <sys_scope display_value="Parking Reservation System">6ea533f6c3adb290ec76502ed4013190</sys_scope>
+        <sys_scope_delete display_value="">5c63e0b7913e4fdd8a9afa8940bdb1b9</sys_scope_delete>
+        <sys_update_name>sys_script_client_eeac269ac34bb290ec76502ed4013159</sys_update_name>
+        <sys_update_version display_value="sys_script_client_eeac269ac34bb290ec76502ed4013159">ceec2e9ac34bb290ec76502ed40131e2</sys_update_version>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2026-02-16 08:33:26</sys_updated_on>
+    </sys_metadata_delete>
+</record_update>

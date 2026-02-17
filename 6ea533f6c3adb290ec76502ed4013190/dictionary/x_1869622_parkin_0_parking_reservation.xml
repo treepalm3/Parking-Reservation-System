@@ -54,9 +54,7 @@
                 <element inactive_on_update="false" label="Motorcycle" sequence="5" value="motorcycle"/>
             </choice>
         </element>
-        <element choice="1" label="Email Address" max_length="100" name="requester_email" type="string" use_dependent_field="true">
-            <choice/>
-        </element>
+        <element label="Email Address" max_length="100" name="requester_email" type="string" use_dependent_field="true"/>
         <element label="Jira Issue URL" max_length="1024" name="jira_issue_url" type="url"/>
         <element label="Start Date Time" max_length="40" name="start_date_time" type="glide_date_time"/>
         <element label="Duration Hours" max_length="40" name="duration_hours" read_only="true" type="decimal"/>

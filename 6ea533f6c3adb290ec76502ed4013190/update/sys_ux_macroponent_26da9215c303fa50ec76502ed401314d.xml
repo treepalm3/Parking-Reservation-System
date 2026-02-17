@@ -824,7 +824,7 @@
                                 "elementLabel": "Button 2",
                                 "eventMappings": [
                                     {
-                                        "eventMappingId": "aayswEfhVAEhhMeeddCiiEeeeehhDhMjcz",
+                                        "eventMappingId": "slCAAPNffCEqUjjffQCDfRxCccjjo",
                                         "isConfiguration": false,
                                         "offRowStorageId": null,
                                         "sourceEventApiName": "sn_button.NOW_BUTTON#CLICKED",
@@ -842,26 +842,65 @@
                                                 "conditional": null,
                                                 "declarativeAction": null,
                                                 "event": {
-                                                    "apiName": "x_1869622_parkin_0.MODAL_SELECTED_RELAY_26da9215c303fa50ec76502ed401314d",
+                                                    "apiName": "x_1869622_parkin_0.NAV_ITEM_SELECTED_RELAY_26da9215c303fa50ec76502ed401314d",
                                                     "payload": {
-                                                        "type": "JSON_LITERAL",
-                                                        "value": {
-                                                            "bare": false,
-                                                            "displayOptions": null,
-                                                            "headerLabel": null,
-                                                            "modalId": "[component-id$='custom_1']",
-                                                            "preserveState": false,
-                                                            "showModal": true,
-                                                            "viewportElementId": null,
-                                                            "viewportFields": null,
-                                                            "viewportParams": null,
-                                                            "viewportRoute": null
-                                                        }
+                                                        "container": {
+                                                            "external": {
+                                                                "type": "JSON_LITERAL",
+                                                                "value": null
+                                                            },
+                                                            "fields": {
+                                                                "container": {
+                                                                    "sysId": {
+                                                                        "type": "JSON_LITERAL",
+                                                                        "value": "-1"
+                                                                    },
+                                                                    "table": {
+                                                                        "type": "JSON_LITERAL",
+                                                                        "value": "x_1869622_parkin_0_parking_reservation"
+                                                                    }
+                                                                },
+                                                                "type": "MAP_CONTAINER"
+                                                            },
+                                                            "multiInstField": {
+                                                                "type": "JSON_LITERAL",
+                                                                "value": null
+                                                            },
+                                                            "navigationOptions": {
+                                                                "type": "JSON_LITERAL",
+                                                                "value": null
+                                                            },
+                                                            "params": {
+                                                                "type": "JSON_LITERAL",
+                                                                "value": null
+                                                            },
+                                                            "passiveNavigation": {
+                                                                "type": "JSON_LITERAL",
+                                                                "value": null
+                                                            },
+                                                            "redirect": {
+                                                                "type": "JSON_LITERAL",
+                                                                "value": null
+                                                            },
+                                                            "route": {
+                                                                "type": "JSON_LITERAL",
+                                                                "value": "record"
+                                                            },
+                                                            "targetRoute": {
+                                                                "type": "JSON_LITERAL",
+                                                                "value": null
+                                                            },
+                                                            "title": {
+                                                                "type": "JSON_LITERAL",
+                                                                "value": null
+                                                            }
+                                                        },
+                                                        "type": "MAP_CONTAINER"
                                                     },
-                                                    "sysId": "2345624dc3c37a50ec76502ed4013170"
+                                                    "sysId": "76da9a15c303fa50ec76502ed40131c4"
                                                 },
                                                 "operation": null,
-                                                "targetId": "ffUeeddSoPEddCkrqjjfoOjbbTvbbHSx",
+                                                "targetId": "rPrQeehhPOODaavleeddGYMpWrpiikKP",
                                                 "type": "EVENT"
                                             }
                                         ]
@@ -922,6 +961,7 @@
                                 "styles": {
                                     "default": {
                                         "align-self": "flex-start",
+                                        "background": "rgb(var(--now-color--neutral-1))",
                                         "box-shadow": "var(--now-static-drop-shadow--md)",
                                         "margin": "var(--now-scalable-space--sm)",
                                         "margin-bottom": "var(--now-scalable-space--sm)",
@@ -1218,7 +1258,7 @@
                                     },
                                     "variant": {
                                         "type": "JSON_LITERAL",
-                                        "value": "primary"
+                                        "value": "primary-positive"
                                     }
                                 },
                                 "slot": null,
@@ -1398,7 +1438,7 @@
                                     },
                                     "variant": {
                                         "type": "JSON_LITERAL",
-                                        "value": "primary"
+                                        "value": "primary-positive"
                                     }
                                 },
                                 "slot": null,
@@ -1578,7 +1618,7 @@
                                     },
                                     "variant": {
                                         "type": "JSON_LITERAL",
-                                        "value": "primary"
+                                        "value": "primary-positive"
                                     }
                                 },
                                 "slot": null,
@@ -4238,14 +4278,14 @@
         <sys_created_by>admin</sys_created_by>
         <sys_created_on>2026-02-13 04:38:28</sys_created_on>
         <sys_id>26da9215c303fa50ec76502ed401314d</sys_id>
-        <sys_mod_count>22</sys_mod_count>
+        <sys_mod_count>25</sys_mod_count>
         <sys_name>Home user</sys_name>
         <sys_package display_value="Parking Reservation System" source="x_1869622_parkin_0">6ea533f6c3adb290ec76502ed4013190</sys_package>
         <sys_policy/>
         <sys_scope display_value="Parking Reservation System">6ea533f6c3adb290ec76502ed4013190</sys_scope>
         <sys_update_name>sys_ux_macroponent_26da9215c303fa50ec76502ed401314d</sys_update_name>
         <sys_updated_by>admin</sys_updated_by>
-        <sys_updated_on>2026-02-13 08:47:57</sys_updated_on>
+        <sys_updated_on>2026-02-16 06:46:00</sys_updated_on>
     </sys_ux_macroponent>
     <sys_translated_text action="delete_multiple" query="documentkey=26da9215c303fa50ec76502ed401314d"/>
 </record_update>

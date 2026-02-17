@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update sys_domain="global" table="sys_script_client">
+    <sys_script_client action="INSERT_OR_UPDATE">
+        <active>true</active>
+        <applies_extended>false</applies_extended>
+        <condition/>
+        <description/>
+        <field>vehicle_registration</field>
+        <global>true</global>
+        <isolate_script>true</isolate_script>
+        <messages/>
+        <name>Check Duplicate Realtime</name>
+        <order/>
+        <script><![CDATA[function onChange(control, oldValue, newValue, isLoading, isTemplate) {
+    if (isLoading || newValue === '') {
+        return;
+    }
+
+    // 1. ดึงค่าจากหน้าจอ
+    var vehicle = g_form.getValue('vehicle_registration');
+    var start = g_form.getValue('start_date_time');
+    var end = newValue;
+
+    // ถ้าข้อมูลยังไม่ครบ ไม่ต้องเช็ก
+    if (!vehicle || !start || !end) {
+        return;
+    }
+
+    // 2. เรียกใช้ Script Include (ParkingCheck) ที่เราสร้างไว้
+    var ga = new GlideAjax('ParkingCheck'); 
+    ga.addParam('sysparm_name', 'checkDuplicate'); // เรียกฟังก์ชัน
+    ga.addParam('sysparm_vehicle', vehicle);
+    ga.addParam('sysparm_start', start);
+    ga.addParam('sysparm_end', end);
+    ga.addParam('sysparm_id', g_form.getUniqueValue()); // ส่ง ID ตัวเองไปด้วย
+
+    // 3. รอรับผลลัพธ์
+    ga.getXMLAnswer(function(answer) {
+        if (answer) {
+            // ถ้ามีค่าส่งกลับมา แปลว่า "ซ้ำ"
+            g_form.showFieldMsg('end_date_time', 'ไม่ได้ครับ! ทะเบียนนี้จองไว้แล้วที่ ' + answer, 'error');
+            // g_form.setValue('end_date_time', ''); // (ทางเลือก) ล้างค่าทิ้งเลยถ้าต้องการ
+        } else {
+            // ถ้าว่างเปล่า แปลว่า "ผ่าน"
+            g_form.hideFieldMsg('end_date_time');
+        }
+    });
+}]]></script>
+        <sys_class_name>sys_script_client</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2026-02-16 10:04:56</sys_created_on>
+        <sys_domain>global</sys_domain>
+        <sys_domain_path>/</sys_domain_path>
+        <sys_id>411ef61ac3cbb290ec76502ed401311e</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>Check Duplicate Realtime</sys_name>
+        <sys_overrides/>
+        <sys_package display_value="Parking Reservation System" source="x_1869622_parkin_0">6ea533f6c3adb290ec76502ed4013190</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="Parking Reservation System">6ea533f6c3adb290ec76502ed4013190</sys_scope>
+        <sys_update_name>sys_script_client_411ef61ac3cbb290ec76502ed401311e</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2026-02-16 10:04:56</sys_updated_on>
+        <table>x_1869622_parkin_0_parking_reservation</table>
+        <type>onChange</type>
+        <ui_type>10</ui_type>
+        <view/>
+    </sys_script_client>
+</record_update>

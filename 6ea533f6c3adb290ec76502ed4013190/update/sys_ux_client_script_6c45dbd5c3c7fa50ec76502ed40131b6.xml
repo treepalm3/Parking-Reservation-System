@@ -6,102 +6,26 @@
         <name>Auto Fill User Info</name>
         <preset/>
         <required_translations>[]</required_translations>
-        <script><![CDATA[function onChange(control, oldValue, newValue, isLoading, isTemplate) {
-  if (isLoading || isTemplate) return;
-
-  var field = 'requester_email';
-  var email = (newValue || '').trim();
-
-  g_form.hideFieldMsg(field, true);
-  if (!email) return;
-
-  // ลบอักขระต้องห้าม
-  var cleaned = email.replace(/[^@0-9A-Za-z.]/g, '');
-  if (cleaned !== email) {
-    g_form.setValue(field, cleaned);
-    g_form.showFieldMsg(field, '⚠️ ลบอักขระพิเศษออกแล้ว', 'warning');
-    autoHide(field);
-    return;
-  }
-
-  // ต้องมี @ เพียง 1 ตัว
-  var atCount = (cleaned.match(/@/g) || []).length;
-  if (atCount !== 1) {
-    showError('❌ อีเมลต้องมี @ เพียง 1 ตัว');
-    return;
-  }
-
-  var parts = cleaned.split('@');
-  var local = parts[0];
-  var domain = parts[1];
-
-  if (!local) {
-    showError('❌ ต้องมีชื่อก่อน @');
-    return;
-  }
-
-  // ===== ตรวจ domain =====
-  if (!domain || domain.length < 3) {
-    showError('❌ ต้องมี domain หลัง @');
-    return;
-  }
-
-  // domain ต้องมี .
-  if (domain.indexOf('.') === -1) {
-    showError('❌ domain ต้องมี . (เช่น example.com)');
-    return;
-  }
-
-  // ===== ตรวจ extension =====
-  var lastDot = domain.lastIndexOf('.');
-  var ext = domain.substring(lastDot + 1);
-
-  if (ext.length < 2 || !/^[A-Za-z]+$/.test(ext)) {
-    // ❗ ลบ extension ที่ผิดออกอัตโนมัติ
-    var fixed = cleaned.substring(0, cleaned.lastIndexOf('.'));
-    g_form.setValue(field, fixed);
-
-    g_form.showFieldMsg(
-      field,
-      '⚠️ extension ไม่ถูกต้อง กรุณาพิมพ์ใหม่ (เช่น .com, .th)',
-      'warning'
-    );
-    autoHide(field);
-    return;
-  }
-
-  // ===== ผ่านทั้งหมด =====
-  g_form.showFieldMsg(field, '✓ อีเมลถูกต้อง', 'info');
-  autoHide(field);
-
-  // =====================
-  // helper functions
-  // =====================
-  function showError(msg) {
-    g_form.showFieldMsg(field, msg, 'error');
-    autoHide(field);
-  }
-
-  function autoHide(f) {
-    setTimeout(function () {
-      g_form.hideFieldMsg(f, true);
-    }, 2000);
-  }
-}
-]]></script>
+        <script><![CDATA[function handler({api, event, helpers, imports}) {
+    const userId = event.payload.value; // ดึง sys_id ของ User ที่ถูกเลือก
+    if (userId) {
+        // สั่งให้ Data Resource ไปดึง Email และ Phone มา
+        // จากนั้นใช้ api.setState หรือ g_form.setValue เพื่อใส่ค่าลงฟอร์ม
+    }
+}]]></script>
         <script_api_version>2.0.0</script_api_version>
         <sys_class_name>sys_ux_client_script</sys_class_name>
         <sys_created_by>admin</sys_created_by>
         <sys_created_on>2026-02-13 09:24:57</sys_created_on>
         <sys_id>6c45dbd5c3c7fa50ec76502ed40131b6</sys_id>
-        <sys_mod_count>3</sys_mod_count>
+        <sys_mod_count>5</sys_mod_count>
         <sys_name>Auto Fill User Info</sys_name>
         <sys_package display_value="Parking Reservation System" source="x_1869622_parkin_0">6ea533f6c3adb290ec76502ed4013190</sys_package>
         <sys_policy/>
         <sys_scope display_value="Parking Reservation System">6ea533f6c3adb290ec76502ed4013190</sys_scope>
         <sys_update_name>sys_ux_client_script_6c45dbd5c3c7fa50ec76502ed40131b6</sys_update_name>
         <sys_updated_by>admin</sys_updated_by>
-        <sys_updated_on>2026-02-13 09:33:14</sys_updated_on>
+        <sys_updated_on>2026-02-16 03:03:49</sys_updated_on>
         <target>macroponent</target>
         <type>default</type>
     </sys_ux_client_script>

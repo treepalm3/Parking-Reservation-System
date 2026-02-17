@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update sys_domain="global" table="sys_script_client">
+    <sys_script_client action="INSERT_OR_UPDATE">
+        <active>true</active>
+        <applies_extended>false</applies_extended>
+        <condition/>
+        <description/>
+        <field>end_date_time</field>
+        <global>true</global>
+        <isolate_script>true</isolate_script>
+        <messages/>
+        <name>Calculate Parking Fee Realtime</name>
+        <order/>
+        <script><![CDATA[function onChange(control, oldValue, newValue, isLoading, isTemplate) {
+    if (isLoading || newValue === '') {
+        return;
+    }
+
+    // 1. ดึงค่าเวลา (ใช้ชื่อตัวแปรตามรูป 14.24.42 และ 14.25.08)
+    var startStr = g_form.getValue('start_date_time');
+    var endStr = newValue; // ค่า end_date_time ล่าสุด
+
+    if (startStr === '' || endStr === '') {
+        return;
+    }
+
+    // 2. แปลงเวลาเพื่อคำนวณ (Client Side ใช้ Date Object)
+    var startDate = new Date(startStr).getTime();
+    var endDate = new Date(endStr).getTime();
+
+    // Validate: เวลาสิ้นสุดต้องมากกว่าเวลาเริ่ม
+    if (startDate >= endDate) {
+        g_form.showFieldMsg('end_date_time', 'เวลาสิ้นสุดต้องมากกว่าเวลาเริ่มต้นครับ', 'error');
+        // ล้างค่าหากผิดพลาด
+        g_form.setValue('duration_hours', '');
+        g_form.setValue('parking_fee', '');
+        return;
+    } else {
+        g_form.hideFieldMsg('end_date_time');
+    }
+
+    // 3. คำนวณระยะเวลา (Duration Calculation)
+    var diffMs = endDate - startDate;
+    var diffHours = diffMs / (1000 * 60 * 60);
+    var durationHours = Math.ceil(diffHours);
+
+    // ใส่ค่าลงฟิลด์ duration_hours (ตามรูป 14.24.42)
+    g_form.setValue('duration_hours', durationHours);
+
+    // 4. คำนวณค่าจอด (Progressive Rate Logic ตาม Business Rule ของรันเป๊ะๆ)
+    var parkingFee = 0;
+    var fullDays = Math.floor(durationHours / 24);
+    var remainingHours = durationHours % 24;
+
+    // --- เริ่มสูตร Business Rule ---
+    
+    // Full days: 200฿/day
+    if (fullDays > 0) {
+        parkingFee += fullDays * 200;
+    }
+
+    // Remaining hours
+    if (remainingHours > 0) {
+        if (remainingHours > 8) {
+            // เกิน 8 ชม = flat rate 200฿
+            parkingFee += 200;
+        } else {
+            // Progressive rate
+            var hoursLeft = remainingHours;
+
+            // Tier 1: Hour 1 = 10฿
+            if (hoursLeft > 0) {
+                var tier1 = Math.min(hoursLeft, 1);
+                parkingFee += tier1 * 10;
+                hoursLeft -= tier1;
+            }
+
+            // Tier 2: Hours 2-4 = 15฿/hour
+            if (hoursLeft > 0) {
+                var tier2 = Math.min(hoursLeft, 3);
+                parkingFee += tier2 * 15;
+                hoursLeft -= tier2;
+            }
+
+            // Tier 3: Hours 5-8 = 20฿/hour
+            if (hoursLeft > 0) {
+                var tier3 = Math.min(hoursLeft, 4);
+                parkingFee += tier3 * 20;
+            }
+        }
+    }
+    // --- จบสูตร Business Rule ---
+
+    // 5. ใส่ค่าลงฟิลด์ parking_fee (ตามรูป 14.25.08)
+    g_form.setValue('parking_fee', parkingFee);
+}]]></script>
+        <sys_class_name>sys_script_client</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2026-02-16 08:13:32</sys_created_on>
+        <sys_domain>global</sys_domain>
+        <sys_domain_path>/</sys_domain_path>
+        <sys_id>29a72edec30bb290ec76502ed401319d</sys_id>
+        <sys_mod_count>3</sys_mod_count>
+        <sys_name>Calculate Parking Fee Realtime</sys_name>
+        <sys_overrides/>
+        <sys_package display_value="Parking Reservation System" source="x_1869622_parkin_0">6ea533f6c3adb290ec76502ed4013190</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="Parking Reservation System">6ea533f6c3adb290ec76502ed4013190</sys_scope>
+        <sys_update_name>sys_script_client_29a72edec30bb290ec76502ed401319d</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2026-02-16 09:10:26</sys_updated_on>
+        <table>x_1869622_parkin_0_parking_reservation</table>
+        <type>onChange</type>
+        <ui_type>10</ui_type>
+        <view/>
+    </sys_script_client>
+</record_update>

@@ -1,0 +1,179 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update sys_domain="global" table="sys_script_client">
+    <sys_script_client action="DELETE">
+        <active>true</active>
+        <applies_extended>false</applies_extended>
+        <condition/>
+        <description/>
+        <field>end_date_time</field>
+        <global>true</global>
+        <isolate_script>true</isolate_script>
+        <messages/>
+        <name>Calculate Fee and Validate Date</name>
+        <order/>
+        <script><![CDATA[function onChange(control, oldValue, newValue, isLoading, isTemplate) {
+    if (isLoading || newValue === '') {
+        return;
+    }
+
+    // 1. ดึงค่าเวลาเริ่มและเวลาสิ้นสุดจากหน้าจอ
+    var startStr = g_form.getValue('start_date_time');
+    var endStr = newValue; // newValue คือค่าล่าสุดของ end_date_time
+
+    if (!startStr || !endStr) return;
+
+    // 2. แปลงเป็นตัวเลขเพื่อเปรียบเทียบ (Time validation)
+    var startDate = new Date(g_form.getFormControl('start_date_time').value).getTime();
+    var endDate = new Date(g_form.getFormControl('end_date_time').value).getTime();
+
+    // --- เงื่อนไขด่านหน้า: เช็กวันสิ้นสุดต้องไม่น้อยกว่าวันเริ่ม (ตามรูป 15.11.08) ---
+    if (startDate >= endDate) {
+        g_form.showFieldMsg('end_date_time', 'วันที่สิ้นสุดต้องมากกว่าวันที่เริ่มจองนะครับรัน!', 'error');
+        g_form.setValue('parking_fee', 0);
+        g_form.setValue('duration_hours', 0);
+        return;
+    }
+
+    // 3. คำนวณชั่วโมง (ตรรกะเดียวกับ Business Rule ของรัน)
+    var diffMs = endDate - startDate;
+    var diffHours = diffMs / (1000 * 60 * 60);
+    var durationHours = Math.ceil(diffHours);
+    g_form.setValue('duration_hours', durationHours); //
+
+    // 4. คำนวณค่าจอด (Progressive Rate)
+    var parkingFee = 0;
+    var fullDays = Math.floor(durationHours / 24);
+    var remainingHours = durationHours % 24;
+
+    if (fullDays > 0) parkingFee += (fullDays * 200);
+
+    if (remainingHours > 0) {
+        if (remainingHours > 8) {
+            parkingFee += 200;
+        } else {
+            var hoursLeft = remainingHours;
+            // Tier 1: 10฿ | Tier 2: 15฿/ชม | Tier 3: 20฿/ชม
+            if (hoursLeft > 0) { parkingFee += 10; hoursLeft--; }
+            if (hoursLeft > 0) { var t2 = Math.min(hoursLeft, 3); parkingFee += (t2 * 15); hoursLeft -= t2; }
+            if (hoursLeft > 0) { parkingFee += (hoursLeft * 20); }
+        }
+    }
+
+    // 5. แสดงผลราคาสุทธิบนหน้าจอ
+    g_form.setValue('parking_fee', parkingFee);
+}]]></script>
+        <sys_class_name>sys_script_client</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2026-02-16 08:00:01</sys_created_on>
+        <sys_domain>global</sys_domain>
+        <sys_domain_path>/</sys_domain_path>
+        <sys_id>9ba36ad6c30bb290ec76502ed4013102</sys_id>
+        <sys_mod_count>1</sys_mod_count>
+        <sys_name>Calculate Fee and Validate Date</sys_name>
+        <sys_overrides/>
+        <sys_package display_value="Parking Reservation System" source="x_1869622_parkin_0">6ea533f6c3adb290ec76502ed4013190</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="Parking Reservation System">6ea533f6c3adb290ec76502ed4013190</sys_scope>
+        <sys_update_name>sys_script_client_9ba36ad6c30bb290ec76502ed4013102</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2026-02-16 08:26:14</sys_updated_on>
+        <table>x_1869622_parkin_0_parking_reservation</table>
+        <type>onChange</type>
+        <ui_type>10</ui_type>
+        <view/>
+    </sys_script_client>
+    <sys_update_version action="INSERT_OR_UPDATE">
+        <action>DELETE</action>
+        <application display_value="Parking Reservation System">6ea533f6c3adb290ec76502ed4013190</application>
+        <file_path/>
+        <instance_id>b63623e43b702e54a36804e0b5e45a2d</instance_id>
+        <instance_name>dev318569</instance_name>
+        <name>sys_script_client_9ba36ad6c30bb290ec76502ed4013102</name>
+        <payload>&lt;?xml version="1.0" encoding="UTF-8"?&gt;&lt;record_update sys_domain="global" table="sys_script_client"&gt;&lt;sys_script_client action="INSERT_OR_UPDATE"&gt;&lt;active&gt;true&lt;/active&gt;&lt;applies_extended&gt;false&lt;/applies_extended&gt;&lt;condition/&gt;&lt;description/&gt;&lt;field&gt;end_date_time&lt;/field&gt;&lt;global&gt;true&lt;/global&gt;&lt;isolate_script&gt;true&lt;/isolate_script&gt;&lt;messages/&gt;&lt;name&gt;Calculate Fee and Validate Date&lt;/name&gt;&lt;order/&gt;&lt;script&gt;&lt;![CDATA[function onChange(control, oldValue, newValue, isLoading, isTemplate) {
+    if (isLoading || newValue === '') {
+        return;
+    }
+
+    // 1. ดึงค่าเวลาเริ่มและเวลาสิ้นสุดจากหน้าจอ
+    var startStr = g_form.getValue('start_date_time');
+    var endStr = newValue; // newValue คือค่าล่าสุดของ end_date_time
+
+    if (!startStr || !endStr) return;
+
+    // 2. แปลงเป็นตัวเลขเพื่อเปรียบเทียบ (Time validation)
+    var startDate = new Date(g_form.getFormControl('start_date_time').value).getTime();
+    var endDate = new Date(g_form.getFormControl('end_date_time').value).getTime();
+
+    // --- เงื่อนไขด่านหน้า: เช็กวันสิ้นสุดต้องไม่น้อยกว่าวันเริ่ม (ตามรูป 15.11.08) ---
+    if (startDate &gt;= endDate) {
+        g_form.showFieldMsg('end_date_time', 'วันที่สิ้นสุดต้องมากกว่าวันที่เริ่มจองนะครับรัน!', 'error');
+        g_form.setValue('parking_fee', 0);
+        g_form.setValue('duration_hours', 0);
+        return;
+    }
+
+    // 3. คำนวณชั่วโมง (ตรรกะเดียวกับ Business Rule ของรัน)
+    var diffMs = endDate - startDate;
+    var diffHours = diffMs / (1000 * 60 * 60);
+    var durationHours = Math.ceil(diffHours);
+    g_form.setValue('duration_hours', durationHours); //
+
+    // 4. คำนวณค่าจอด (Progressive Rate)
+    var parkingFee = 0;
+    var fullDays = Math.floor(durationHours / 24);
+    var remainingHours = durationHours % 24;
+
+    if (fullDays &gt; 0) parkingFee += (fullDays * 200);
+
+    if (remainingHours &gt; 0) {
+        if (remainingHours &gt; 8) {
+            parkingFee += 200;
+        } else {
+            var hoursLeft = remainingHours;
+            // Tier 1: 10฿ | Tier 2: 15฿/ชม | Tier 3: 20฿/ชม
+            if (hoursLeft &gt; 0) { parkingFee += 10; hoursLeft--; }
+            if (hoursLeft &gt; 0) { var t2 = Math.min(hoursLeft, 3); parkingFee += (t2 * 15); hoursLeft -= t2; }
+            if (hoursLeft &gt; 0) { parkingFee += (hoursLeft * 20); }
+        }
+    }
+
+    // 5. แสดงผลราคาสุทธิบนหน้าจอ
+    g_form.setValue('parking_fee', parkingFee);
+}]]&gt;&lt;/script&gt;&lt;sys_class_name&gt;sys_script_client&lt;/sys_class_name&gt;&lt;sys_created_by&gt;admin&lt;/sys_created_by&gt;&lt;sys_created_on&gt;2026-02-16 08:00:01&lt;/sys_created_on&gt;&lt;sys_domain&gt;global&lt;/sys_domain&gt;&lt;sys_domain_path&gt;/&lt;/sys_domain_path&gt;&lt;sys_id&gt;9ba36ad6c30bb290ec76502ed4013102&lt;/sys_id&gt;&lt;sys_mod_count&gt;1&lt;/sys_mod_count&gt;&lt;sys_name&gt;Calculate Fee and Validate Date&lt;/sys_name&gt;&lt;sys_overrides/&gt;&lt;sys_package display_value="Parking Reservation System" source="x_1869622_parkin_0"&gt;6ea533f6c3adb290ec76502ed4013190&lt;/sys_package&gt;&lt;sys_policy/&gt;&lt;sys_scope display_value="Parking Reservation System"&gt;6ea533f6c3adb290ec76502ed4013190&lt;/sys_scope&gt;&lt;sys_update_name&gt;sys_script_client_9ba36ad6c30bb290ec76502ed4013102&lt;/sys_update_name&gt;&lt;sys_updated_by&gt;admin&lt;/sys_updated_by&gt;&lt;sys_updated_on&gt;2026-02-16 08:26:14&lt;/sys_updated_on&gt;&lt;table&gt;x_1869622_parkin_0_parking_reservation&lt;/table&gt;&lt;type&gt;onChange&lt;/type&gt;&lt;ui_type&gt;10&lt;/ui_type&gt;&lt;view/&gt;&lt;/sys_script_client&gt;&lt;/record_update&gt;</payload>
+        <payload_hash>157467509</payload_hash>
+        <record_name>Calculate Fee and Validate Date</record_name>
+        <reverted_from/>
+        <source>d2e952c6c375ba10ec76502ed4013129</source>
+        <source_table>sys_update_set</source_table>
+        <state>previous</state>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2026-02-16 08:26:14</sys_created_on>
+        <sys_id>a4cb2656c34bb290ec76502ed40131e8</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_recorded_at>19c658eac410000001</sys_recorded_at>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2026-02-16 08:26:14</sys_updated_on>
+        <type>Client Script</type>
+        <update_guid>14cb2656ba4bb290853e084ef4470ce7</update_guid>
+        <update_guid_history>14cb2656ba4bb290853e084ef4470ce7:157467509,5cc5e21e190bb290e3c3c9ba57702a90:1285272541</update_guid_history>
+    </sys_update_version>
+    <sys_metadata_delete action="INSERT_OR_UPDATE">
+        <sys_audit_delete/>
+        <sys_class_name>sys_metadata_delete</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2026-02-16 08:33:07</sys_created_on>
+        <sys_db_object display_value="" name="sys_script_client">sys_script_client</sys_db_object>
+        <sys_id>01b198a71559404e826eedad4b10b604</sys_id>
+        <sys_metadata>9ba36ad6c30bb290ec76502ed4013102</sys_metadata>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>Calculate Fee and Validate Date</sys_name>
+        <sys_package display_value="Parking Reservation System" source="x_1869622_parkin_0">6ea533f6c3adb290ec76502ed4013190</sys_package>
+        <sys_parent display_value="Parking Reservation">6450440fc3edb290ec76502ed4013118</sys_parent>
+        <sys_policy/>
+        <sys_scope display_value="Parking Reservation System">6ea533f6c3adb290ec76502ed4013190</sys_scope>
+        <sys_scope_delete display_value="">5c63e0b7913e4fdd8a9afa8940bdb1b9</sys_scope_delete>
+        <sys_update_name>sys_script_client_9ba36ad6c30bb290ec76502ed4013102</sys_update_name>
+        <sys_update_version display_value="sys_script_client_9ba36ad6c30bb290ec76502ed4013102">a4cb2656c34bb290ec76502ed40131e8</sys_update_version>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2026-02-16 08:33:07</sys_updated_on>
+    </sys_metadata_delete>
+</record_update>
